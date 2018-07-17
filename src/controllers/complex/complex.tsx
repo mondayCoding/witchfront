@@ -87,7 +87,7 @@ export default class Complex extends React.Component {
                onRemoveClick={this.handleProductRemove}
             />
 
-            <Modal onClose={this.closeModal} show={isModalOpen} heading={modalheading} >
+            <Modal onClose={this.closeModal} show={isModalOpen} heading={modalheading} size={"lg"} >
                <EditProductForm 
                   product={selectedProduct}
                   onSave={this.updateProduct}

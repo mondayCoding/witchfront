@@ -2,10 +2,8 @@
   "name": "witchnode",
   "version": "0.0.0",
   "private": true,
-  "main": "app.js",
+  "main": "src/index.tsx",
   "scripts": {
-    "start": "node ./bin/www",
-    "startdemon": "nodemon ./bin/www",
     "build": "webpack --progress",
     "buildpro": "webpack -p --progress",
     "watch": "webpack --progress --watch",

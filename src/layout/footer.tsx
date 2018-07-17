@@ -10,7 +10,7 @@ export default class Main extends React.Component {
    public theme = true;
 
    public setTheme() {
-
+ 
       let link = document.getElementById("stylelink") as HTMLLinkElement;
 
       if (this.theme) {

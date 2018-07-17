@@ -6,11 +6,21 @@ module.exports = {
 
    entry: {
       app: "./src/index.tsx",
-      vendor: ["react", "react-dom", "react-router", "react-select", "react-localization", "axios", "react-sortable-hoc", "mark.js", "toastr"]
+      vendor: [
+         "react", 
+         "react-dom", 
+         "react-router", 
+         "react-select", 
+         "react-localization", 
+         "react-sortable-hoc", 
+         "axios",
+         "mark.js", 
+         "toastr"
+      ]
    },
 
    output: {
-      path: path.resolve(__dirname, "build/"),
+      path: path.resolve(__dirname, "../witchnode/public/javascripts/"),
       filename: "[name].js"
    },
 

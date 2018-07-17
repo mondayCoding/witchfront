@@ -18,7 +18,7 @@ export interface IInputFieldProperties {
    onChange?(params?:any):any;
    onBlur?(params?:any):any;
    onKeyUp?(params?:any):any;
-}
+} 
 
 export interface ISelectProperties {
    id?:string;
