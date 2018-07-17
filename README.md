@@ -1,6 +1,6 @@
-# WitchNode
+# WitchFront
 
-Personal Node.js based environment for testing node full stack technologies.
+Personal environment for testing front end technologies on nodejs stack.
 
 ### Prerequisites
 
@@ -9,15 +9,6 @@ This package is personal project and uses abstracted database entry files. Meani
 ### Installing
 
 As testing prepository there is no npm method provided.
-
-
-## Current Stack list  (Backend)
-
-* Node.js
-* Express
-* Mongoose(MongoDB)
-* Socket.IO
-* Axios
 
 ## Current Stack list  (Front-end)
 

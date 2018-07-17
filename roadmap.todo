@@ -30,19 +30,6 @@ ROADMAD: witchNode (Front-end):
    ✔ what to do with typescript? (seems nice actually, implement for pure js atleast?) @done(2018-03-12 17:33)
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-ROADMAD: witchNode (Back-end):
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-   
-   ☐ websockets cleaner server side
-   ☐ chatroom find way to tie in (websockets) finish this
-   ☐ data permanence
-   ☐ Redux or Redux-like global-state solution?
-   ✔ Clean up routes, separate to different api paths (use("/x"...)...) @done(18-05-29 04:25)
-   ✔ chatroom limit users to 10 @done(18-05-02 01:16)
-   ✔ make 10 premade user profiles (selectable, ownable) @done(18-05-02 01:16)
-   ✔ allow 1 owner per profile @done(18-05-02 01:16)
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 Art (Styling):
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
    
