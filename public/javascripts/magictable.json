@@ -1,0 +1,108 @@
+{
+	"items" : [
+		{
+			"id" : 123,
+			"name" : "healing potion",
+			"type":"consumable",
+			"description":"heals for 30 pixels",
+			"tags": ["healing","consumable","single-use"],
+			"symbol" : "fa-magic"
+		},
+		{
+			"id" : 123,
+			"name":"Witch hat",
+			"type":"armor",
+			"description":"best hat",
+			"tags": ["equipable","best"],
+			"symbol" : "fa-magic"
+	  },
+	  {
+		  "id" : 13,
+		  "name":"Spreader of human kindness",
+		  "type":"weapon",
+		  "description":"spreads inability to feel unhappiness, also spreads other things",
+		  "tags": ["equipable","weapon", "axe", "huge"],
+		  "symbol" : "fa-magic"
+	 },
+	 {
+		 "id" : 11,
+		 "name":"Harbinger of extreme discomfort",
+		 "type":"weapon",
+		 "description":"generally seeing this item eventually results in discomfort, both physical and mental",
+		 "tags": ["equipable","weapon", "spear"],
+		 "symbol" : "fa-magic"
+	},
+	  {
+			"id" : 156,
+			"name":"Trashcan",
+			"type":"armor",
+			"description":"sloppy hat",
+			"tags": ["equipable","trash"],
+			"symbol" : "fa-magic"
+	  },
+		{
+			"id" : 23,
+			"name":"Cannon",
+			"type":"weapon",
+			"description":"removes things in general direction",
+			"tags": ["weapon","tool"],
+			"symbol" : "fa-magic"
+	  },
+	  {
+			"id" : 123,
+			"name":"flare",
+			"type":"tool",
+			"description":"scares zombies, there aren't any in-game",
+			"tags": ["weapon","tool"],
+			"symbol" : "fa-magic"
+	  },
+	  {
+			"id" : 123,
+			"name":"Cannon",
+			"type":"weapon",
+			"description":"removes things in general direction",
+			"tags": ["weapon","tool"],
+			"symbol" : "fa-magic"
+	  },
+	  {
+			"id" : 123,
+			"name":"Life",
+			"type":"spell",
+			"description":"sad that you need magic for this",
+			"tags": ["weapon","tool"],
+			"symbol" : "fa-magic"
+	  },
+	  {
+			"id" : 123,
+			"name":"death",
+			"type":"spell",
+			"description":"really easy to achive, even without magic",
+			"tags": ["weapon","tool"],
+			"symbol" : "fa-magic"
+	  },
+	  {
+			"id" : 123,
+			"name":"Cannon",
+			"type":"weapon",
+			"description":"removes things in general direction",
+			"tags": ["weapon","tool"],
+			"symbol" : "fa-magic"
+	  },
+	  {
+			"id" : 123,
+			"name":"Empty vial",
+			"type":"quest item",
+			"description":"useless without contents, why are you carrying trash around?",
+			"tags": ["trash","tool", "quest"],
+			"symbol" : "fa-magic"
+	  },
+	  {
+			"id" : 12,
+			"name":"Small axe",
+			"type":"tool",
+			"description":"not a big axe",
+			"tags": ["tool","equipable"],
+			"symbol" : "fa-magic"
+	  }
+	]
+}

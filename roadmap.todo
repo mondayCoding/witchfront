@@ -1,0 +1,57 @@
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ROADMAD: witchNode (Front-end):
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   
+   ☐ !!! Break witchnode to 2 different projects (witchNode & witchReact)
+   ☐ user creation and selection
+   ☐ Create code documentation => e.g constructor docs, themings docs, etc (+ styled samples)
+   ☐ todo (mission tab) routes / function => api redirection
+   ☐ modal stateable extendable
+   ☐ confirmation window simple implementation
+   ☐ multiple data message support
+   ☐ css generic components with variant classes
+   ☐ video / audio test
+   ☐ global status => (lang/theme) (context)
+   ☐ javascript diagrams
+   ☐ manifest
+   ✔ coin flip machine with result counters @done(18-07-08 00:38)
+   ✔ textarea elements @done(18-07-08 00:38)
+   ✔ centralise validation class @done(18-07-08 00:38)
+   ✔ env mail address, mail link in footer @done(18-05-29 04:27)
+   ✔ Dashboard (log git commits and winston logging) @done(18-05-09 02:57)
+   ✔ change viewengine to ejs @done(18-05-09 02:57)
+   ✔ Components to separate files @done(2018-03-03 11:21)
+   ✔ Time component (ticking clock) @done(2018-03-03 11:21)
+   ✔ Create reusable Input (text) @done(18-04-23 02:29)
+   ✔ multiselect @done(18-04-23 02:29)
+   ✔ checkbox @done(18-04-23 02:29)
+   ✔ fix potionscript announcer (test class implementation)  @done(2018-03-20 02:09)
+   ✔ what to do with typescript? (seems nice actually, implement for pure js atleast?) @done(2018-03-12 17:33)
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ROADMAD: witchNode (Back-end):
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   
+   ☐ websockets cleaner server side
+   ☐ chatroom find way to tie in (websockets) finish this
+   ☐ data permanence
+   ☐ Redux or Redux-like global-state solution?
+   ✔ Clean up routes, separate to different api paths (use("/x"...)...) @done(18-05-29 04:25)
+   ✔ chatroom limit users to 10 @done(18-05-02 01:16)
+   ✔ make 10 premade user profiles (selectable, ownable) @done(18-05-02 01:16)
+   ✔ allow 1 owner per profile @done(18-05-02 01:16)
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Art (Styling):
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   
+   ☐ Generic art: 
+   ☐ Announcer (mascot) 
+   ☐ Favicon
+   ☐ Page art for 404 page
+   ☐ official logo
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
