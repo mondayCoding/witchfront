@@ -7,10 +7,24 @@ import EditProductForm from '../productForm/productForm';
 import Button from '../../components/button';
 import Modal from '../../components/modal';
 
+import {UserContext} from '../../layout/layout';
+
 enum userType {
    admin,
    user, 
    visitor
+}
+
+enum loggedRole {
+   admin = 0,
+   developer = 1,
+   user = 2,
+   quest = 3
+}
+
+interface UserContext {
+   isLoggedIn: boolean;
+   loggedRole: loggedRole;
 }
 
 interface IState {
@@ -21,8 +35,11 @@ interface IState {
    isModalOpen: boolean;
 }
 
+interface IProps {
+   userContext:UserContext;
+}
 
-export default class Complex extends React.Component {
+export default class Complex extends React.Component<IProps> {
 
    public state:IState = {
       userType: 0,
@@ -67,6 +84,10 @@ export default class Complex extends React.Component {
       this.setState({isModalOpen: false});
    }
 
+   public isAuthorized() {
+      return this.props.userContext.loggedRole === loggedRole.admin;
+   }
+
    public render() {
       const {productTable, isModalOpen, selectedIndex} = this.state;
       const selectedProduct = Object.assign({}, this.state.selectedProduct);
@@ -74,26 +95,39 @@ export default class Complex extends React.Component {
 
       return(
          <div className="Complex--wrapper content-centered-lg">
+            
+            {
+               this.isAuthorized() ?
+               <React.Fragment>
+                  <h2 className="heading underlined">Complex form testing || null/encompass</h2>
+   
+                  <div className="row-flex row-spacing">
+                     <Button className="themebutton wide" buttonText="Create new" onClick={this.handleAddProduct} />
+                  </div>
+   
+                  <ProductTable 
+                     productTable={productTable} 
+                     onProductClick={this.handleProductSelection} 
+                     onRemoveClick={this.handleProductRemove}
+                  />
+   
+                  <Modal onClose={this.closeModal} show={isModalOpen} heading={modalheading} size={"lg"} >
+                     <EditProductForm 
+                        product={selectedProduct}
+                        onSave={this.updateProduct}
+                        onCancel={this.closeModal}
+                     />
+                  </Modal>
+               </React.Fragment>
+               : 
+               <React.Fragment>
+                  <h2 className="heading underlined">Insufficient rights</h2>
 
-            <h2 className="heading underlined">Complex form testing || null/encompass</h2>
-
-            <div className="row-flex row-spacing">
-               <Button className="themebutton wide" buttonText="Create new" onClick={this.handleAddProduct} />
-            </div>
-
-            <ProductTable 
-               productTable={productTable} 
-               onProductClick={this.handleProductSelection} 
-               onRemoveClick={this.handleProductRemove}
-            />
-
-            <Modal onClose={this.closeModal} show={isModalOpen} heading={modalheading} size={"lg"} >
-               <EditProductForm 
-                  product={selectedProduct}
-                  onSave={this.updateProduct}
-                  onCancel={this.closeModal}
-               />
-            </Modal>
+                  <p>
+                     You need admin rights to read or modify this page. 
+                  </p>
+               </React.Fragment>
+            }
 
          </div>
       );

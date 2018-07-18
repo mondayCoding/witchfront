@@ -4,27 +4,43 @@ import Site from './site';
 import Login from './login';
 import * as React from 'react';
 
+enum loggedRole {
+   admin = 0,
+   developer = 1,
+   user = 2,
+   quest = 3
+}
+
 interface State {
    isLoggedIn:boolean;
+   loggedRole:loggedRole;
 }
+
+export const UserContext = React.createContext({
+   isLoggedIn: false, 
+   loggedRole: null
+});
  
 //main layout component, has navigation, main content and router components
 export default class Layout extends React.Component {
 
    public state:State = {
-      isLoggedIn:false
+      isLoggedIn: false,
+      loggedRole: null
    };
 
-   public logIn = () => {
-      sessionStorage.setItem("WITCHNODE_LOGGEDIN", "true");
-      this.setState({isLoggedIn:true});
+   public logIn = (role:loggedRole) => {
+      sessionStorage.setItem("WITCHNODE_ISLOGGEDIN", "true");
+      sessionStorage.setItem("WITCHNODE_USERROLE", role.toString());
+      this.setState({isLoggedIn:true, loggedRole:role});
    }
 
    public componentDidMount(){
-      const loggedStatus = sessionStorage.getItem("WITCHNODE_LOGGEDIN") === "true";
+      const isAlreadyLogged = sessionStorage.getItem("WITCHNODE_ISLOGGEDIN") === "true";
       
-      if (loggedStatus) {          
-         this.logIn();
+      if (isAlreadyLogged) {          
+         const loggedAs = parseInt(sessionStorage.getItem("WITCHNODE_USERROLE"),0);
+         this.setState({isLoggedIn:true, loggedRole:loggedAs});
       }
 
       document.addEventListener("keyup", (event) => { 
@@ -39,7 +55,9 @@ export default class Layout extends React.Component {
 
       if (loggedIn) {
          return (
-            <Site />
+            <UserContext.Provider value={this.state}>
+               <Site />
+            </UserContext.Provider>
          );
       } else {
          return (

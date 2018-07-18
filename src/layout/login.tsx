@@ -8,7 +8,7 @@ import axios, { AxiosError } from 'axios';
 
 
 interface Props {
-   logIn():void;
+   logIn(x:number):void;
 }
 interface State {
    username: string;
@@ -26,6 +26,14 @@ export default class Layout extends React.Component<Props> {
    public handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const {value, name} = e.target;
       this.setState({[name]:value});
+   }
+
+   public handleLoginAsAdmin = () => {
+      this.props.logIn(0);
+   }
+
+   public handleLoginAsDeveloper = () => {
+      this.props.logIn(1);
    }
 
 
@@ -59,7 +67,10 @@ export default class Layout extends React.Component<Props> {
                      <a href="#">Forgot password?</a>
                   </section>
 
-                  <Button onClick={this.props.logIn} buttonText="Sign in" />
+                  <div className="row-flex spaced">
+                     <Button onClick={this.handleLoginAsAdmin} buttonText="Sign in as Admin" />
+                     <Button onClick={this.handleLoginAsDeveloper} buttonText="Sign in as Developer" />
+                  </div>
                </div>
             </div>
          </div>

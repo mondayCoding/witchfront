@@ -14,15 +14,12 @@ import apiMockPage from '../pages/apiMockPage';
 import coinFlipPage from '../pages/coinFlipPage';
 import complex from '../pages/complexPage';
 
-import * as $ from 'jquery'; 
-import CoinFlipPage from '../pages/coinFlipPage';
-
 
 export default class Main extends React.Component {
 
    public state:any = {
       hasError:false
-   };
+   };   
 
    //error handling (error boundary)
    public componentDidCatch(error:any, info:any) {
@@ -36,7 +33,7 @@ export default class Main extends React.Component {
       return (
       <main className="main" id="wrapper">
          {
-            (!this.state.hasError) && 
+            (!this.state.hasError) ? 
             <Switch>
                <Route exact path="/" component={dashboard}/>
                <Route exact path="/createchar" component={createCharPage}/>
@@ -51,6 +48,12 @@ export default class Main extends React.Component {
                <Route exact path="/complex" component={complex}/>
                <Redirect to="/"/>
             </Switch>
+            :
+            <section>
+               <h2>
+                  Something Broke ;(
+               </h2>
+            </section>
          }         
       </main> 
       );
