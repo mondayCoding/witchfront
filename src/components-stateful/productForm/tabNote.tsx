@@ -4,12 +4,12 @@ import Product from '../../models/productModel';
 import TextArea from '../../components/textArea';
 
 
-interface Props {
+interface IProps {
    product: Product;
    onChange(e:any):void;
 }
 
-export default class TabNote extends React.Component<Props> {
+export default class TabNote extends React.Component<IProps> {
 
    public render(){
 

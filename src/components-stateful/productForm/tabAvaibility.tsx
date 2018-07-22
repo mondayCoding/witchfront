@@ -7,12 +7,12 @@ import Product from '../../models/productModel';
 const DayPickerInput = require("react-day-picker/DayPickerInput").default;
 
 
-interface Props {
+interface IProps {
    product: Product;
    onDayChange(e:any):void;
 }
 
-export default class TabNote extends React.Component<Props> {
+export default class TabNote extends React.Component<IProps> {
 
    public render(){
 

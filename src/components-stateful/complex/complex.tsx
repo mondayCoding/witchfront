@@ -6,8 +6,9 @@ import ProductTable from './productTable';
 import EditProductForm from '../productForm/productForm';
 import Button from '../../components/button';
 import Modal from '../../components/modal';
+import res from './localization';
 
-import {UserContext} from '../../layout/layout';
+import {IUserContext} from '../../layout/layout';
 
 enum userType {
    admin,
@@ -22,7 +23,7 @@ enum loggedRole {
    quest = 3
 }
 
-interface UserContext {
+interface IUserContext {
    isLoggedIn: boolean;
    loggedRole: loggedRole;
 }
@@ -36,7 +37,7 @@ interface IState {
 }
 
 interface IProps {
-   userContext:UserContext;
+   userContext:IUserContext;
 }
 
 export default class Complex extends React.Component<IProps> {
@@ -99,7 +100,7 @@ export default class Complex extends React.Component<IProps> {
             {
                this.isAuthorized() ?
                <React.Fragment>
-                  <h2 className="heading underlined">Complex form testing || null/encompass</h2>
+                  <h2 className="heading underlined">{res.header}</h2>
    
                   <div className="row-flex row-spacing">
                      <Button className="themebutton wide" buttonText="Create new" onClick={this.handleAddProduct} />
@@ -112,7 +113,8 @@ export default class Complex extends React.Component<IProps> {
                   />
    
                   <Modal onClose={this.closeModal} show={isModalOpen} heading={modalheading} size={"lg"} >
-                     <EditProductForm 
+                     <EditProductForm
+                        resourceFile={res}
                         product={selectedProduct}
                         onSave={this.updateProduct}
                         onCancel={this.closeModal}
@@ -121,11 +123,8 @@ export default class Complex extends React.Component<IProps> {
                </React.Fragment>
                : 
                <React.Fragment>
-                  <h2 className="heading underlined">Insufficient rights</h2>
-
-                  <p>
-                     You need admin rights to read or modify this page. 
-                  </p>
+                  <h2 className="heading underlined">{res.insufficientTitle}</h2>
+                  <p>{res.requireAdminRights}</p>
                </React.Fragment>
             }
 

@@ -1,5 +1,8 @@
 
 //libs
+// tslint:disable-next-line:no-var-requires
+require('./utils/polyfills');
+
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 

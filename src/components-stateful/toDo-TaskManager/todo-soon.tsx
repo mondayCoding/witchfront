@@ -9,7 +9,7 @@ import Modal from '../../components/modal';
 import SortableList from './sortableList';
 
 //utils
-import API from '../../api/ToDo_soon';
+import API from '../../services/ToDo_soon';
 import confirm from '../../utils/confirmUtilModule';
 
 //interfaces

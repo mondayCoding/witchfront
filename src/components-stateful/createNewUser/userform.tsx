@@ -5,7 +5,7 @@
 
 import * as React from 'react';
 import FormValidator from '../../utils/validationModule';
-import API from '../../api/UserForm';
+import API from '../../services/UserForm';
 
 import Input from '../../components/textinput_material';
 import Button from '../../components/button';

@@ -11,12 +11,12 @@ enum loggedRole {
    quest = 3
 }
 
-interface State {
+interface IState {
    isLoggedIn:boolean;
    loggedRole:loggedRole;
 }
 
-export const UserContext = React.createContext({
+export const IUserContext = React.createContext({
    isLoggedIn: false, 
    loggedRole: null
 });
@@ -24,7 +24,7 @@ export const UserContext = React.createContext({
 //main layout component, has navigation, main content and router components
 export default class Layout extends React.Component {
 
-   public state:State = {
+   public state:IState = {
       isLoggedIn: false,
       loggedRole: null
    };
@@ -55,9 +55,9 @@ export default class Layout extends React.Component {
 
       if (loggedIn) {
          return (
-            <UserContext.Provider value={this.state}>
+            <IUserContext.Provider value={this.state}>
                <Site />
-            </UserContext.Provider>
+            </IUserContext.Provider>
          );
       } else {
          return (

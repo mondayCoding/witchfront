@@ -198,7 +198,7 @@ export default class DocsPage extends React.Component {
 
    public render() {
       return (
-         <div className="page">
+         <div className="content--lg">
 
             <h2>samplecontent</h2>
 

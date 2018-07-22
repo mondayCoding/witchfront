@@ -10,7 +10,7 @@ export default class Input extends React.Component<IInputFieldProperties> {
         const {id, value, label, tooltip, validation, ...rest} = this.props;
         const hasContent = value && value.length > 0;
         const isDisabled = this.props.disabled;
-        let classString = "input-text";
+        let classString = "themeinput";
         if (hasContent) {classString += " hasContent";}
         if (isDisabled) {classString += " disabled";}
         if (validation) {classString += " invalid";}

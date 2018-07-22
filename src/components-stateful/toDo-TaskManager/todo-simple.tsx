@@ -1,14 +1,11 @@
 
-import * as $ from 'jquery';
-import axios from 'axios';
 import * as React from 'react';
 
-import Table from '../todo-soon/Table';
+import Table from './Table';
 import Row from './Row';
-import Button from '../../components/button';
 
 import {IMission} from '../../interfaces';
-import API from '../../api/Todo_simple';
+import API from '../../services/Todo_simple';
 import anno from '../../utils/annoModule';
 
 interface IMissionArr {
@@ -29,7 +26,7 @@ export default class TodoSimple extends React.Component<any, IMissionArr> {
     this.getTodoCollection();
   }
 
-  public async clickHandler() {
+  public async addNewTask() {
     const data:any = await API.addNewItemToCollection({objective: this.state.newQuest});
     this.setState({quests:data, newQuest:""});
   }
@@ -52,7 +49,7 @@ export default class TodoSimple extends React.Component<any, IMissionArr> {
   } 
 
   public enterHandler(event: any) {
-    if (event.key === "Enter") { this.clickHandler(); }
+    if (event.key === "Enter") { this.addNewTask(); }
   }
 
   //promise method
@@ -72,7 +69,7 @@ export default class TodoSimple extends React.Component<any, IMissionArr> {
     const { newQuest, submitDisabled, quests } = this.state;
     let onKeyUp = (event: any) => this.enterHandler(event);
     let onChange = (event: any) => this.onChangeHandler(event);
-    let onBtnClick = () => this.clickHandler();
+    let addNewTask = () => this.addNewTask();
 
     return (
       <Table 
@@ -80,7 +77,7 @@ export default class TodoSimple extends React.Component<any, IMissionArr> {
         disableState={submitDisabled} 
         onKeyUp={onKeyUp} 
         onChange={onChange} 
-        onBtnClick={onBtnClick} 
+        onBtnClick={addNewTask} 
         quests={quests} 
       >
         {quests.map((item:any, i) => 

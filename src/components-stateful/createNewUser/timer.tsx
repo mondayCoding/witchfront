@@ -33,7 +33,7 @@ export default class Timer extends React.Component<any, any> {
       return (
          <div className="time-block">
             <div className="time-content">
-               <h3>{ this.state.date.toLocaleDateString(lang, options) }</h3>
+               <h3>{ this.state.date.toLocaleDateString(lang, options)}</h3>
             </div>
          </div>
       );

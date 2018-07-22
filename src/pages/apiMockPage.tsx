@@ -4,8 +4,8 @@ import * as React from 'react';
 import * as Prism from "prismjs";
 import 'prismjs/components/prism-json.min.js';
 
-import API from '../api/Todo_simple';
-import API2 from '../api/ToDo_soon';
+import API from '../services/Todo_simple';
+import API2 from '../services/ToDo_soon';
 
 
 export default class ApiMockPage extends React.Component<any, any> {
@@ -51,9 +51,9 @@ export default class ApiMockPage extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="api-mock">
+            <div className="api-mock content--lg">
 
-            <h2 className="themeheading">sample data</h2>
+               <h2 className="themeheading">sample data</h2>
                 <pre>
                     <code className="language-json">
                         {this.sampleJson}

@@ -8,6 +8,7 @@ export enum userType {
 }
 
 export type productType = "armor" | "weapon" | "accessory" | "consumable" | "tool" | "trash" | "quest" | "gm_debug";
+export type Tag = "green" | "red" | "blue" | "gray" | "yellow" | "orange" | "brown";
 
 export default class Product{
 
@@ -17,6 +18,7 @@ export default class Product{
    public memoNote: string;
    public isVisibleTo: userType[];
    public productType: productType[];
+   public tag: Tag;
    public hasPrice: boolean;
    public hasQuantityRules: boolean;
    public hasSetDateValues: boolean;
@@ -40,6 +42,7 @@ export default class Product{
       this.memoNote = "";
       this.isVisibleTo = [userType.admin];
       this.productType = ["gm_debug"];
+      this.tag = null;
       this.hasPrice = false;
       this.hasQuantityRules = false;
       this.hasSetDateValues = false;

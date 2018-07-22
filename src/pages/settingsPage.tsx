@@ -53,7 +53,7 @@ export default class WitchPage extends React.Component<any, Istates> {
 
 	public render() {
 		return (
-			<div className="page">
+			<div className="content--md">
 
 				<h2>this is settings page</h2>
 				<p>it has very litle in terms of content</p>

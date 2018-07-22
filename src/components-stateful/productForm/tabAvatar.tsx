@@ -7,11 +7,11 @@ import FileUploadTest from '../../layout/fileUpload';
 import Tabs from '../../components/tabs';
 import Tab from '../../components/tab';
 
-interface Props {
+interface IProps {
    onSelection(e:any):void;
 }
 
-export default class AvatarTab extends React.Component<Props> {
+export default class AvatarTab extends React.Component<IProps> {
    public render(){
       return(
          <section>

@@ -6,13 +6,13 @@ import SliderCheckbox from '../../components/checkbox_slider';
 import Select from 'react-select';
 
 
-export default class TabGeneral extends React.Component<Props> {
+export default class TabGeneral extends React.Component<IProps> {
 
    public render(){
 
-      const {product, onChange, onSelectChange} = this.props;
+      const {product, onChange, onTagSelectChange, onTypeSelectChange} = this.props;
       const { name, id, description, productType, hasImage, 
-            hasPrice, hasQuantityRules, hasSetDateValues} = product;      
+            hasPrice, hasQuantityRules, hasSetDateValues, tag} = product;      
 
       return(
          <section>
@@ -41,14 +41,26 @@ export default class TabGeneral extends React.Component<Props> {
             />
 
             <div className="themeinput-responsive">
-               <label htmlFor="selectID">Product types</label>
+               <label htmlFor="selectID">Tag</label>
+               <Select 
+                  id="tagSelectID" 
+                  simpleValue={true}
+                  name="tag"
+                  value={tag}
+                  onChange={onTagSelectChange}
+                  options={tagOptions}
+               />
+            </div>
+
+            <div className="themeinput-responsive">
+               <label htmlFor="selectID">Types</label>
                <Select 
                   id="selectID" 
                   multi={true}
                   simpleValue={true}
-                  name="lang-field-name"
+                  name="productType"
                   value={productType}
-                  onChange={onSelectChange}
+                  onChange={onTypeSelectChange}
                   options={productTypeOptions}
                />
             </div>
@@ -88,11 +100,20 @@ export default class TabGeneral extends React.Component<Props> {
 }
 
 
-interface Props {
+interface IProps {
    product: Product;
    onChange(e:any):void;
-   onSelectChange(e:any):void;
+   onTypeSelectChange(e:any):void;
+   onTagSelectChange(e:any):void;
 }
+
+const tagOptions = [
+   {value: "green",        label: "Green"       },
+   {value: "yellow",       label: "Yellow"      },
+   {value: "blue",         label: "Blue"        },
+   {value: "red",          label: "Red"         },
+   {value: "orange",       label: "Orange"      }
+];
 
 const productTypeOptions = [
    {value: "armor",        label: "Armor"       },

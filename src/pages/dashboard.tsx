@@ -2,7 +2,7 @@
 //libs
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import API from '../api/Statistics';
+import API from '../services/Statistics';
 import navicons from '../layout/navIcons';
 
 interface IStatisticsRespn {
@@ -28,7 +28,7 @@ export default class Dashboard extends React.Component {
 
     public render() {
         return (
-            <div className="page">
+            <div className="content--full">
                 
                 <section className="server-statistics">
                     <div className="statistic">

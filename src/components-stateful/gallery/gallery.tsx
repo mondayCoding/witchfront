@@ -5,7 +5,9 @@ import 'prismjs/components/prism-json.min.js';
 import 'prismjs/components/prism-typescript.min.js';
 import 'prismjs/components/prism-jsx.min.js';
 import 'prismjs/components/prism-tsx.min.js';
-import usageSample, {Sample} from './codeSamples';
+import usageSample, {Sample, patterns} from './codeSamples';
+// tslint:disable-next-line:no-var-requires
+const Markdown = require('react-markdown');
 
 //import components
 import MaterialInput from '../../components/textinput_material';
@@ -24,7 +26,7 @@ import Select, {Option} from 'react-select';
 
 export default class Gallery extends React.Component {
 
-   public state:State = {
+   public state:IState = {
       firstname:"",
       lastname:"",
       hasCats: false,
@@ -38,6 +40,7 @@ export default class Gallery extends React.Component {
       jobList: null,
       job: null,
       showUsageSamples:false,
+      showValidationErrors: false,
       allDisabled: false,
       isModalOpen:false,
       bestAnimal: ""
@@ -63,7 +66,7 @@ export default class Gallery extends React.Component {
    }
 
    public handleMultipleSelectOnChange = (selectionString:Option<string>) => {
-      const jobList = selectionString.split(",") as Job[];   
+      const jobList = selectionString.split(",") as IJob[];   
       this.setState({jobList});
    }
 
@@ -75,17 +78,17 @@ export default class Gallery extends React.Component {
    }
 
    public render(){
-      const {firstname, lastname, jobList, job, hadAllergies, hadNoTimeForAllergies, isModalOpen,  
+      const {firstname, lastname, jobList, job, showValidationErrors, hadNoTimeForAllergies, isModalOpen,  
          hasCats, hasDogs, amountOfHands, dateOfBirth, dateOfDeath, allDisabled, showUsageSamples } = this.state;
       const fullname = `${firstname} ${lastname}`;
-      const livedFord = "calc";
+      const validation = (showValidationErrors) ? "validation error" : null;
 
       return(
          <section className="gallery">
 
             <h2 className="themeheading">Component gallery</h2>
             <section className="settings">             
-               <label className="settings--label">Gallery settings:</label>
+               <label className="settings--label">Gallery settings | </label>
 
                <SliderCheckbox
                   name="showUsageSamples"
@@ -100,7 +103,14 @@ export default class Gallery extends React.Component {
                   id="disableAll"
                   checked={allDisabled}
                   onChange={this.handleOnChange}
-               />     
+               />
+               <SliderCheckbox
+                  name="showValidationErrors"
+                  label="Show validation errors" 
+                  id="showValidadErrors"
+                  checked={showValidationErrors}
+                  onChange={this.handleOnChange}
+               />   
             </section>
 
             <article className="item">
@@ -109,22 +119,22 @@ export default class Gallery extends React.Component {
                </h4>
    
                <div className="item--content">
-                  <section className="content-centered-lg">
+                  <section className="content--lg">
                      <MaterialInput 
-                           name="firstname"
-                           id="firstnamematerial"
-                           label="Firstname"
-                           value={firstname}
-                           disabled={allDisabled}
-                           onChange={this.handleOnChange} 
+                        name="firstname"
+                        label="Firstname"
+                        value={firstname}
+                        disabled={allDisabled}
+                        onChange={this.handleOnChange}
+                        validation={validation}
                      />
                      <MaterialInput 
                         name="lastname"
-                        id="lastnamematerial"
                         label="Lastname"
                         value={lastname}
                         disabled={allDisabled}
-                        onChange={this.handleOnChange} 
+                        onChange={this.handleOnChange}
+                        validation={validation}
                      />
          
                      <div className="emphasis-wrapper negative">
@@ -146,14 +156,15 @@ export default class Gallery extends React.Component {
                </h4>
    
                <div className="item--content">
-                  <section className="content-centered-lg">
+                  <section className="content--lg">
                      <ResponsiveInput 
                         name="firstname"
                         id="firstnameresp"
                         label="Firstname"
                         value={firstname}
                         disabled={allDisabled}
-                        onChange={this.handleOnChange} 
+                        onChange={this.handleOnChange}
+                        validation={validation}
                      />
                      <ResponsiveInput 
                         name="lastname"
@@ -161,7 +172,8 @@ export default class Gallery extends React.Component {
                         label="Lastname"
                         value={lastname}
                         disabled={allDisabled}
-                        onChange={this.handleOnChange} 
+                        onChange={this.handleOnChange}
+                        validation={validation}
                      />
          
                      <div className="emphasis-wrapper negative">
@@ -182,7 +194,7 @@ export default class Gallery extends React.Component {
                </h4>
    
                <div className="item--content">
-                  <section className="content-centered-lg">
+                  <section className="content--lg">
                      <CheckBox
                         name="hasCats"
                         label="Has cats" 
@@ -216,7 +228,7 @@ export default class Gallery extends React.Component {
                </h4>
    
                <div className="item--content">
-                  <section className="content-centered-lg">
+                  <section className="content--lg">
                      <SliderCheckbox
                         name="hasCats"
                         label="Has cats" 
@@ -249,7 +261,7 @@ export default class Gallery extends React.Component {
                </h4>
    
                <div className="item--content">
-                  <section className="content-centered-lg">
+                  <section className="content--lg">
                      
                      <Radio id="radioOne" disabled={allDisabled} label="cats" name="bestAnimal" onChange={this.handleOnChange} />
                      <Radio id="radioTwo" disabled={allDisabled} label="dogs" name="bestAnimal" onChange={this.handleOnChange} />
@@ -269,7 +281,7 @@ export default class Gallery extends React.Component {
                </h4>
    
                <div className="item--content">
-                  <section className="content-centered-lg">
+                  <section className="content--lg">
                      <Tabs >
                         <Tab title="Tab#1">
                            Sample content "tab 1"
@@ -295,7 +307,7 @@ export default class Gallery extends React.Component {
                </h4>
    
                <div className="item--content">
-                  <section className="content-centered-lg">
+                  <section className="content--lg">
                      <Select 
                         id="selectMultipleValue" 
                         multi={true}
@@ -329,7 +341,7 @@ export default class Gallery extends React.Component {
                </h4>
    
                <div className="item--content">
-                  <section className="content-centered-lg">
+                  <section className="content--lg">
                         
                      <Button buttonText="Simple button" disabled={allDisabled} />
                      <Button buttonText="Simple button" disabled={allDisabled}  className="themebutton dark" />
@@ -348,7 +360,7 @@ export default class Gallery extends React.Component {
                </h4>
    
                <div className="item--content">
-                  <section className="content-centered-lg">
+                  <section className="content--lg">
                      <Button 
                         buttonText="Modal" 
                         disabled={allDisabled} 
@@ -374,7 +386,7 @@ export default class Gallery extends React.Component {
                <div className="spacing"></div>
 
                <div className="item--content">
-                  <section className="content-centered-lg">
+                  <section className="content--lg">
                      <WizardPath step={4} maxStep={6} />
          
                      <Sample isShown={showUsageSamples}>
@@ -390,7 +402,7 @@ export default class Gallery extends React.Component {
                </h4>
    
                <div className="item--content">
-                  <section className="content-centered-lg">
+                  <section className="content--lg">
                      <div className="loader"></div>
          
                      <Sample isShown={showUsageSamples}>
@@ -401,14 +413,17 @@ export default class Gallery extends React.Component {
                </div>
             </article>
 
-
+            <div className="content--lg">
+               <Markdown source={patterns} />
+            </div>
             
          </section>
       );
    }
 }
 
-interface State {
+
+interface IState {
    firstname: string;
    lastname: string;
    hasDogs: boolean;
@@ -419,9 +434,10 @@ interface State {
    amountOfFeet: number;
    dateOfBirth: Date;
    dateOfDeath: Date;
-   jobList: Job[];
-   job: Job;
+   jobList: IJob[];
+   job: IJob;
    allDisabled: boolean;
+   showValidationErrors: boolean;
    showUsageSamples: boolean;
    isModalOpen: boolean;
    bestAnimal: string;
@@ -440,7 +456,7 @@ const jobs = [
    {value:"10",  label: "NobelMan"}
 ];
 
-interface Job {
+interface IJob {
    value:string;
    label: string;
 }

@@ -1,7 +1,7 @@
 
 //libs
 import * as React from 'react';
-import Gallery from '../controllers/gallery/gallery';
+import Gallery from '../components-stateful/gallery/gallery';
 
 
 export default class MissionPage extends React.Component {

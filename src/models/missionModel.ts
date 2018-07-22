@@ -51,42 +51,4 @@ export class TaskList {
       return incomplete;
    }
 
-   public static getQuests(onSuccess:Function){
-      //fetch data via ajax and set state
-      $.ajax({
-         type:"get",
-         url:"/api/todo",
-         success: onSuccess(),
-         error: (xhr, ajaxOptions, thrownError) => {
-            console.log("ajax error occurred | code: " +  xhr.status + " | message: " +  thrownError)
-         }
-      });
-   }
-
-   public static addQuest(newQuest:string, onSuccess:Function){
-      //add new quest to list
-      $.ajax({
-         type:"put",
-         data: {data: newQuest},
-         url:"/api/todo",
-         success: onSuccess(),
-         error: (xhr, ajaxOptions, thrownError) => {
-            console.log("ajax error occurred | code: " +  xhr.status + " | message: " +  thrownError)
-         }
-      });
-   }
-
-   public static removeQuest(removeObj:string, onSuccess:Function){
-      //add new quest to list
-      $.ajax({
-         type:"delete",
-         data: {object: removeObj},
-         url:"/api/todo",
-         success: onSuccess(),
-         error: (xhr, ajaxOptions, thrownError) => {
-            console.log("ajax error occurred | code: " +  xhr.status + " | message: " +  thrownError);
-         }
-      });
-   }
-
 }

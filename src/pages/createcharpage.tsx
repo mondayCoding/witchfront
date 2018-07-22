@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 //components
-import Form from '../controllers/CreateCharForm/createCharForm';
+import Form from '../components-stateful/CreateCharForm/createCharForm';
 import Tip from '../components/infotip';
 import ImgCaption from '../components/img_caption';
 
@@ -11,16 +11,16 @@ import ImgCaption from '../components/img_caption';
 export default class CreateCharPage extends React.Component {
    public render() {
       return (
-         <div className="page">
+         <div className="content--lg">
 
-            <div className="content-centered-md">
+            <div>
                <h2>Create Account</h2>
                <h3 className="themeheading sm">fill entire form before asking claiming it doesn't work</h3>
             </div>
 
             <Form />
 
-            <div className="content-centered-md">
+            <div>
 
                <Tip message="This form is creation of it's time and repsesents no values of any kind" />
                <Tip message="Another tip with no valuable content" />

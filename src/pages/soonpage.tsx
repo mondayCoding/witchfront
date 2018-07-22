@@ -4,14 +4,14 @@ import * as React from "react";
 
 //components
 
-import Listing from '../controllers/todo-soon/todo-soon';
-import ToDoSimple from '../controllers/todo-simple/todo-simple';
+import Listing from '../components-stateful/toDo-TaskManager/todo-soon';
+import ToDoSimple from '../components-stateful/toDo-TaskManager/todo-simple';
 
 
 export default class SoonPage extends React.Component {
    public render() {
       return (
-      <div className="page">
+      <div className="content--xl">
 
          <h3 className="heading underlined">
             Soon™ | Sortable taskmanager

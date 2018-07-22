@@ -15,6 +15,11 @@ export default class Layout extends React.Component {
          <BrowserRouter>
             <div className="body--layout">
                <div className="content-layout">
+                  {/* use this to debug */}
+                  {/* <React.StrictMode>
+                     <Navigation/>
+                     <Main/>
+                  </React.StrictMode> */}
                   <Navigation/>
                   <Main/>
                </div>               
