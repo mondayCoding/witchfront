@@ -7,18 +7,18 @@ import * as React from 'react';
 import axios, { AxiosError } from 'axios';
 
 
-interface Props {
+interface IProps {
    logIn(x:number):void;
 }
-interface State {
+interface IState {
    username: string;
    password: string;
 }
 
 //main layout component, has navigation, main content and router components
-export default class Layout extends React.Component<Props> {
+export default class Layout extends React.Component<IProps> {
 
-   public state:State = {
+   public state:IState = {
       username: "",
       password: ""
    };

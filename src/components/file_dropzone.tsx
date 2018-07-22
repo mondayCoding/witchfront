@@ -3,19 +3,9 @@ import * as React from 'react';
 import ANNO from '../utils/annoModule';
 import Anno from '../utils/annoModule';
 
-interface State {
-   imageSource:string;
-   active:boolean;
-   loaded:boolean;
-}
+export default class FileUpload extends React.Component<IProp> {
 
-interface Prop {
-   onFileChange(param:File):void;
-}
-
-export default class FileUpload extends React.Component<Prop> {
-
-   public state:State = {
+   public state:IState = {
       imageSource: "",
       active:false,
       loaded:false
@@ -94,5 +84,15 @@ export default class FileUpload extends React.Component<Prop> {
          </label>
       );
    }
+}
+
+interface IState {
+   imageSource:string;
+   active:boolean;
+   loaded:boolean;
+}
+
+interface IProp {
+   onFileChange(param:File):void;
 }
  

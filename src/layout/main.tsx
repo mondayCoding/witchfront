@@ -9,7 +9,7 @@ import docsPage from '../pages/docsPage';
 import gallerypage from '../pages/galleryPage';
 import settingsPage from '../pages/settingsPage';
 import soonpage from '../pages/soonpage';
-import witchPage from '../pages/witchpage';
+import witchPage from '../pages/profilePage';
 import apiMockPage from '../pages/apiMockPage';
 import coinFlipPage from '../pages/coinFlipPage';
 import complex from '../pages/complexPage';
@@ -31,31 +31,31 @@ export default class Main extends React.Component {
 
    public render() {
       return (
-      <main className="main" id="wrapper">
-         {
-            (!this.state.hasError) ? 
-            <Switch>
-               <Route exact path="/" component={dashboard}/>
-               <Route exact path="/createchar" component={createCharPage}/>
-               <Route exact path="/soon" component={soonpage}/>
-               <Route exact path="/gallery" component={gallerypage}/>
-               <Route exact path="/witchchat" component={chatPage}/>
-               <Route exact path="/profile" component={witchPage}/>
-               <Route exact path="/settings" component={settingsPage}/>
-               <Route exact path="/docs" component={docsPage}/>
-               <Route exact path="/apimock" component={apiMockPage}/>
-               <Route exact path="/coinflip" component={coinFlipPage}/>
-               <Route exact path="/complex" component={complex}/>
-               <Redirect to="/"/>
-            </Switch>
-            :
-            <section>
-               <h2>
-                  Something Broke ;(
-               </h2>
-            </section>
-         }         
-      </main> 
+         <React.Fragment>
+            {
+               (!this.state.hasError) ? 
+               <Switch>
+                  <Route exact path="/" component={dashboard}/>
+                  <Route exact path="/createchar" component={createCharPage}/>
+                  <Route exact path="/soon" component={soonpage}/>
+                  <Route exact path="/gallery" component={gallerypage}/>
+                  <Route exact path="/witchchat" component={chatPage}/>
+                  <Route exact path="/profile" component={witchPage}/>
+                  <Route exact path="/settings" component={settingsPage}/>
+                  <Route exact path="/docs" component={docsPage}/>
+                  <Route exact path="/apimock" component={apiMockPage}/>
+                  <Route exact path="/coinflip" component={coinFlipPage}/>
+                  <Route exact path="/complex" component={complex}/>
+                  <Redirect to="/"/>
+               </Switch>
+               :
+               <section>
+                  <h2>
+                     Something Broke ;(
+                  </h2>
+               </section>
+            }         
+         </React.Fragment> 
       );
    }
 }

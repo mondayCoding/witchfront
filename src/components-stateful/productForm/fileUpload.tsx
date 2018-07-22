@@ -3,17 +3,17 @@
 
 import * as React from 'react';
 import axios, { AxiosError } from 'axios';
-import DropZone from '../components/file_dropzone';
-import Button from '../components/button';
+import DropZone from '../../components/file_dropzone';
+import Button from '../../components/button';
 
 
-interface State {
+interface IState {
    file: File;
 }
 
 export default class FileUpload extends React.Component {
 
-   public state:State = {
+   public state:IState = {
       file: null
    };
 

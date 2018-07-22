@@ -1,27 +1,8 @@
 
-
 import Site from './site';
 import Login from './login';
 import * as React from 'react';
 
-enum loggedRole {
-   admin = 0,
-   developer = 1,
-   user = 2,
-   quest = 3
-}
-
-interface IState {
-   isLoggedIn:boolean;
-   loggedRole:loggedRole;
-}
-
-export const IUserContext = React.createContext({
-   isLoggedIn: false, 
-   loggedRole: null
-});
- 
-//main layout component, has navigation, main content and router components
 export default class Layout extends React.Component {
 
    public state:IState = {
@@ -66,3 +47,20 @@ export default class Layout extends React.Component {
       }
    }
 }
+
+enum loggedRole {
+   admin = 0,
+   developer = 1,
+   user = 2,
+   quest = 3
+}
+
+interface IState {
+   isLoggedIn:boolean;
+   loggedRole:loggedRole;
+}
+
+export const IUserContext = React.createContext({
+   isLoggedIn: false, 
+   loggedRole: null
+});

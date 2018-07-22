@@ -209,7 +209,7 @@ Many external modules have no typings and might require use of liberal "any".
 ### Component wrapping
 
 In React, all components are required to have a single root tag. 
-Sometimes this leads to wrapping components in tags that have no real purpose other than wrapping component. (usually pair of <div> tags)
+Sometimes this leads to wrapping components in tags that have no real purpose other than wrapping component. (usually pair of div-tags)
 In these cases wrapper tags should be replaced with <React.Fragment> to avoid purposeless HTML-output.
 
 ### Stateless component VS Class component
@@ -217,7 +217,7 @@ In these cases wrapper tags should be replaced with <React.Fragment> to avoid pu
 If component doesn't use lifecycle methods and does not hold state, it propably should be stateless component. 
 Representational components should also generally be stateless components.
 By similar logic stateful components should mostly contain stateless components instead of direct HTML-output.  
-_**NOTE:** Components that use multiple methods to support Render() are easier to maintain as Class components even if they have no state or lifecycles._
+_**NOTE:** Components that use multiple methods to support Render() are easier to maintain as Class components, even if they have no state or lifecycles._
 
 ### About State
 

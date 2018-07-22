@@ -3,14 +3,14 @@
 import * as React from 'react';
 
 //components
-import Userform from '../components-stateful/createNewUser/userform';
-import LangSelect from '../components-stateful/createNewUser/langSelect';
-import Timer from '../components-stateful/createNewUser/timer';
-import anno from '../utils/annoModule';
-import res from '../localization/resourcess';
+import Userform from '../createNewUser/userform';
+import LangSelect from '../createNewUser/langSelect';
+import Timer from '../createNewUser/timer';
+import anno from '../../utils/annoModule';
+import res from '../../localization/resourcess';
 
 
-export default class WitchPage extends React.Component<any, Istates> {
+export default class Profile extends React.Component<any, Istates> {
     constructor(props:any){
         super(props);
         this.state = {

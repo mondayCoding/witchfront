@@ -1,39 +1,27 @@
 
 //libs
 import * as React from "react";
-
-//components
-
+import wrapInContext from '../HOC/contextProviderHOC';
 import Complex from '../components-stateful/complex/complex';
-import {IUserContext} from '../layout/layout';
-
 
 export default class ComplexPage extends React.Component {
    public render() {
       return (
          <div className="content--xl">
-            <ComplexWrapperInContext />        
+            <ComplexWithContextData />        
          </div>
       );
    }
 }
 
-const ComplexAppWithContext:React.StatelessComponent = (props) => {
-   return(
-      <IUserContext.Consumer>
-         {(userContext) => <Complex userContext={userContext}  {...props} />}
-      </IUserContext.Consumer> 
-   );
-};
+const ComplexWithContextData = wrapInContext(Complex);
 
-const wrapInContext = (WrappedComponent:any) => {
-   return (props:any) => { 
-      return(
-         <IUserContext.Consumer>
-            {(userContext) => <WrappedComponent userContext={userContext}  {...props} />}
-         </IUserContext.Consumer>
-      );
-   };
-};
+// const ComplexAppWithContext:React.StatelessComponent = (props) => {
+//    return(
+//       <IUserContext.Consumer>
+//          {(userContext) => <Complex userContext={userContext}  {...props} />}
+//       </IUserContext.Consumer> 
+//    );
+// };
 
-const ComplexWrapperInContext = wrapInContext(Complex);
+

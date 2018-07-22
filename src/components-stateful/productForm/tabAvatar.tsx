@@ -3,7 +3,7 @@ import * as React from 'react';
 import Product from '../../models/productModel';
 import AvatarSelector from '../avatarSelector/avatarSelector';
 import DropZone from '../../components/file_dropzone';
-import FileUploadTest from '../../layout/fileUpload';
+import FileUploadTest from './fileUpload';
 import Tabs from '../../components/tabs';
 import Tab from '../../components/tab';
 

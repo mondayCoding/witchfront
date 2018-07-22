@@ -8,33 +8,8 @@ import StepFour from './step4';
 import Button from '../../components/button';
 import anno from '../../utils/annoModule';
 import WizardPath from '../../components/wizard_path';
-
-interface IFormState {
-	step: number;
-	maxStep:number;
-	name:string;
-	lastname:string;
-	pass:string;
-	passrepeat: string;
-	location: string;
-	color: string;
-	count: string;
-	gender: string;
-	email: string;
-	opinionCats: string;
-   opinionDogs: string;
-   opinionHouses: string;
-	opinionLangues: string;
-	youLikeRadio:string;
-	selection: string;
-   allowMarketing: boolean;
-}
-
-
-interface ICurrentStep {
-	formstate:IFormState;
-	onChange(param:any):void;
-}
+import Tip from '../../components/infotip';
+import ImgCaption from '../../components/img_caption';
 
 const CurrentStep = (props:ICurrentStep) => {
 
@@ -58,7 +33,6 @@ const CurrentStep = (props:ICurrentStep) => {
 		default:
 			return(<StepOne {...formstate} onChange={onChange} />);
 	}
-
 };
 
 
@@ -148,10 +122,84 @@ export default class UserForm extends React.Component {
 
 					<div className="spacing"></div>
 					<div className="line-thin"></div>
+         
+               <Tip message="This form is creation of it's time and repsesents no values of any kind" />
+               <Tip message="Another tip with no valuable content" />
+               <Tip message="Third one, still useless" />
+               <Tip message="Not even going to bother anymore" />
+               <Tip message="..." />
 
+               <ImgCaption 
+                  src="../images/blur.jpg" 
+                  captionText="This is caption sample for testing imgCaption component. Text here is caption content"
+                  size="sm" 
+                  captionTitle="Blur by design"
+               />
+      
+               <ImgCaption 
+                  src="../images/card.jpg" 
+                  captionText="This is caption sample for testing imgCaption component. Text here is caption content"
+                  size="md" 
+                  captionTitle="Blur by design"
+               />
+      
+               <ImgCaption 
+                  src="../images/orbs.png" 
+                  captionText="This is caption sample for testing imgCaption component. Text here is caption content"
+                  size="md" 
+                  captionTitle="Blur by design"
+               />            
 
+               <ImgCaption 
+                  src="../images/snek.jpg" 
+                  captionText="This is caption sample for testing imgCaption component. Text here is caption content"
+                  size="md" 
+                  captionTitle="Blur by design"
+               />              
+
+               <ImgCaption 
+                  src="../images/holo.jpg" 
+                  captionText="This is caption sample for testing imgCaption component."
+                  size="md" 
+                  captionTitle="Blur by design"
+               />                
+
+               <ImgCaption 
+                  src="../images/abyss.jpg" 
+                  captionText="This is caption sample for testing imgCaption component."
+                  size="md" 
+                  captionTitle="Blur by design" 
+               />
+               
 				</form>
 			</section>
 		);
 	}
+}
+
+interface IFormState {
+	step: number;
+	maxStep:number;
+	name:string;
+	lastname:string;
+	pass:string;
+	passrepeat: string;
+	location: string;
+	color: string;
+	count: string;
+	gender: string;
+	email: string;
+	opinionCats: string;
+   opinionDogs: string;
+   opinionHouses: string;
+	opinionLangues: string;
+	youLikeRadio:string;
+	selection: string;
+   allowMarketing: boolean;
+}
+
+
+interface ICurrentStep {
+	formstate:IFormState;
+	onChange(param:any):void;
 }

@@ -7,38 +7,8 @@ import EditProductForm from '../productForm/productForm';
 import Button from '../../components/button';
 import Modal from '../../components/modal';
 import res from './localization';
-
 import {IUserContext} from '../../layout/layout';
 
-enum userType {
-   admin,
-   user, 
-   visitor
-}
-
-enum loggedRole {
-   admin = 0,
-   developer = 1,
-   user = 2,
-   quest = 3
-}
-
-interface IUserContext {
-   isLoggedIn: boolean;
-   loggedRole: loggedRole;
-}
-
-interface IState {
-   userType: userType;
-   productTable: Product[];
-   selectedProduct: Product;
-   selectedIndex: number;
-   isModalOpen: boolean;
-}
-
-interface IProps {
-   userContext:IUserContext;
-}
 
 export default class Complex extends React.Component<IProps> {
 
@@ -131,4 +101,34 @@ export default class Complex extends React.Component<IProps> {
          </div>
       );
    }
+}
+
+enum userType {
+   admin,
+   user, 
+   visitor
+}
+
+enum loggedRole {
+   admin = 0,
+   developer = 1,
+   user = 2,
+   quest = 3
+}
+
+interface IUserContext {
+   isLoggedIn: boolean;
+   loggedRole: loggedRole;
+}
+
+interface IState {
+   userType: userType;
+   productTable: Product[];
+   selectedProduct: Product;
+   selectedIndex: number;
+   isModalOpen: boolean;
+}
+
+interface IProps {
+   userContext:IUserContext;
 }

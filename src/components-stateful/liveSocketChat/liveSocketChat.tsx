@@ -1,31 +1,14 @@
 
-//libs
 import * as React from 'react';
 import * as io from 'socket.io-client';
-
-//utils
 import ANNO from '../../utils/annoModule';
-
-//components
+import Announcement from '../announcement/announcement';
 import ChatLine from './line';
 import SelectUserMenu from './selectUserMenu';
 import InputPlain from '../../components/textinput_plain';
-
 import { IMessageLine } from '../../interfaces';
 
-interface IStatusList { 
-	active: boolean;
-	name: string;
-}
 
-interface IState {
-	messageHistory: IMessageLine[];
-	message: string;
-	localUser: string;
-	statusList: IStatusList[];
-}
-
-//class
 export default class ChatWindow extends React.Component {
 
 	public socket: SocketIOClient.Socket;
@@ -109,32 +92,53 @@ export default class ChatWindow extends React.Component {
 		let onChange = (event: any) => this.onChangeHandler(event);
 
 		return (
-			<article className="chat">
+         <React.Fragment>
 
-				<section className="chatwindow" id="chatwindow">
+            <Announcement 
+               message="We are currently in live mode chat intended only for live users. 
+               No reqistration required. Your chat history won't be used 
+               for any nefarious purposes... mostly." 
+            />
+            <div className="spacing"></div>
 
-					<div className="chatlog" id="chatlog">
-						{this.state.messageHistory.map((item: IMessageLine, index) =>
-							<ChatLine key={index} message={item} />)}
-					</div>
+			   <article className="chat">
 
-					<InputPlain
-						value={message}
-						name="message"
-						onKeyUp={onKeyUp}
-						onChange={onChange}
-						placeholder={placeholder}
-					/>
-				</section>
+               <section className="chatwindow" id="chatwindow">
 
-				<SelectUserMenu 
-					onClick={(data: string) => this.connectToChatAs(data)} 
-					statusList={statusList}
-					localUser={localUser} 
-				/>
+                  <div className="chatlog" id="chatlog">
+                     {this.state.messageHistory.map((item: IMessageLine, index) =>
+                        <ChatLine key={index} message={item} />)}
+                  </div>
 
-			</article>
+                  <InputPlain
+                     value={message}
+                     name="message"
+                     onKeyUp={onKeyUp}
+                     onChange={onChange}
+                     placeholder={placeholder}
+                  />
+               </section>
+
+               <SelectUserMenu 
+                  onClick={(data: string) => this.connectToChatAs(data)} 
+                  statusList={statusList}
+                  localUser={localUser} 
+               />
+
+			   </article>
+         </React.Fragment>
 		);
 	}
+}
 
+interface IStatusList { 
+	active: boolean;
+	name: string;
+}
+
+interface IState {
+	messageHistory: IMessageLine[];
+	message: string;
+	localUser: string;
+	statusList: IStatusList[];
 }
