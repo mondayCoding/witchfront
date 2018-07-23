@@ -29,7 +29,7 @@ Many external modules have no typings and might require use of liberal "any".
 
 * If component parameter is mapped to attribute, name it after that attribute  
 (name for parameter that holds value would be "value" and for parameter holding onclick it would be "onClick")
-* Event handler methods should have "handler" on their name (e.g handleOnClick, handleSubmit)
+* Event handler methods should have "handle" on their name (e.g handleOnClick, handleSubmit)
 * UI-Interaction methods should describe the interaction (e.g. closeModal, openModal, removeItemFromList).
 * Use descriptive names for components. Name should usable as description for components purpose.
 * Stateless components should have very generic names (e.g. Row, CheckBox) while stateful components have longer more descriptive names (e.g. UserManagementForm)
