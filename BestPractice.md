@@ -40,7 +40,7 @@ Many external modules have no typings and might require use of liberal "any".
 ### Component wrapping
 
 In React, all components are required to have a single root tag. 
-Sometimes this leads to wrapping components in tags that have no real purpose other than wrapping component. (usually pair of <div> tags)
+Sometimes this leads to wrapping components in tags that have no real purpose other than wrapping component. (usually pair of div-tags)
 In these cases wrapper tags should be replaced with <React.Fragment> to avoid purposeless HTML-output.
 
 ### Stateless component VS Class component
