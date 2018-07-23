@@ -5,9 +5,9 @@ Samples of good developments patterns (not best practices) for React and Typescr
 
 ## Typecript
 
-### Variable scoping
+### Variable declarations
 
-Start with most restrictive scope and allow looser scope when necessary.
+Start with most restrictive declaration and loosen it up when necessary.  
 const > let > var 
 
 ### Typing
