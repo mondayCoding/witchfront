@@ -23,14 +23,14 @@ Many external modules have no typings and might require use of liberal "any".
 * Use descriptive method naming and opt for "action"-describing prefix when possible. (e.g. set*, get*, remove*, add*, update*, is*, has*)
 
 
-## React specific 
+## React 
 
 ### Naming schemas
 
 * If component parameter is mapped to attribute, name it after that attribute  
 (name for parameter that holds value would be "value" and for parameter holding onclick it would be "onClick")
 * Event handler methods should have "handle" on their name (e.g handleOnClick, handleSubmit)
-* UI-Interaction methods should describe the interaction (e.g. closeModal, openModal, removeItemFromList).
+* Application methods should describe the interaction (e.g. closeModal, openModal, removeItemFromList).
 * Use descriptive names for components. Name should usable as description for components purpose.
 * Stateless components should have very generic names (e.g. Row, CheckBox) while stateful components have longer more descriptive names (e.g. UserManagementForm)
 * High Order Components should have "HOC" in their name (e.g. ProductRowHOC)
