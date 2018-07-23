@@ -54,17 +54,19 @@ _**NOTE:** Components that use multiple methods to support Render() are easier t
 
 State should be kept as clean as possible. Anything that can be derived from other data already stored in state or props should be excluded from it.
 For example if state has "firstName" and "lastName" fields, fullName can be derived and doesn't need to exist in state.
-Depending on your choice of validation-library validations might not need to exist in state.
+Depending on your choice of validation-library validations might not need to exist in state.  
+While state is not inherently immutable it should be treated as such to avoid side-effects and hard to find bugs.
 
 ### Stateful Component folder Structure
-Stateful components have their own folder. This folder contains all files that are directly and exclusively tied to component.
-Some of the possible residents for stateful folder are:
+Stateful components should have their own folder as they can be considered minified applications. This folder should contain all files that are directly and exclusively tied to them.
+Some of the possible residents for stateful folder:
 * Index (the main stateful component, can also be named same as folder itself)
 * Localization resources
-* Validation rules file
+* Validation objects
 * Tests
 * Local interfaces
-* Stateless (representational) components, that aren't universally usable
+* Stateless (representational) components, that cannot be used as universal components
+
 
 
 
