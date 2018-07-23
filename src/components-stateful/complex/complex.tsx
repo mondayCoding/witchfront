@@ -21,7 +21,7 @@ export default class Complex extends React.Component<IProps> {
    };
 
    public handleAddProduct = () => {
-      let productTable = this.state.productTable;
+      let productTable = this.state.productTable.slice(0);
       const newProduct = new Product("New product");
       productTable.push(newProduct);
       this.setState({productTable});
@@ -84,7 +84,6 @@ export default class Complex extends React.Component<IProps> {
    
                   <Modal onClose={this.closeModal} show={isModalOpen} heading={modalheading} size={"lg"} >
                      <EditProductForm
-                        resourceFile={res}
                         product={selectedProduct}
                         onSave={this.updateProduct}
                         onCancel={this.closeModal}

@@ -142,7 +142,6 @@ export default class ProductForm extends React.Component<IProps> {
 }
 
 interface IProps {
-   resourceFile: LocalizedStrings<any>;
    product:Product;
    onSave(param:Product):void;
    onCancel():void;

@@ -5,12 +5,9 @@ export default class Timer extends React.Component<any, any> {
 
    public statetimer:any;
 
-   constructor(props:any){
-      super(props);
-      this.state = {
-         date : new Date()
-      };
-   }
+   public state = {
+      date : new Date()
+   };
 
    public componentDidMount() {
       this.statetimer = setInterval( () => this.tick(), 1000 );
@@ -21,9 +18,7 @@ export default class Timer extends React.Component<any, any> {
    }
 
    public tick() {
-      this.setState({
-         date : new Date()
-      });
+      this.setState({date : new Date()});
    }
 
    public render() {

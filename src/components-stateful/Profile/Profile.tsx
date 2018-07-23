@@ -7,55 +7,53 @@ import Userform from '../createNewUser/userform';
 import LangSelect from '../createNewUser/langSelect';
 import Timer from '../createNewUser/timer';
 import anno from '../../utils/annoModule';
-import res from '../../localization/resourcess';
+import res from './localization';
 
 
 export default class Profile extends React.Component<any, Istates> {
-    constructor(props:any){
-        super(props);
-        this.state = {
-            lang:"en"
-        };
-    }
 
-    public componentDidMount(){
-        res.setLanguage(this.state.lang);
-    }
+   public state:Istates = {
+      lang: "en"
+   };
 
-    public onChangeHandler = (e:any) => {
-        console.log("changed lang");
-        this.setState({
-            lang: e.value
-        });
+   public componentDidMount(){
+      res.setLanguage(this.state.lang);
+   }
 
-        res.setLanguage(e.value);
-        
-        anno.announce(
-            res.formatString(res.changedLang, res.lang) as string, 
-            res.changedLangTitle, 
-            "info"
-        );
-    }
+   public onChangeHandler = (e:any) => {
+      console.log("changed lang");
+      this.setState({
+         lang: e.value
+      });
 
-    public render() {
-        return (
-            <div className="content--md">
-                
-               <h2>{res.welcome}</h2>
+      res.setLanguage(e.value);
+      
+      anno.announce(
+         res.formatString(res.changedLang, res.lang) as string, 
+         res.changedLangTitle, 
+         "info"
+      );
+   }
 
-               <LangSelect onChange={this.onChangeHandler} lang={this.state.lang} />
+   public render() {
+      return (
+         <div className="content--md">
                
-               <h1>{res.header}</h1>
-               <p>{res.thisPageIs}</p>
-         
-               <div className="time-wrap">
-                  <Timer lang={this.state.lang} />
-               </div>
+            <h2>{res.welcome}</h2>
+
+            <LangSelect onChange={this.onChangeHandler} lang={this.state.lang} />
             
-               <Userform lang={this.state.lang} res={res} />                       
+            <h1>{res.header}</h1>
+            <p>{res.thisPageIs}</p>
+      
+            <div className="time-wrap">
+               <Timer lang={this.state.lang} />
             </div>
-        );
-    }
+         
+            <Userform lang={this.state.lang} />                       
+         </div>
+      );
+   }
 }
 
 type LangType = "fi" | "en";

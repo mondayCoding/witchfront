@@ -76,11 +76,11 @@ export interface IMission {
 }
 
 export interface IMissionItem {
-    objective:string;
-    longObjective?: string;
-    complete:boolean;
-    createDate:string;
-    completeDate:string;
+   objective:string;
+   longObjective?: string;
+   complete:boolean;
+   createDate:string;
+   completeDate:string;
 }
 
 

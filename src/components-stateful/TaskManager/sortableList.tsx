@@ -11,16 +11,21 @@ const list = (props: any) => {
 
 	return (
 		<div className="flex-table">
-			{props.items.map((mission: IMissionItem, index: number) => (
-				<SortItem
-					key={`item-${index}`}
-					index={index}
-					mission={mission}
-					onActivation={() => props.updateModal(mission)}
-					onRemove={() => props.removeItem(mission)}
-					toggle={() => props.toggle(mission)}
-				/>
-			))}
+			{props.items.map((mission: IMissionItem, index: number) => {
+            const update = () => props.updateModal(mission, index);
+            const remove = () => props.removeItem(mission);
+            const toggle = () => props.toggle(mission);
+            return(
+               <SortItem
+                  key={`item-${index}`}
+                  index={index}
+                  mission={mission}
+                  onActivation={update}
+                  onRemove={remove}
+                  toggle={toggle}
+               />
+            );
+         })}
 		</div>
 	);
 };

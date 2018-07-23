@@ -5,11 +5,12 @@
 
 import * as React from 'react';
 import FormValidator from '../../utils/validationModule';
+import res from '../Profile/localization';
 import API from '../../services/UserForm';
-
 import Input from '../../components/textinput_material';
 import Button from '../../components/button';
 import anno from '../../utils/annoModule';
+import validation from './validation';
 
 
 //****************************************************************************
@@ -49,23 +50,8 @@ export default class UserForm extends React.Component<any,any> {
       }
    };
 
-	public validation: FormValidator;
+	public validation = validation;
 	public validating: boolean;
-
-   public componentWillMount(){ 
-		
-      const res = this.props.res;
-      const test = FormValidator.test;
-
-      this.validation = new FormValidator([
-         {field: "email", 		message: res.emailIsInvalid, 		  validIf: (x) => test.isEmail(x) },
-         {field: "accountNum",message: res.accNumIsInvalid,		  validIf: (x) => test.isInt(x)},
-         {field: "username", 	message: "Name is required field", validIf: (x) => !test.isEmpty(x) },
-         {field: "username", 	message: res.usernameIsTaken,		  validIf: (x) => (x !== "asd") && (x !=="Mario" )},
-         {field: "username", 	message: res.usernameIsInvalid,	  validIf: (x) => test.isLength(x, {min:3, max:20})},
-         {field: "color", 		message: "must be red",				  validIf: (x) => x === "red" }
-      ]);      
-	}
 	
 	public validateForm(){
       this.validation.validate(this.state.form);
@@ -93,7 +79,6 @@ export default class UserForm extends React.Component<any,any> {
 
    public render(){
       const {username, email, location, accountNum, color, age } = this.state.form;
-      let res = this.props.res;
       let validify = this.validation;
       let onSubmit = (event:any)=>this.onsubmitHandler(event);
 
@@ -140,7 +125,7 @@ export default class UserForm extends React.Component<any,any> {
                onChange={this.handleOnChange}
                onBlur={this.handleOnBlur} 
                id="accountNumID"
-               validation={validify.isValid("accountNum") ? null : validify.getMessage("accountNum")} 
+               validation={validify.getValidatedMessage("accountNum")} 
             />
             <Input 
                name="color" 

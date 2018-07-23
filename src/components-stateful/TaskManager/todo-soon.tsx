@@ -7,6 +7,7 @@ import { arrayMove } from 'react-sortable-hoc';
 import Table from './Table';
 import Modal from '../../components/modal';
 import SortableList from './sortableList';
+import TaskManagerModal from './TaskManagerModal';
 
 //utils
 import API from '../../services/ToDo_soon';
@@ -16,19 +17,16 @@ import confirm from '../../utils/confirmUtilModule';
 import { IMissionItem } from '../../interfaces';
 
 
+
 export default class ToDoSoon extends React.Component {
 
 	public state: IState = {
 		quests: [],
-		newQuest: "",
-		isSubmitDisabled: true,
+      newQuest: "",
+      activeItem: null,
+      activeItemIndex: null,
       modalIsOpen: false,
       isLoading: true,
-		modalContent: {
-			title: "",
-			content: "",
-			remove: null
-		}
 	};
 
 	public async componentDidMount() {
@@ -36,25 +34,20 @@ export default class ToDoSoon extends React.Component {
 		const data = await API.getDelayedCollection() as IMissionItem[];
 		this.setState({ quests: data, isLoading:false });
    }
-   public componentWillUnmount(){
-      
-   }
 
-	public clickHandler = async () => {
+
+	public handleAddNewTaskSubmit = async () => {
 		if(await confirm(`Add task called: ${this.state.newQuest}`)){
 			const data = await API.addNewItemToCollection({ objective: this.state.newQuest }) as IMissionItem[];
 			this.setState({ quests: data, newQuest: "" });
 		}
 	}
 
-	public onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-		this.setState({
-			newQuest: e.target.value,
-			isSubmitDisabled: ((e.target.value).length > 7 ? false : true)
-		});
+	public handleAddNewTaskOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		this.setState({newQuest: e.target.value,});
 	}
 
-	public async removeMission(mission: IMissionItem) {
+	public async removeTask(mission: IMissionItem) {
 
 		// close modal if it is open
 		const modalIsOpen = this.state.modalIsOpen;
@@ -76,20 +69,37 @@ export default class ToDoSoon extends React.Component {
 		}	
 	}
 
-	public enterHandler = (e: KeyboardEvent) => {
-		if (e.key === "Enter") { this.clickHandler(); }
+	public handleEnter = (e: KeyboardEvent) => {
+		if (e.key === "Enter") { this.handleAddNewTaskSubmit(); }
 	}
 
-	public async toggleHandler(mission: IMissionItem) {
-		const data: any = await API.toggleHandler({ objective: mission.objective, createDate: mission.completeDate });
+	public async handleTaskToggle(mission: IMissionItem) {
+		const data = await API.toggleHandler(
+         { objective: mission.objective, createDate: mission.completeDate }
+      ) as IMissionItem[];
 		this.setState({ quests: data });
 	}
 
-	public handleClose = () => {
+	public closeModal = () => {
 		this.setState({ modalIsOpen: false });
+   }
+   
+   public openModal = () => {
+		this.setState({ modalIsOpen: true });
 	}
 
-	public onSortEnd = ({ oldIndex, newIndex }: { oldIndex: number, newIndex: number }) => {
+   public selectActiveItem = (activeItem: IMissionItem, activeItemIndex:number) => {
+      this.setState({activeItem, activeItemIndex}, this.openModal);
+   }
+
+   public updateTask = (item: IMissionItem) => {
+      const quests = this.state.quests.slice(0);
+      const index = this.state.activeItemIndex;
+      quests[index] = item;
+      this.setState({quests}, this.closeModal);
+   }
+
+	public handleSortEnd = ({ oldIndex, newIndex }: { oldIndex: number, newIndex: number }) => {
 		this.setState({ quests: arrayMove(this.state.quests, oldIndex, newIndex) });
 		console.log("sorted");
    }
@@ -98,52 +108,29 @@ export default class ToDoSoon extends React.Component {
       return(<div className="loader">Loading...</div>);
    }
 
-	public updateModal = (item: IMissionItem) => {
-		this.setState({
-			modalContent: {
-				content: item.objective,
-				title: item.objective,
-				remove: () => this.removeMission(item)
-			},
-			modalIsOpen: true
-		});
-	}
-
+   
 	public render() {
 
       //table
-      const {newQuest, isSubmitDisabled, quests, modalIsOpen, modalContent, isLoading } = this.state;
-      let enterHandler = this.enterHandler;
-      let onChange = this.onChangeHandler;
-      let onBtnClick = this.clickHandler;
-      let removeItem = (obj: IMissionItem) => this.removeMission(obj);
-      let toggle = (obj: IMissionItem) => this.toggleHandler(obj);
+      const {newQuest, quests, modalIsOpen, isLoading, activeItem } = this.state;
+      const isSubmitDisabled = (newQuest.length < 5);
+      const removeItem = (obj: IMissionItem) => this.removeTask(obj);
+      const toggle = (obj: IMissionItem) => this.handleTaskToggle(obj);
+      const heading = (this.state.activeItem) ? this.state.activeItem.objective : "" ;
 
       //modal
-      const handleClose = this.handleClose;
-      const updateModal = this.updateModal;
-
-      const content = modalContent.content;
-      const title = modalContent.title;
-      const remove = modalContent.remove;
+      const closeModal = this.closeModal;
 
       return (
 			<Table
 				value={newQuest}
 				disableState={isSubmitDisabled}
-				onKeyUp={enterHandler}
-				onChange={onChange}
-				onBtnClick={onBtnClick}
+				onKeyUp={this.handleEnter}
+				onChange={this.handleAddNewTaskOnChange}
+				onBtnClick={this.handleAddNewTaskSubmit}
 			>
-				<Modal show={modalIsOpen} heading={title} onClose={handleClose} >
-					<div className="line-thin"></div>
-					<span>modal for testing modals</span><br />
-					<span>click button to dismiss</span><br />
-					<span>click fade (dark area) to dismiss</span><br />
-					<span>press esc (keyboard) to dismiss</span><br />
-					<span>{content}</span><br />
-					<div className="spacing"></div>
-					<button className="themebutton wide" onClick={remove}>Remove this item</button>
+				<Modal show={modalIsOpen} heading={heading} onClose={closeModal}>
+               <TaskManagerModal task={activeItem} onCancel={closeModal} onSave={this.updateTask}/>
 				</Modal>
 
             {
@@ -153,11 +140,11 @@ export default class ToDoSoon extends React.Component {
                   lockAxis="y"
                   lockToContainerEdges={true}
                   useDragHandle={true}
-                  onSortEnd={this.onSortEnd}
+                  onSortEnd={this.handleSortEnd}
    
                   //passed data
                   items={quests}
-                  updateModal={updateModal}
+                  updateModal={this.selectActiveItem}
                   removeItem={removeItem}
                   toggle={toggle}
                />
@@ -169,17 +156,11 @@ export default class ToDoSoon extends React.Component {
 }
 
 
-interface IModalContent {
-	title: string;
-	content: string;
-	remove(): void;
-}
-
 interface IState {
 	quests: IMissionItem[];
 	newQuest: string;
-	isSubmitDisabled: boolean;
 	modalIsOpen: boolean;
    isLoading: boolean;
-   modalContent: IModalContent;
+   activeItem: IMissionItem;
+   activeItemIndex: number;
 }
