@@ -6,7 +6,7 @@ import * as React from 'react';
 import Select, { Option } from 'react-select';
 import Product, { Tag } from '../../models/productModel';
 import {userType, productType} from '../../models/productModel';
-import Input from '../../components/textinput_responsive';
+import Input from '../../components/Textinput_responsive';
 import Button from '../../components/button';
 import res from './localization';
 import { LocalizedStrings } from 'react-localization';

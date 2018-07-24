@@ -11,7 +11,7 @@ const Markdown = require('react-markdown');
 
 //import components
 import MaterialInput from '../../components/textinput_material';
-import ResponsiveInput from '../../components/textinput_responsive';
+import ResponsiveInput from '../../components/Textinput_responsive';
 import SimpleInput from '../../components/textinput_plain';
 import CheckBox from '../../components/checkbox';
 import SliderCheckbox from '../../components/checkbox_slider';

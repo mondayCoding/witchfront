@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import Input from '../../components/textinput_responsive';
+import Input from '../../components/Textinput_responsive';
 import SliderCheckBox from '../../components/checkbox_slider';
 import Button from '../../components/button';
 import { IMissionItem } from '../../interfaces';

@@ -1,12 +1,12 @@
 
 import * as React from 'react';
 
-interface Props {
+interface IProps {
    step:number;
    maxStep:number;
 }
 
-const WizardPath: React.StatelessComponent<Props> = (props) => {
+const WizardPath: React.StatelessComponent<IProps> = (props) => {
  	
    const {step, maxStep} = props;
    let steps = [];

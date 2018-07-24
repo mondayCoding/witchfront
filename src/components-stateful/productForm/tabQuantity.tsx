@@ -1,15 +1,15 @@
 
 import * as React from 'react';
 import Product from '../../models/productModel';
-import Input from '../../components/textinput_responsive';
+import Input from '../../components/Textinput_responsive';
 
 
-interface Props {
+interface IProps {
    product: Product;
    onChange(e:any):void;
 }
 
-export default class TabNote extends React.Component<Props> {
+export default class TabNote extends React.Component<IProps> {
 
    public render(){
 

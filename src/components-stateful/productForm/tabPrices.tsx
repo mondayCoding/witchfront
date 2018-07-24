@@ -1,16 +1,16 @@
 
 import * as React from 'react';
 import Product from '../../models/productModel';
-import Input from '../../components/textinput_responsive';
+import Input from '../../components/Textinput_responsive';
 import SliderCheckbox from '../../components/checkbox_slider';
 import Select from 'react-select';
 
-interface Props {
+interface IProps {
    product: Product;
    onChange(e:any):void;
 }
 
-export default class TabGeneral extends React.Component<Props> {
+export default class TabGeneral extends React.Component<IProps> {
 
    public render(){
 
