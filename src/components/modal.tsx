@@ -3,7 +3,7 @@ import * as React from 'react';
 
 interface Iprops {
 	show: boolean;
-   heading: string;
+   heading: string | React.ReactNode;
    size?: "xl" | "lg" | "md" | "sm" ;
 	onClose(): void;
 }
