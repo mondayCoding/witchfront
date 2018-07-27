@@ -14,11 +14,7 @@ const Tab: React.StatelessComponent<ITabButton> = (props) => {
    const handleTabClick = () => onClick(tabIndex);
 
    return(
-      <button 
-         className={buttonClass} 
-         onClick={handleTabClick}
-         title={title}
-      >
+      <button className={buttonClass} onClick={handleTabClick} title={title}>
          {title}
       </button>
    );  

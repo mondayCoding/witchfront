@@ -2,19 +2,21 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ROADMAD: witchNode (Front-end):
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-   
-   ☐ !!! Break witchnode to 2 different projects (witchNode & witchReact)
+
+   ☐ CSS Sass modules
+   ☐ Hot Module Reload Module 
    ☐ user creation and selection
    ☐ Create code documentation => e.g constructor docs, themings docs, etc (+ styled samples)
-   ☐ todo (mission tab) routes / function => api redirection
-   ☐ modal stateable extendable
-   ☐ confirmation window simple implementation
-   ☐ multiple data message support
+   ☐ confirmation window own implementation
    ☐ css generic components with variant classes
    ☐ video / audio test
    ☐ global status => (lang/theme) (context)
    ☐ javascript diagrams
    ☐ manifest
+   ✔ todo (mission tab) routes / function => api redirection @done(18-07-26 15:18)
+   ✔ modal stateable extendable @done(18-07-26 15:18)
+   ✔ multiple data message support @done(18-07-26 15:18)
+   ✔ !!! Break witchnode to 2 different projects (witchNode & witchReact) @done(18-07-26 15:17)
    ✔ coin flip machine with result counters @done(18-07-08 00:38)
    ✔ textarea elements @done(18-07-08 00:38)
    ✔ centralise validation class @done(18-07-08 00:38)
