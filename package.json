@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mondayCoding/witchnode"
+    "url": "https://github.com/mondayCoding/witchfront"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -49,20 +49,24 @@
     "@types/socket.io-client": "^1.4.32",
     "@types/toastr": "^2.1.35",
     "@types/validator": "^9.4.0",
-    "awesome-typescript-loader": "^4.0.1",
+    "awesome-typescript-loader": "^5.2.0",
+    "css-loader": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.18.0",
     "jest": "^23.4.1",
+    "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.8.3",
     "react-devtools": "^3.1.0",
     "react-localization": "^1.0.7",
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.7",
     "source-map-loader": "^0.2.3",
+    "style-loader": "^0.21.0",
     "tslint": "^5.9.1",
     "tslint-react": "^3.5.1",
-    "webpack": "^3.11.0",
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^2.11.1"
   }
 }

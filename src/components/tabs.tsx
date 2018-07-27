@@ -5,7 +5,7 @@ interface IState {
    activeTab: number;
 }
 
-interface IProps {
+interface IProps { 
    defaultTabIndex?: number;
 }
 

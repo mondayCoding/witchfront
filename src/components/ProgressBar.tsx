@@ -12,14 +12,14 @@ interface IProps {
 
 const PropgressBar:React.StatelessComponent<IProps> = (props) => {
    const {percentage, showStatusText} = props;
-   const cappedValue = (percentage >= 100 ) ? 100 : percentage;
-   const statusText = (showStatusText) ? <span>{`${cappedValue}%`}</span> : null;
+   const cappedPercentage = (percentage >= 100 ) ? 100 : percentage;
+   const statusText = (showStatusText) ? <span>{`${cappedPercentage}%`}</span> : null;
    const className = (showStatusText) ? "themeprogress showingStatus" : "themeprogress" ;
 
    return (
-      <div className={className} title={cappedValue.toString()}>
+      <div className={className} title={cappedPercentage.toString()}>
          {statusText}
-         <div className="themeprogress--fill" style={{width:`${cappedValue}%`}}></div>
+         <div className="themeprogress--fill" style={{width:`${cappedPercentage}%`}}></div>
       </div>
    );
 };

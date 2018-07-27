@@ -12,10 +12,10 @@ import Layout from './layout/layout';
 
 //document ready trigger application
 document.addEventListener("DOMContentLoaded", () => { 
-
-  ReactDOM.render(
-    <Layout />, document.getElementById("root")
-  );
-
+   
+   ReactDOM.render(
+      <Layout />, document.getElementById("root")
+   );
+ 
 });
 

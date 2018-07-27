@@ -1,22 +1,15 @@
 
 const path = require("path");
 const webpack = require('webpack');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 
+   mode: "development",
+
    entry: {
       app: "./src/index.tsx",
-      vendor: [
-         "react", 
-         "react-dom", 
-         "react-router", 
-         "react-select", 
-         "react-localization", 
-         "react-sortable-hoc", 
-         "axios",
-         "mark.js", 
-         "toastr"
-      ]
+      vendor: ["react", "react-dom", "react-router", "react-select", "react-localization", "react-sortable-hoc", "axios","mark.js", "toastr"]
    },
 
    output: {
@@ -29,10 +22,16 @@ module.exports = {
    //light basic debug
    // devtool: "cheap-moduleT-source-map",
 
+   // auto figure file.extension in import calls
    resolve: {
-      // Add '.ts' and '.tsx' as resolvable extensions.
       extensions: [".ts", ".tsx", ".js", ".json"]
    },
+
+   plugins: [
+      new MiniCssExtractPlugin({
+        filename: "../stylesheets/autoSass.css",
+      })
+    ],
 
    module: {
       rules: [
@@ -45,15 +44,41 @@ module.exports = {
             enforce: "pre",
             test: /\.js$/,
             loader: "source-map-loader"
+         },
+         {
+            test: /\.scss$/,
+            use: [
+               // enable for external file
+               {
+                  loader: MiniCssExtractPlugin.loader,
+               },
+               // use in development
+               //   "style-loader",
+              "css-loader",
+              "sass-loader"
+            ]
          }
+         // {
+         //    test: /\.scss$/,
+         //    use: [
+         //        "style-loader", // creates style nodes from JS strings
+         //        "css-loader", // translates CSS into CommonJS
+         //        "sass-loader" // compiles Sass to CSS
+         //    ]
+         // }
       ]
    },
 
-   plugins: [
-      new webpack.optimize.CommonsChunkPlugin({
-         name: "vendor",
-         minChunks: Infinity,
-      })
-   ]
+   optimization: {
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendor",
+            chunks: "all"
+          }
+        }
+      }
+   }
 };
 
