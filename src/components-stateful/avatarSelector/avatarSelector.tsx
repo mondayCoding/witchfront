@@ -11,7 +11,7 @@ export default class AvatarSelector extends React.Component<IProps> {
       avatarList: (this.props.avatarList) ? this.props.avatarList : defaultAvatars
    };
 
-   public handleAvatarClick(avatar:Avatar, index:number) {
+   public handleAvatarClick(avatar:IAvatar, index:number) {
       ANNO.announce(`Selected ${avatar.name}`);
       const avatarList = this.state.avatarList.slice(0);
       const selected = avatarList[index];      
@@ -21,7 +21,7 @@ export default class AvatarSelector extends React.Component<IProps> {
       this.handleAvatarSelection(avatarList[index]);
    }
 
-   public handleAvatarSelection(selected:Avatar){
+   public handleAvatarSelection(selected:IAvatar){
       if (this.props.onSelection){
          this.props.onSelection(selected);
       }
@@ -42,17 +42,17 @@ export default class AvatarSelector extends React.Component<IProps> {
    }
 }
 
-interface Avatar {
+interface IAvatar {
    selected: boolean;  
    name: string;        
    path: string;          
 }
 
 interface IProps {
-   selected?:Avatar;
+   selected?:IAvatar;
    selectedIndex?:number;
-   avatarList?: Avatar[];
-   onSelection?(param:Avatar):void;
+   avatarList?: IAvatar[];
+   onSelection?(param:IAvatar):void;
 }
 
 const defaultAvatars = [

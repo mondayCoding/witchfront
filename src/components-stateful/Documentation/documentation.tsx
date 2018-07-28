@@ -240,6 +240,7 @@ class SearchInput extends Input {
 
       console.log("I'm filtering out results without... [ " + lookfor + " ]");
 
+      // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < document.querySelectorAll(".cont").length; i++) {
          let lookFrom:any = document.querySelectorAll(".cont")[i];
          if (lookFrom.innerHTML.toUpperCase().indexOf(lookfor) > -1) {

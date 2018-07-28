@@ -41,7 +41,7 @@ export default class Flipper extends React.Component {
    }
    
    public resetCoinFlips = async () => {
-      if (await confirm("Are you sure you want to reset flips?, this action cannot be undone", null, "Reset")){
+      if (await confirm("Are you sure you want to reset flips?, this action cannot be undone", undefined, "Reset")){
          this.coinFlipper.resetHistory();
          this.updateFlipState();
       }

@@ -2,10 +2,14 @@
 import * as React from 'react';
 import { PlainConfirmModal, ReactConfirmProps } from 'react-confirm';
 
-export class ConfirmationDialog extends React.Component<ReactConfirmProps> {
+interface IExtendedReactConfirmProps extends ReactConfirmProps {
+   heading:string;
+}
 
-	public listenKeyboard = (event:KeyboardEvent) => {
-		if (event.key === 'Escape' || event.keyCode === 27) {
+export class ConfirmationDialog extends React.Component<IExtendedReactConfirmProps> {
+
+	public listenKeyboard = (e:KeyboardEvent) => {
+		if (e.key === 'Escape' || e.keyCode === 27) {
 			this.props.cancel();
 		}
 	}
@@ -22,7 +26,7 @@ export class ConfirmationDialog extends React.Component<ReactConfirmProps> {
 		}
 	}
  
-	public onDialogClick = (event:any) => {
+	public onDialogClick = (event:React.MouseEvent) => {
 		event.stopPropagation();
    }
 

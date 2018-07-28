@@ -14,14 +14,11 @@ export default class InputResponsive extends React.Component<IInputFieldProperti
       if (validation) {classString += " invalid";}
       if (isSmall) {classString += " number";}
       
-
-
-
       return (
          <div className={classString} data-tooltip-error={validation}>
                <label title={tooltip} htmlFor={id}> {label} </label>
                <input type="text" id={id} {...rest} value={value} />
          </div>
       );
-   }
+   } 
 }

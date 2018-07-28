@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import API from '../../services/Statistics';
-import navicons from '../../layout/navIcons';
+import navicons from '../../components/icons';
 
 interface IStatisticsRespn {
     serverStartCount:string;
@@ -40,7 +40,7 @@ export default class Dashboard extends React.Component {
                 
                 <section className="dashboard">
 
-                    <NavLink exact to="/" activeClassName="active" className="dash-item" >
+                    <NavLink exact={true} to="/" activeClassName="active" className="dash-item" >
 
                         <div className="pagesymbol">
                            {navicons.dashboard}
@@ -50,7 +50,7 @@ export default class Dashboard extends React.Component {
                         </div>
                     </NavLink>
 
-                    <NavLink exact to="/createchar" activeClassName="active" className="dash-item" >
+                    <NavLink exact={true} to="/createchar" activeClassName="active" className="dash-item" >
                         <div className="pagesymbol">
                            {navicons.createchar}                           
                         </div>
@@ -59,7 +59,7 @@ export default class Dashboard extends React.Component {
                         </div>
                     </NavLink>
 
-                    <NavLink exact to="/soon" activeClassName="active" className="dash-item" >
+                    <NavLink exact={true} to="/soon" activeClassName="active" className="dash-item" >
                         <div className="pagesymbol">
                            {navicons.soon}                           
                         </div>
@@ -68,7 +68,7 @@ export default class Dashboard extends React.Component {
                         </div>
                     </NavLink>
 
-                    <NavLink exact to="/missions" activeClassName="active" className="dash-item" >
+                    <NavLink exact={true} to="/missions" activeClassName="active" className="dash-item" >
                         <div className="pagesymbol">
                            {navicons.missions}                           
                         </div>
@@ -77,7 +77,7 @@ export default class Dashboard extends React.Component {
                         </div>
                     </NavLink>
 
-                    <NavLink exact to="/witchchat" activeClassName="active" className="dash-item" >
+                    <NavLink exact={true} to="/witchchat" activeClassName="active" className="dash-item" >
                         <div className="pagesymbol">
                            {navicons.covenchat}                           
                         </div>
@@ -86,7 +86,7 @@ export default class Dashboard extends React.Component {
                         </div>
                     </NavLink>
 
-                    <NavLink exact to="/profile" activeClassName="active" className="dash-item" >
+                    <NavLink exact={true} to="/profile" activeClassName="active" className="dash-item" >
                         <div className="pagesymbol">
                            {navicons.profile}                           
                         </div>
@@ -95,7 +95,7 @@ export default class Dashboard extends React.Component {
                         </div>
                     </NavLink>
 
-                    <NavLink exact to="/settings" activeClassName="active" className="dash-item" >
+                    <NavLink exact={true} to="/settings" activeClassName="active" className="dash-item" >
                         <div className="pagesymbol">
                            {navicons.settings}                           
                         </div>
@@ -104,7 +104,7 @@ export default class Dashboard extends React.Component {
                         </div>
                     </NavLink>
 
-                    <NavLink exact to="/docs" activeClassName="active" className="dash-item" >
+                    <NavLink exact={true} to="/docs" activeClassName="active" className="dash-item" >
                         <div className="pagesymbol">
                            {navicons.documentation}                           
                         </div>
@@ -113,7 +113,7 @@ export default class Dashboard extends React.Component {
                             </div>
                     </NavLink>
 
-                     <NavLink exact to="/apimock" activeClassName="active" className="dash-item" >
+                     <NavLink exact={true} to="/apimock" activeClassName="active" className="dash-item" >
                         <div className="pagesymbol">
                            {navicons.apimocking}                           
                         </div>
@@ -122,7 +122,7 @@ export default class Dashboard extends React.Component {
                         </div>
                      </NavLink>
 
-                     <NavLink exact to="/coinflip" activeClassName="active" className="dash-item" >
+                     <NavLink exact={true} to="/coinflip" activeClassName="active" className="dash-item" >
                         <div className="pagesymbol">
                            {navicons.apimocking}                           
                         </div>
@@ -131,7 +131,7 @@ export default class Dashboard extends React.Component {
                         </div>
                      </NavLink>
 
-                     <NavLink exact to="/complex" activeClassName="active" className="dash-item" >
+                     <NavLink exact={true} to="/complex" activeClassName="active" className="dash-item" >
                         <div className="pagesymbol">
                            {navicons.complex}                           
                         </div>

@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 //components
-import Form from '../components-stateful/CreateCharForm/createCharForm';
+import Form from '../components-stateful/CreateCharForm/CreateCharForm';
 import Tip from '../components/infotip';
 import ImgCaption from '../components/img_caption';
 

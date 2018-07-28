@@ -1,11 +1,11 @@
 {
    "defaultSeverity": "warning",
-   "extends": ["tslint:recommended", "tslint-react"],
-   "linterOptions": {
-      "exclude": [
-         "config/**/*.js",
-         "node_modules/**/*.ts"
-      ]
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts"
+    ]
    },
    "rules": {
       "one-line" : false,
@@ -27,5 +27,5 @@
       "variable-name" : false,
       "comment-format" : false,
       "jsx-no-multiline-js" : false
-   }
+  }
 }

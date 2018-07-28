@@ -14,7 +14,7 @@ export default class TodoApi {
 				.then(
 					(response) => { resolve(response.data); }
 				)
-				.catch(
+				.catch( 
 					(error) => LOGGING.LogErrorResponse(error)
 				)
 		);

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
 import chatPage from '../pages/chatPage';
-import createCharPage from '../pages/createCharPage';
+import createCharPage from '../pages/CreateCharPage';
 import dashboard from '../pages/dashboard';
 import docsPage from '../pages/docsPage';
 import gallerypage from '../pages/galleryPage';
@@ -35,19 +35,19 @@ export default class Main extends React.Component {
             {
                (!this.state.hasError) ? 
                <Switch>
-                  <Route exact path="/" component={dashboard}/>
-                  <Route exact path="/createchar" component={createCharPage}/>
-                  <Route exact path="/soon" component={soonpage}/>
-                  <Route exact path="/gallery" component={gallerypage}/>
-                  <Route exact path="/witchchat" component={chatPage}/>
-                  <Route exact path="/profile" component={witchPage}/>
-                  <Route exact path="/settings" component={settingsPage}/>
-                  <Route exact path="/docs" component={docsPage}/>
-                  <Route exact path="/apimock" component={apiMockPage}/>
-                  <Route exact path="/coinflip" component={coinFlipPage}/>
-                  <Route exact path="/complex" component={complex}/>
+                  <Route exact={true} path="/" component={dashboard}/>
+                  <Route exact={true} path="/createchar" component={createCharPage}/>
+                  <Route exact={true} path="/soon" component={soonpage}/>
+                  <Route exact={true} path="/gallery" component={gallerypage}/>
+                  <Route exact={true} path="/witchchat" component={chatPage}/>
+                  <Route exact={true} path="/profile" component={witchPage}/>
+                  <Route exact={true} path="/settings" component={settingsPage}/>
+                  <Route exact={true} path="/docs" component={docsPage}/>
+                  <Route exact={true} path="/apimock" component={apiMockPage}/>
+                  <Route exact={true} path="/coinflip" component={coinFlipPage}/>
+                  <Route exact={true} path="/complex" component={complex}/>
                   <Redirect to="/"/>
-               </Switch>
+               </Switch> 
                :
                <section>
                   <h2>
