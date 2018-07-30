@@ -2,6 +2,7 @@
 //libraries
 import * as React from 'react';
 import Product, { productType } from '../../models/productModel';
+import icons from '../../components/icons';
 
 interface IProps {
    productTable:Product[];
@@ -50,7 +51,10 @@ export default class ProductTable extends React.Component<IProps> {
                               {this.getMappedTypes(product.productType)}
                            </span>
                         </div>
-                        <div className="cell-60px"><b>{hasPrice && price}</b></div>
+                        <div className="cell-30px"><b>{hasPrice && price}</b></div>
+                        <div className="cell-30px">{icons.missions}</div>
+                        <div className="cell-30px">{icons.missions}</div>
+                        <div className="cell-30px">{icons.missions}</div>
                         <div className="cell-60px flex-center">
                            <button onClick={handleRemove} className="close-button"></button>
                         </div>
