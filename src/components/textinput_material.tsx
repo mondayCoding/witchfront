@@ -1,10 +1,9 @@
 
 import * as React from 'react';
 import {IInputFieldProperties} from '../interfaces';
-import Tip from './infotip';
+import Tip from './Infotip';
 
-
-export default class Input extends React.Component<IInputFieldProperties> {
+export default class InputMaterial extends React.Component<IInputFieldProperties> {
 
     public render() {
         const {id, value, label, tooltip, validation, ...rest} = this.props;

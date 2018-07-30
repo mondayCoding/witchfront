@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 //components
-import Radiobutton from '../../components/radiobutton';
+import Radiobutton from '../../components/Radiobutton';
 
 
 //Interfaces

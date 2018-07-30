@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Product from '../../models/productModel';
 import Input from '../../components/Textinput_responsive';
-import SliderCheckbox from '../../components/checkbox_slider';
+import SliderCheckbox from '../../components/Checkbox_slider';
 import Select from 'react-select';
 
 

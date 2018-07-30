@@ -7,8 +7,8 @@ import * as React from 'react';
 import FormValidator from '../../utils/validationModule';
 import res from '../Profile/localization';
 import API from '../../services/UserForm';
-import Input from '../../components/textinput_material';
-import Button from '../../components/button';
+import Input from '../../components/Textinput_material';
+import Button from '../../components/Button';
 import anno from '../../utils/annoModule';
 import validation from './validation';
 

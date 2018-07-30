@@ -7,13 +7,13 @@ import Select, { Option } from 'react-select';
 import Product, { Tag } from '../../models/productModel';
 import {userType, productType} from '../../models/productModel';
 import Input from '../../components/Textinput_responsive';
-import Button from '../../components/button';
+import Button from '../../components/Button';
 import res from './localization';
 import { LocalizedStrings } from 'react-localization';
 
 //tabs
-import Tabs from '../../components/tabs';
-import Tab from '../../components/tab';
+import Tabs from '../../components/Tabs';
+import Tab from '../../components/Tab';
 import GeneralTab from './tabGeneral';
 import NoteTab from './tabNote';
 import AvaibilityTab from './tabAvaibility';

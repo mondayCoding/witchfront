@@ -6,9 +6,9 @@ import * as React from 'react';
 import confirm from '../../utils/confirmUtilModule';
 import coinFlipper from '../../utils/coinFlipModule';
 import {IFlipHistoryItem} from '../../utils/coinFlipModule';
-import Button from '../../components/button';
-import Tabs from '../../components/tabs';
-import Tab from '../../components/tab'; 
+import Button from '../../components/Button';
+import Tabs from '../../components/Tabs';
+import Tab from '../../components/Tab'; 
 
 interface IState {
    coinFlipHistory: IFlipHistoryItem[];

@@ -4,9 +4,6 @@ import * as React from 'react';
 
 //components
 import Form from '../components-stateful/CreateCharForm/CreateCharForm';
-import Tip from '../components/infotip';
-import ImgCaption from '../components/img_caption';
-
 
 export default class CreateCharPage extends React.Component {
    public render() {

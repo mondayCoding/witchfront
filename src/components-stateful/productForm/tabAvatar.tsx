@@ -2,10 +2,10 @@
 import * as React from 'react';
 import Product from '../../models/productModel';
 import AvatarSelector from '../avatarSelector/avatarSelector';
-import DropZone from '../../components/file_dropzone';
-import FileUploadTest from './fileUpload';
-import Tabs from '../../components/tabs';
-import Tab from '../../components/tab';
+import DropZone from '../../components/File_dropzone';
+import FileUploadTest from './FileUpload';
+import Tabs from '../../components/Tabs';
+import Tab from '../../components/Tab';
 
 interface IProps {
    onSelection(e:any):void;

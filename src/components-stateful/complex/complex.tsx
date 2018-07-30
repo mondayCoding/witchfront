@@ -4,8 +4,8 @@ import * as React from 'react';
 import Product from '../../models/productModel';
 import ProductTable from './productTable';
 import EditProductForm from '../productForm/productForm';
-import Button from '../../components/button';
-import Modal from '../../components/modal';
+import Button from '../../components/Button';
+import Modal from '../../components/Modal';
 import res from './localization';
 import {IUserContext} from '../../layout/layout';
 

@@ -2,8 +2,6 @@
 import * as React from 'react';
 import {IInputFieldProperties} from '../interfaces';
 
-
-
 export default class Select extends React.Component<IInputFieldProperties> {
 
    public render() {

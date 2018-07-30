@@ -5,11 +5,11 @@ import StepOne from './step1';
 import StepTwo from './step2';
 import StepThree from './step3';
 import StepFour from './step4';
-import Button from '../../components/button';
+import Button from '../../components/Button';
 import anno from '../../utils/annoModule';
-import WizardPath from '../../components/wizard_path';
-import Tip from '../../components/infotip';
-import ImgCaption from '../../components/img_caption';
+import WizardPath from '../../components/Wizard_path';
+import Tip from '../../components/Infotip';
+import ImgCaption from '../../components/ImageWithCaption';
 
 const CurrentStep = (props:ICurrentStep) => {
 

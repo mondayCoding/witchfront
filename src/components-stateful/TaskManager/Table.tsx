@@ -1,8 +1,8 @@
 
 import * as React from 'react';
 
-import Input from '../../components/textinput_material';
-import Button from '../../components/button';
+import Input from '../../components/Textinput_material';
+import Button from '../../components/Button';
 
 
 export default class Table extends React.Component<any> {

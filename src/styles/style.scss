@@ -483,6 +483,10 @@ $checkboxSize: 1.8rem;
 .themeheading {
    display: block;
    color: $main;
+
+   & > .icon {
+      margin-right: .5rem;
+   }
    
    &.xs {   font-size:1rem;      }
    &.sm {   font-size:1.25rem;   }

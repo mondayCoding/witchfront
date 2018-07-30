@@ -3,8 +3,8 @@
 
 import * as React from 'react';
 import axios, { AxiosError } from 'axios';
-import DropZone from '../../components/file_dropzone';
-import Button from '../../components/button';
+import DropZone from '../../components/File_dropzone';
+import Button from '../../components/Button';
 
 
 interface IState {

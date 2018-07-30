@@ -2,7 +2,7 @@
 //libraries
 import * as React from 'react';
 import Product, { productType } from '../../models/productModel';
-import icons from '../../components/icons';
+import icons from '../../components/Icons';
 
 interface IProps {
    productTable:Product[];
@@ -22,9 +22,7 @@ export default class ProductTable extends React.Component<IProps> {
 
    public getMappedTypes(types:Product["productType"]){            
       return types.map((typename, index) => {         
-         return(
-            <span key={index} className="type-label shift-background">{typename}</span>
-         );
+         return(<span key={index} className="type-label shift-background">{typename}</span>);
       });
    }
 

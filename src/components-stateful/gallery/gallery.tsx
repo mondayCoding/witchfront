@@ -10,17 +10,17 @@ import usageSample, {Sample, patterns} from './codeSamples';
 const Markdown = require('react-markdown');
 
 //import components
-import MaterialInput from '../../components/textinput_material';
+import MaterialInput from '../../components/Textinput_material';
 import ResponsiveInput from '../../components/Textinput_responsive';
-import SimpleInput from '../../components/textinput_plain';
-import CheckBox from '../../components/checkbox';
-import SliderCheckbox from '../../components/checkbox_slider';
-import Radio from '../../components/radiobutton';
-import WizardPath from '../../components/wizard_path';
-import Button from '../../components/button';
-import Tab from '../../components/tab';
-import Tabs from '../../components/tabs';
-import Modal from '../../components/modal';
+import SimpleInput from '../../components/Textinput_plain';
+import CheckBox from '../../components/Checkbox';
+import SliderCheckbox from '../../components/Checkbox_slider';
+import Radio from '../../components/Radiobutton';
+import WizardPath from '../../components/Wizard_path';
+import Button from '../../components/Button';
+import Tab from '../../components/Tab';
+import Tabs from '../../components/Tabs';
+import Modal from '../../components/Modal';
 import Select, {Option} from 'react-select';
 
 

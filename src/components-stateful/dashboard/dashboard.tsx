@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import API from '../../services/Statistics';
-import navicons from '../../components/icons';
+import navicons from '../../components/Icons';
 
 interface IStatisticsRespn {
     serverStartCount:string;

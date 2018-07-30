@@ -1,8 +1,8 @@
 
 
 import Footer from './footer';
-import Button from '../components/button';
-import Input from '../components/textinput_material';
+import Button from '../components/Button';
+import Input from '../components/Textinput_material';
 import * as React from 'react';
 import axios, { AxiosError } from 'axios';
 

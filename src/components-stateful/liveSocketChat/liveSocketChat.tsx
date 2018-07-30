@@ -5,7 +5,7 @@ import ANNO from '../../utils/annoModule';
 import Announcement from '../announcement/announcement';
 import ChatLine from './line';
 import SelectUserMenu from './selectUserMenu';
-import InputPlain from '../../components/textinput_plain';
+import InputPlain from '../../components/Textinput_plain';
 import { IMessageLine } from '../../interfaces';
 
 

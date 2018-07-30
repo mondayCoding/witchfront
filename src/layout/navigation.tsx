@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import {NavLink} from 'react-router-dom';
-import navicons from '../components/icons';
+import navicons from '../components/Icons';
 
 export default class Navigation extends React.Component {
    public render() {

@@ -1,21 +1,12 @@
-
-//libraries
 import * as React from 'react';
 import { arrayMove } from 'react-sortable-hoc';
-
-//custom components
 import Table from './Table';
-import Modal from '../../components/modal';
+import Modal from '../../components/Modal';
 import SortableList from './sortableList';
 import TaskManagerModal from './TaskManagerModal';
-
-//utils
 import API from '../../services/ToDo_soon';
 import confirm from '../../utils/confirmUtilModule';
-
-//interfaces
 import { IMissionItem } from '../../interfaces';
-
 
 
 export default class ToDoSoon extends React.Component {

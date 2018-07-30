@@ -1,8 +1,8 @@
 
 import * as React from 'react';
 
-import Input from '../../components/textinput_material';
-import CheckBox from '../../components/checkbox';
+import Input from '../../components/Textinput_material';
+import CheckBox from '../../components/Checkbox';
 
 interface IStepThreeForm {
    opinionCats: string;
