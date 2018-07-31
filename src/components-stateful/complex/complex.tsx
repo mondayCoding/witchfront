@@ -10,20 +10,19 @@ import res from './localization';
 import {IUserContext} from '../../layout/layout';
 
 
+
 export default class Complex extends React.Component<IProps> {
 
-   public state:IState = {
+   public state: Readonly<IState> = {
       userType: 0,
       productTable: [],
       selectedIndex: 0,
-      selectedProduct: null,
-      isModalOpen: false,
+      isModalOpen: false
    };
 
    public handleAddProduct = () => {
-      let productTable = this.state.productTable.slice(0);
       const newProduct = new Product("New product");
-      productTable.push(newProduct);
+      const productTable = [...this.state.productTable, newProduct]
       this.setState({productTable});
    }
 
@@ -37,18 +36,19 @@ export default class Complex extends React.Component<IProps> {
       });
    }
 
-   public handleProductSelection = (selectedProduct:Product, selectedIndex:number) => {
-      this.setState({
-         selectedIndex,
-         selectedProduct, 
-         isModalOpen:true
-      });
+   public handleProductSelection = (selectedIndex:number) => {
+      this.setState({selectedIndex, isModalOpen:true});
    }
 
    public handleProductRemove = (index:number) => {
-      const productTable = this.state.productTable;
-      productTable.splice(index,1);      
-      this.setState({productTable});
+      this.removeProduct(index);
+   }
+
+   public removeProduct = (removeIndex:number) =>{    
+      const newTable = this.state.productTable.filter((product, index) => !(index === removeIndex));      
+      this.setState((prev:IState) => ({
+         productTable: newTable})
+      );
    }
 
    public closeModal = () => {
@@ -61,7 +61,7 @@ export default class Complex extends React.Component<IProps> {
 
    public render() {
       const {productTable, isModalOpen, selectedIndex} = this.state;
-      const selectedProduct = Object.assign({}, this.state.selectedProduct);
+      const selectedProduct = Object.assign({}, this.state.productTable[selectedIndex]);
       const modalheading = (selectedProduct) ? selectedProduct.name : "no selected product";
 
       return(
@@ -123,7 +123,6 @@ interface IUserContext {
 interface IState {
    userType: userType;
    productTable: Product[];
-   selectedProduct: Product;
    selectedIndex: number;
    isModalOpen: boolean;
 }

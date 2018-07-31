@@ -16,6 +16,8 @@ export default class Product{
    public id: string;
    public description: string;
    public memoNote: string;
+   public unit: string;
+   public imgFileBlob: string;
    public isVisibleTo: userType[];
    public productType: productType[];
    public tag: Tag;
@@ -28,8 +30,6 @@ export default class Product{
    public endOfServiceDate: Date;
    public availableFrom: Date;
    public availableTo: Date;
-   public unit: string;
-   public imgFileBlob: string;
    public maxAmount: number;
    public minAmount: number;
    public price: number;

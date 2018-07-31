@@ -6,7 +6,7 @@ import icons from '../../components/Icons';
 
 interface IProps {
    productTable:Product[];
-   onProductClick(params:Product, index:number):void;
+   onProductClick(index:number):void;
    onRemoveClick(index:number):void;
 }
 
@@ -36,7 +36,7 @@ export default class ProductTable extends React.Component<IProps> {
                (hasProducts) ?
                productTable.map((product, index)=> {
                   const {name, id, description, hasPrice, price} = product;
-                  const handleProductClick = () => this.props.onProductClick(product, index);
+                  const handleProductClick = () => this.props.onProductClick(index);
                   const handleRemove = () => this.props.onRemoveClick(index);                  
 
                   return(
