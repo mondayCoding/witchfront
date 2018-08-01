@@ -1,8 +1,8 @@
 
 //libs
 import * as React from "react";
-import wrapInContext from '../HOC/contextProviderHOC';
-import Complex from '../components-stateful/complex/complex';
+import wrapInContext from '../../HOC/contextProviderHOC';
+import Complex from '../../components-stateful/complex/complex';
 
 export default class ComplexPage extends React.Component {
    public render() {

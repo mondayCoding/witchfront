@@ -7,6 +7,9 @@ export default class Navigation extends React.Component {
    public render() {
       return (       
          <ul className="navi-list">
+            <li className="navi-heading">
+               <span>Pr</span>
+            </li>
             <li className="navi-item">
                <NavLink exact={true} to="/" activeClassName="active" title="Dashboard">
                   {navicons.dashboard}
@@ -24,6 +27,9 @@ export default class Navigation extends React.Component {
                   {navicons.soon}
                   <span className="pagename">Soon™</span>
                </NavLink>
+            </li>
+            <li className="navi-heading">
+               <span>Se</span>
             </li>
             <li className="navi-item">
                <NavLink exact={true} to="/gallery" activeClassName="active" title="Missions">
@@ -43,6 +49,9 @@ export default class Navigation extends React.Component {
                   {navicons.profile}
                   <span className="pagename">Profile</span>
                </NavLink>
+            </li>
+            <li className="navi-heading">
+               <span>Te</span>
             </li>
             <li className="navi-item">
                <NavLink exact={true} to="/settings" activeClassName="active" title="Settings">

@@ -2,17 +2,17 @@
 import * as React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
-import chatPage from '../pages/chatPage';
-import createCharPage from '../pages/createcharpage';
-import dashboard from '../pages/dashboard';
-import docsPage from '../pages/docsPage';
-import gallerypage from '../pages/galleryPage';
-import settingsPage from '../pages/settingsPage';
-import soonpage from '../pages/soonpage';
-import witchPage from '../pages/profilePage';
-import apiMockPage from '../pages/apiMockPage';
-import coinFlipPage from '../pages/coinFlipPage';
-import complex from '../pages/complexPage';
+import chatPage from './pages/chatPage';
+import createCharPage from './pages/CreateCharPage';
+import dashboard from './pages/dashboard';
+import docsPage from './pages/docsPage';
+import gallerypage from './pages/galleryPage';
+import settingsPage from './pages/settingsPage';
+import soonpage from './pages/soonpage';
+import witchPage from './pages/profilePage';
+import apiMockPage from './pages/apiMockPage';
+import coinFlipPage from './pages/coinFlipPage';
+import complex from './pages/complexPage';
 
 
 export default class Main extends React.Component {

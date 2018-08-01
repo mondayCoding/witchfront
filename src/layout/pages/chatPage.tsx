@@ -1,9 +1,7 @@
 
-//libs
-import * as React from 'react';
 
-//components
-import ChatWindow from '../components-stateful/liveSocketChat/liveSocketChat';
+import * as React from 'react';
+import ChatWindow from '../../components-stateful/liveSocketChat/liveSocketChat';
 
 
 export default class ChatPage extends React.Component<any,any> {
