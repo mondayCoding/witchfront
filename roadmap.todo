@@ -4,6 +4,8 @@ ROADMAD: witchNode (Front-end):
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
    ☐ New navigation split => groups: "Apps" (coinflipper, todo, chat), "Management" (user creation, complex), "Menu" (settings, documentation[docs + gallery])
+   ☐ Data permanence => Users (username + password)
+
    ☐ user creation and selection
    ☐ confirmation window own implementation
    ☐ css generic components with variant classes

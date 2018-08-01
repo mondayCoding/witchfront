@@ -476,6 +476,9 @@ input[type="text"] {
   display: block;
   color: #75AB35; }
 
+.themeheading > .icon {
+  margin-right: .5rem; }
+
 .themeheading.xs {
   font-size: 1rem; }
 

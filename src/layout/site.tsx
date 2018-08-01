@@ -1,5 +1,5 @@
 
-import Navigation from './Navigation';
+import Navigation from './navigation';
 import Main from './main';
 import Footer from './footer';
 import * as React from 'react';

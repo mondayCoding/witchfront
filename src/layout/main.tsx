@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
 import chatPage from '../pages/chatPage';
-import createCharPage from '../pages/CreateCharPage';
+import createCharPage from '../pages/createcharpage';
 import dashboard from '../pages/dashboard';
 import docsPage from '../pages/docsPage';
 import gallerypage from '../pages/galleryPage';
