@@ -1599,7 +1599,7 @@ $tipMessageWidth: 14rem;
 .flex-table {
 	display: flex;
    flex-direction: column;
-   border: .1rem solid transparentize($color:$grayBlack, $amount: .7);
+   border: .1rem solid transparentize($color:$grayBlack, $amount: .8);
    border-radius: $globalRadius;
    box-shadow: $globalShadow;
    
@@ -2573,3 +2573,110 @@ footer {
 
 
 //************************************************************
+
+
+
+//STOLEN
+
+$checkboxSize: 1.5rem;
+
+.themecheckbox {
+	& > input[type="checkbox"]  {
+		position: absolute;
+		left: -999rem;
+
+		&:focus + label {
+			@include focusStyle(); 
+		}
+
+		&:disabled + label {
+			color: lighten($black, 40%);
+			cursor: default;
+
+			&::before {
+				border-color: lighten($black, 80%);
+				background-color: lighten($black, 80%);
+				border: .1rem solid lighten($black, 80%);
+			}
+
+			&::after {
+				color: lighten($black, 40%);
+			}
+		}
+	}
+
+	[type="checkbox"] + label {
+      text-align: left;
+      font-weight: 400;
+      font-size: .95rem;
+      position: relative;
+      cursor: pointer;
+      height: auto;
+      display: flex;
+      align-items: center;
+      -moz-user-select: none; /* Firefox 2+ */
+      -ms-user-select: none; /* IE 10+ */
+      user-select: none; /* Standard syntax */
+		padding: .5rem .5rem .5rem 2.9rem;
+		min-height: 1.6rem;
+
+		&:hover {
+			background-color: lighten($accentColorDark, 50%);		
+		}
+
+		//bg
+		&::before {
+			content: '';
+         @include size($checkboxSize);
+			position: absolute;
+         left: .5rem;
+         border-radius: $globalBorderRadius;
+			background-color: none;
+			transition: opacity .2s;
+			border: .1rem solid $grayLight;		
+		}
+
+		//checkmark
+		&::after {
+         content: '✔';
+         @include size($checkboxSize);
+			position: absolute;
+			left: .8rem;
+			font-size: $checkboxSize;
+         line-height: 1;
+			transition: opacity .2s;	
+			color: $accentColorLight;				
+		}
+	}
+
+	[type="checkbox"]:not(:checked) + label::after {
+		 opacity: 0;
+	}
+
+	[type="checkbox"]:checked + label {
+
+		&::after {
+		 	opacity: 1;
+	 	}
+   }
+   
+   &.inlined {
+      @include size(1.5rem);
+      display: inline-flex;
+      border-radius: $globalBorderRadius;
+      
+      & > [type="checkbox"] + label {
+         padding: 0;
+         @include size(1.5rem);
+
+         &::after {
+            left: .15rem;
+
+         }
+
+         &::before {
+            left: 0;
+         }
+      }
+   }
+}
