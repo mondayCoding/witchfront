@@ -15,12 +15,24 @@ interface IModalProps {
 export default class TaskManagerModal extends React.Component<IModalProps> {
 
    public state:IMissionItem = {
-      objective: this.props.task.objective,
-      longObjective: this.props.task.longObjective,
-      createDate: this.props.task.createDate,
-      complete:this.props.task.complete,
-      completeDate:this.props.task.completeDate
+      objective: "",
+      longObjective: "",
+      createDate: "",
+      complete: null,
+      completeDate: "",
+      order: null
    };
+
+   public componentDidMount(){
+      this.setState({
+         objective: this.props.task.objective,
+         longObjective: this.props.task.longObjective,
+         createDate: this.props.task.createDate,
+         complete:this.props.task.complete,
+         completeDate:this.props.task.completeDate,
+         order: this.props.task.order
+      });
+   }
 
    public handleSave = () => {
       this.props.onSave(this.state);

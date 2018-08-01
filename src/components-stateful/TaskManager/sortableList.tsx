@@ -12,7 +12,7 @@ const list = (props: any) => {
 	return (
 		<div className="flex-table">
 			{props.items.map((mission: IMissionItem, index: number) => {
-            const update = () => props.updateModal(mission, index);
+            const update = () => props.updateModal(index);
             const remove = () => props.removeItem(mission);
             const toggle = () => props.toggle(mission);
             return(

@@ -12,7 +12,13 @@ const icons = {
    documentation: <i className="fa fa-book"></i>,
    apimocking: <i className="fa fa-bug"></i>,
    coinflipper: <i className="fas fa-dice"></i>,
-   complex: <i className="fa fa-barcode"></i>
+   complex: <i className="fa fa-barcode"></i>,
+   plus: <i className="far fa-plus-square"></i>,
+   minus: <i className="far fa-minus-square"></i>,
+   download: <i className="fas fa-download"></i>,
+   calendarPlus: <i className="fas fa-calendar-plus"></i>,
+   calendarMinus: <i className="fas fa-calendar-minus"></i>,
+   calendarTimes: <i className="fas fa-calendar-times"></i>,
 };
 
 export default icons;

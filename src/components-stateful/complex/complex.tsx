@@ -22,7 +22,7 @@ export default class Complex extends React.Component<IProps> {
 
    public handleAddProduct = () => {
       const newProduct = new Product("New product");
-      const productTable = [...this.state.productTable, newProduct]
+      const productTable = [...this.state.productTable, newProduct];
       this.setState({productTable});
    }
 

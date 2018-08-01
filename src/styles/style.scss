@@ -1832,6 +1832,7 @@ $tipMessageWidth: 14rem;
       box-shadow: $globalShadow;
       
       .login--window--title {
+         margin-top: 1rem;
          display: flex;
          justify-content: center;
       }
@@ -1839,15 +1840,19 @@ $tipMessageWidth: 14rem;
          padding: 2rem;
          display: flex;
          flex-direction: column;
-         align-items: center;
-         justify-content: center;
 
          .input-text {
             width: 100%;
             text-align: center;
          }
 
+         .loginBtn {
+            margin-top: 3rem;
+         }
+
          .forgot-pass {
+            display: flex;
+            justify-content: center;
             padding: 1.5rem 0;
          }
       }
@@ -2578,105 +2583,105 @@ footer {
 
 //STOLEN
 
-$checkboxSize: 1.5rem;
+// $checkboxSize: 1.5rem;
 
-.themecheckbox {
-	& > input[type="checkbox"]  {
-		position: absolute;
-		left: -999rem;
+// .themecheckbox {
+// 	& > input[type="checkbox"]  {
+// 		position: absolute;
+// 		left: -999rem;
 
-		&:focus + label {
-			@include focusStyle(); 
-		}
+// 		&:focus + label {
+// 			@include focusStyle(); 
+// 		}
 
-		&:disabled + label {
-			color: lighten($black, 40%);
-			cursor: default;
+// 		&:disabled + label {
+// 			color: lighten($black, 40%);
+// 			cursor: default;
 
-			&::before {
-				border-color: lighten($black, 80%);
-				background-color: lighten($black, 80%);
-				border: .1rem solid lighten($black, 80%);
-			}
+// 			&::before {
+// 				border-color: lighten($black, 80%);
+// 				background-color: lighten($black, 80%);
+// 				border: .1rem solid lighten($black, 80%);
+// 			}
 
-			&::after {
-				color: lighten($black, 40%);
-			}
-		}
-	}
+// 			&::after {
+// 				color: lighten($black, 40%);
+// 			}
+// 		}
+// 	}
 
-	[type="checkbox"] + label {
-      text-align: left;
-      font-weight: 400;
-      font-size: .95rem;
-      position: relative;
-      cursor: pointer;
-      height: auto;
-      display: flex;
-      align-items: center;
-      -moz-user-select: none; /* Firefox 2+ */
-      -ms-user-select: none; /* IE 10+ */
-      user-select: none; /* Standard syntax */
-		padding: .5rem .5rem .5rem 2.9rem;
-		min-height: 1.6rem;
+// 	[type="checkbox"] + label {
+//       text-align: left;
+//       font-weight: 400;
+//       font-size: .95rem;
+//       position: relative;
+//       cursor: pointer;
+//       height: auto;
+//       display: flex;
+//       align-items: center;
+//       -moz-user-select: none; /* Firefox 2+ */
+//       -ms-user-select: none; /* IE 10+ */
+//       user-select: none; /* Standard syntax */
+// 		padding: .5rem .5rem .5rem 2.9rem;
+// 		min-height: 1.6rem;
 
-		&:hover {
-			background-color: lighten($accentColorDark, 50%);		
-		}
+// 		&:hover {
+// 			background-color: lighten($accentColorDark, 50%);		
+// 		}
 
-		//bg
-		&::before {
-			content: '';
-         @include size($checkboxSize);
-			position: absolute;
-         left: .5rem;
-         border-radius: $globalBorderRadius;
-			background-color: none;
-			transition: opacity .2s;
-			border: .1rem solid $grayLight;		
-		}
+// 		//bg
+// 		&::before {
+// 			content: '';
+//          @include size($checkboxSize);
+// 			position: absolute;
+//          left: .5rem;
+//          border-radius: $globalBorderRadius;
+// 			background-color: none;
+// 			transition: opacity .2s;
+// 			border: .1rem solid $grayLight;		
+// 		}
 
-		//checkmark
-		&::after {
-         content: '✔';
-         @include size($checkboxSize);
-			position: absolute;
-			left: .8rem;
-			font-size: $checkboxSize;
-         line-height: 1;
-			transition: opacity .2s;	
-			color: $accentColorLight;				
-		}
-	}
+// 		//checkmark
+// 		&::after {
+//          content: '✔';
+//          @include size($checkboxSize);
+// 			position: absolute;
+// 			left: .8rem;
+// 			font-size: $checkboxSize;
+//          line-height: 1;
+// 			transition: opacity .2s;	
+// 			color: $accentColorLight;				
+// 		}
+// 	}
 
-	[type="checkbox"]:not(:checked) + label::after {
-		 opacity: 0;
-	}
+// 	[type="checkbox"]:not(:checked) + label::after {
+// 		 opacity: 0;
+// 	}
 
-	[type="checkbox"]:checked + label {
+// 	[type="checkbox"]:checked + label {
 
-		&::after {
-		 	opacity: 1;
-	 	}
-   }
+// 		&::after {
+// 		 	opacity: 1;
+// 	 	}
+//    }
    
-   &.inlined {
-      @include size(1.5rem);
-      display: inline-flex;
-      border-radius: $globalBorderRadius;
+//    &.inlined {
+//       @include size(1.5rem);
+//       display: inline-flex;
+//       border-radius: $globalBorderRadius;
       
-      & > [type="checkbox"] + label {
-         padding: 0;
-         @include size(1.5rem);
+//       & > [type="checkbox"] + label {
+//          padding: 0;
+//          @include size(1.5rem);
 
-         &::after {
-            left: .15rem;
+//          &::after {
+//             left: .15rem;
 
-         }
+//          }
 
-         &::before {
-            left: 0;
-         }
-      }
-   }
-}
+//          &::before {
+//             left: 0;
+//          }
+//       }
+//    }
+// }

@@ -81,6 +81,7 @@ export interface IMissionItem {
    complete:boolean;
    createDate:string;
    completeDate:string;
+   order: number;
 }
 
 

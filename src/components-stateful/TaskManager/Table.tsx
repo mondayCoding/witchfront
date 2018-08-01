@@ -3,11 +3,20 @@ import * as React from 'react';
 
 import Input from '../../components/Textinput_material';
 import Button from '../../components/Button';
+import Icons from '../../components/Icons';
+
+interface IProps {
+   value: string;
+   onKeyUp(e:KeyboardEvent):void;
+   onBtnClick(e:React.MouseEvent):void;
+   onChange(e:React.ChangeEvent<HTMLInputElement>):void;
+}
 
 
-export default class Table extends React.Component<any> {
+export default class Table extends React.Component<IProps> {
    public render(){
-      const {value, onKeyUp, onBtnClick, onChange, disableState, children} = this.props;
+      const {value, onKeyUp, onBtnClick, onChange} = this.props;
+      const disableSubmit = !(value.length > 5);
 
       return (
         <div>
@@ -22,13 +31,14 @@ export default class Table extends React.Component<any> {
             />
             <Button 
               onClick={onBtnClick} 
-              buttonText="Add" 
-              className={(disableState) ? "themebutton disabled" : "themebutton"} 
+              buttonText="Add"
+              buttonIcon={Icons.plus}
+              disabled={disableSubmit}
             />
           </div>
           <div className="spacing"></div>
           <div className="line-thin"></div>
-          <div className="flex-table">{children}</div>
+          <div className="flex-table">{this.props.children}</div>
           <div className="line-thin"></div>
         </div>
       );
