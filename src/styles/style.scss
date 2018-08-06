@@ -876,7 +876,6 @@ $bigProgressBarHeight: 1.5rem;
 
    &.showingStatus {
       height: $bigProgressBarHeight;
-      height: 1.5rem;
 
       span {
          display: inline-block;
@@ -903,6 +902,7 @@ $bigProgressBarHeight: 1.5rem;
       background: linear-gradient(to right, $successColor 0%, adjust-hue($successColor, 55%));
       -webkit-animation: ScrollBackground 3s infinite;
       -moz-animation: ScrollBackground 3s infinite;
+      -o-animation: ScrollBackground 3s infinite;
       background-size: 200%;
       animation: ScrollBackground 3s ease infinite; 
    }
@@ -1917,6 +1917,7 @@ nav.navigation {
    
    //navi group title 
    .navi-heading { 
+      color: $grayBlack !important;
    }
 
 	//single nav item (li)
@@ -2459,7 +2460,6 @@ footer {
 
    .announcement {
       flex: 1 1 auto;
-      min-height: 2rem;
 		height: auto;
 		min-height: 6rem;
 		overflow: hidden;
