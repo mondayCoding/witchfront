@@ -1,14 +1,18 @@
 
 //libs
 import * as React from 'react';
-import Gallery from '../../components-stateful/gallery/gallery';
+import Gallery from '../../Containers/gallery/gallery';
+import Documentation from '../../Containers/Documentation/documentation';
 
 
 export default class MissionPage extends React.Component {
    
    public render() {
       return (
-         <Gallery />
+         <React.Fragment>
+            <Gallery />
+            <Documentation />
+         </React.Fragment>
       );
    }
 }

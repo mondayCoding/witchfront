@@ -1,6 +1,6 @@
 
 import { confirmable, createConfirmation } from 'react-confirm';
-import ConfirmationDialog from '../components/Confirm';
+import ConfirmationDialog from '../Components/Confirm';
 
 // make chosen dialog confirmable
 const dialog = confirmable(ConfirmationDialog);

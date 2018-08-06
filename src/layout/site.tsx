@@ -4,6 +4,9 @@ import Main from './main';
 import Footer from './footer';
 import * as React from 'react';
 import {BrowserRouter, withRouter} from 'react-router-dom';
+import wrapInContext from '../HOC/contextProviderHOC';
+
+const NavigationWithContext = wrapInContext(Navigation);
 
 
 //main layout component, has navigation, main content and router components
@@ -17,7 +20,7 @@ export default class Layout extends React.Component {
                <div className="content-layout">
 
                   <nav className="navigation">
-                     <Navigation/>
+                     <NavigationWithContext />
                   </nav>
 
                   <main className="main" id="wrapper">

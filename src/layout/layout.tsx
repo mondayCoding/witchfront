@@ -2,65 +2,88 @@
 import Site from './site';
 import Login from './login';
 import * as React from 'react';
+import settings from '../utils/appSettings';
 
 export default class Layout extends React.Component {
 
-   public state:IState = {
-      isLoggedIn: false,
-      loggedRole: null
+   state:IState = {
+      isSignedIn: false,
+      level: null
    };
 
-   public logIn = (role:loggedRole) => {
-      sessionStorage.setItem("WITCHNODE_ISLOGGEDIN", "true");
-      sessionStorage.setItem("WITCHNODE_USERROLE", role.toString());
-      this.setState({isLoggedIn:true, loggedRole:role});
-   }
-
-   public componentDidMount(){
+   componentDidMount(){
       const isAlreadyLogged = sessionStorage.getItem("WITCHNODE_ISLOGGEDIN") === "true";
+      const level = parseInt(sessionStorage.getItem("WITCHNODE_USERROLE"),0);
       
       if (isAlreadyLogged) {          
-         const loggedAs = parseInt(sessionStorage.getItem("WITCHNODE_USERROLE"),0);
-         this.setState({isLoggedIn:true, loggedRole:loggedAs});
+         this.setState({isSignedIn:true, level});
       }
-
-      document.addEventListener("keyup", (event) => { 
-         if (event.altKey && event.keyCode===75){
-            console.log("alt + k pressed");            
-         }             
-      });
    }
 
-   public render() {
-      const loggedIn = this.state.isLoggedIn;
+   signIn = (user:IUser) => {
+      sessionStorage.setItem("WITCHNODE_ISLOGGEDIN", "true");
+      sessionStorage.setItem("WITCHNODE_USERROLE", user.level.toString());
+      sessionStorage.setItem("WITCHNODE_USER_TIPPOSITION", user.settings.position );
+      sessionStorage.setItem("WITCHNODE_USER_THEME", user.settings.theme );
+      this.setState({isSignedIn:true, level:user.level});
+   }
+   
+   signOut = () => {
+      sessionStorage.setItem("WITCHNODE_ISLOGGEDIN", "false");
+      sessionStorage.removeItem("WITCHNODE_USERROLE");
+      this.setState({isSignedIn:false, level:undefined});
+   }
 
-      if (loggedIn) {
+   render() {
+      const isLoggedInside = this.state.isSignedIn;
+
+      if (isLoggedInside) {
          return (
-            <IUserContext.Provider value={this.state}>
+            <UserContext.Provider value={{...this.state, signOut:this.signOut}}>
                <Site />
-            </IUserContext.Provider>
+            </UserContext.Provider>
          );
       } else {
          return (
-            <Login logIn={this.logIn} />
+            <Login signIn={this.signIn} />
          );
       }
    }
 }
 
-enum loggedRole {
+
+interface IUser {
+   level: userLevel;
+   settings: {
+      language: string;
+      position: string;
+      scale: string;
+      theme: string;
+   };
+}
+
+interface IState {
+   isSignedIn:boolean;
+   level:userLevel;
+}
+
+export enum userLevel {
    admin = 0,
    developer = 1,
    user = 2,
    quest = 3
 }
 
-interface IState {
-   isLoggedIn:boolean;
-   loggedRole:loggedRole;
+// UserContext
+
+export interface IUserContext {
+   isSignedIn: boolean;
+   level: userLevel;
+   signOut():void;
 }
 
-export const IUserContext = React.createContext({
-   isLoggedIn: false, 
-   loggedRole: null
+export const UserContext = React.createContext({
+   isSignedIn: false, 
+   level: null,
+   signOut: null
 });

@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 //components
-import Form from '../../components-stateful/CreateCharForm/CreateCharForm';
+import Form from '../../Containers/CreateCharForm/CreateCharForm';
 
 export default class CreateCharPage extends React.Component {
    public render() {

@@ -1,7 +1,7 @@
 
 //libs
 import * as React from 'react';
-import CoinFlipper from '../../components-stateful/coinFlipper/coinFlip';
+import CoinFlipper from '../../Containers/coinFlipper/coinFlip';
 
 
 export default class CoinFlipPage extends React.Component {

@@ -959,6 +959,9 @@ input[type="text"] {
   left: .5rem;
   pointer-events: none; }
 
+.themeprogress.warning .themeprogress--fill {
+  background: linear-gradient(to right, #db6154, #d6851a); }
+
 .themeprogress .themeprogress--fill {
   transition: width .2s ease-in-out;
   border-radius: 0.35rem;

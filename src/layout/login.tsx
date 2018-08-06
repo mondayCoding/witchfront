@@ -1,28 +1,13 @@
-
-
-import Button from '../components/Button';
-import Input from '../components/Textinput_material';
+import Button from '../Components/Button';
+import Input from '../Components/Textinput_material';
 import * as React from 'react';
 import API from '../services/Login';
 import ANNO from '../utils/annoModule';
 import { AxiosError } from 'axios';
 
-
-interface IProps {
-   logIn(x:number):void;
-}
-interface IState {
-   username: string;
-   password: string;
-   usernameValidation: string;
-   passwordValidation: string;
-   showHelp: boolean;
-}
-
-//main layout component, has navigation, main content and router components
 export default class Layout extends React.Component<IProps> {
 
-   public state:IState = {
+   state:IState = {
       username: "",
       password: "",
       usernameValidation: null,
@@ -30,7 +15,7 @@ export default class Layout extends React.Component<IProps> {
       showHelp: false,
    };
 
-   public handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+   handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const {value, name} = e.target;
       this.setState({
          [name]:value, 
@@ -39,15 +24,11 @@ export default class Layout extends React.Component<IProps> {
       });
    }
 
-   public handleLoginAsAdmin = () => {
-      this.props.logIn(0);
-   }
+   handleLoginAsAdmin = () => { this.props.signIn({level:0, settings: {position: ""}}); };
+   handleLoginAsDeveloper = () => { this.props.signIn({level:1, settings: {position: ""}}); };
+   showHelp = () =>{ this.setState({showHelp:true}); };
 
-   public handleLoginAsDeveloper = () => {
-      this.props.logIn(1);
-   }
-
-   public handleOnSubmit = async (e:React.FormEvent) =>{
+   handleOnSubmit = async (e:React.FormEvent) =>{
       e.preventDefault();
       const {username, password} = this.state;
 
@@ -61,24 +42,25 @@ export default class Layout extends React.Component<IProps> {
             passwordValidation: error.data.password
          });
       } else {
-         ANNO.announce("succesfull login");   
-         this.props.logIn(loginTry.level);
+         console.log("User Profile recieved:");         
+         console.log(loginTry);           
+         this.props.signIn(loginTry);
+         ANNO.announce("Signed in"); 
       }      
    }
 
-   public showHelp = () =>{
-      this.setState({showHelp:true});
-   }
-
-   public render() {
+   render() {
       const {username, password, usernameValidation, passwordValidation, showHelp} = this.state;
 
       return (
          <div className="login">
             <div className="login--window">
                <h2 className="login--window--title">
-                  Login
+                  Witchnode
                </h2>
+               <h3 className="login--window--title">
+                  Sign in
+               </h3>
                <div className="login--window--content">
                   <form onSubmit={this.handleOnSubmit}>
                      <Input 
@@ -101,22 +83,31 @@ export default class Layout extends React.Component<IProps> {
                      <Button buttonText="Sign in" className="wide loginBtn" type="submit" />
                   </form>
 
-
                   <section className="forgot-pass">
                      <a href="#" onClick={this.showHelp}>Forgot password?</a>
                   </section>
-
                   
                   {showHelp &&
                      <div className="row-flex spaced">
                         <Button onClick={this.handleLoginAsAdmin} buttonText="Sign in as Admin" />
                         <Button onClick={this.handleLoginAsDeveloper} buttonText="Sign in as Developer" />
                      </div> 
-                  }
-                 
+                  }                 
                </div>
             </div>
          </div>
       );
    }
 }
+
+interface IProps {
+   signIn(x:any):void;
+}
+interface IState {
+   username: string;
+   password: string;
+   usernameValidation: string;
+   passwordValidation: string;
+   showHelp: boolean;
+}
+

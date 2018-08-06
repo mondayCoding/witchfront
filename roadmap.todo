@@ -5,13 +5,14 @@ ROADMAD: witchNode (Front-end):
 
    ☐ New navigation split => groups: "Apps" (coinflipper, todo, chat), "Management" (user creation, complex), "Menu" (settings, documentation[docs + gallery])
    ☐ Data permanence => Users (username + password)
-
+   ☐ Create centralized settings class that interacts with sessionstorage
+   ☐ toastr => get options from local/sessionstorage
+   ☐ layout context provider => turn into context hoc
+   
    ☐ user creation and selection
    ☐ confirmation window own implementation
    ☐ css generic components with variant classes
-   ☐ video / audio test
-   ☐ javascript diagrams
-   ☐ manifest
+   ✔ layout user context => save user settings to local/sessionstorage on sign in @done(18-08-05 15:51)
    ✔ global status => (lang/theme) (context) @done(18-07-30 09:10)
    ✔ Create code documentation => e.g constructor docs, themings docs, etc (+ styled samples) @done(18-07-30 09:10)
    ✔ CSS Sass modules @done(18-07-30 09:09)

@@ -1,13 +1,13 @@
 
 import * as React from "react";
-import {IUserContext} from '../layout/layout';
+import {UserContext} from '../layout/layout';
 
 const wrapInContext = (WrappedComponent:any) => {
    return (props:any) => { 
       return(
-         <IUserContext.Consumer>
+         <UserContext.Consumer>
             {(userContext) => <WrappedComponent userContext={userContext}  {...props} />}
-         </IUserContext.Consumer>
+         </UserContext.Consumer>
       );
    };
 };

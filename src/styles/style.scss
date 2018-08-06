@@ -889,6 +889,12 @@ $bigProgressBarHeight: 1.5rem;
          pointer-events: none;
       }
    }
+
+   &.warning {
+      .themeprogress--fill {
+         background: linear-gradient(to right, $errorColor, $warnColor);         
+      }
+   }
    
    .themeprogress--fill {
       transition: width .2s ease-in-out;

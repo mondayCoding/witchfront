@@ -32,6 +32,6 @@ for (var index = 1; index < arguments.length; index++) {
        }
      }
    }
-   return to;
+return to;
   };
  }

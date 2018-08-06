@@ -26,6 +26,7 @@
       "jsx-no-lambda" : false,
       "variable-name" : false,
       "comment-format" : false,
-      "jsx-no-multiline-js" : false
+      "jsx-no-multiline-js" : false,
+      "member-access" : false
   }
 }
