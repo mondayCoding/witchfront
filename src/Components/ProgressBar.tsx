@@ -10,8 +10,8 @@ const PropgressBar:React.StatelessComponent<IProps> = (props) => {
    const cappedPercentage = (percentage >= 100 ) ? 100 : percentage;
    const statusText = (showStatusText) ? <span>{`${cappedPercentage}%`}</span> : null;
    let classString = "themeprogress";
-   if (showStatusText) {classString += "showingStatus";}
-   if (showWarningWhenFull && cappedPercentage === 100) {classString += "warning";}
+   if (showStatusText) {classString += " showingStatus";}
+   if (showWarningWhenFull && cappedPercentage === 100) {classString += " warning";}
 
    return (
       <div className={classString} title={cappedPercentage.toString()}>

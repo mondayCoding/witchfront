@@ -8,7 +8,7 @@ interface IProps {
 }
 
 export default class Line extends React.Component<IProps> {
-   public render(){
+   render(){
 
       let message = this.props.message;
       let userClass:string;
@@ -27,9 +27,9 @@ export default class Line extends React.Component<IProps> {
             break;
       }
 
-      let parsedTime = new Date (message.timestamp);
-      const minutes = (parsedTime.getMinutes() < 10) ? "0" + parsedTime.getMinutes() : parsedTime.getMinutes() ;
-      const hours = (parsedTime.getHours() < 10) ? "0" + parsedTime.getHours() : parsedTime.getHours() ;
+      let time = new Date (message.timestamp);
+      const minutes = (time.getMinutes() < 10) ? "0" + time.getMinutes() : time.getMinutes() ;
+      const hours = (time.getHours() < 10) ? "0" + time.getHours() : time.getHours() ;
       const stamp = `${hours}:${minutes}`;
 
       return (
