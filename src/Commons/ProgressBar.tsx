@@ -23,7 +23,6 @@ const PropgressBar:React.StatelessComponent<IProps> = (props) => {
 
 export default PropgressBar;
 
-
 interface IProps {
   showStatusText?: boolean;
   showWarningWhenFull?: boolean;
