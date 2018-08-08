@@ -1,16 +1,10 @@
 
 import * as React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-
-import chatPage from './pages/chatPage';
-import createCharPage from './pages/CreateCharPage';
-import dashboard from './pages/dashboard';
-import gallerypage from './pages/galleryPage';
-import settingsPage from './pages/settingsPage';
-import soonpage from './pages/soonpage';
-import witchPage from './pages/profilePage';
-import coinFlipPage from './pages/coinFlipPage';
-import complex from './pages/complexPage';
+import {
+   chatPage, CreateCharPage, dashboard, soonpage,
+   settingsPage,profilePage, complexPage, galleryPage, coinFlipPage
+} from './pages';
 
 
 export default class Main extends React.Component {
@@ -34,14 +28,14 @@ export default class Main extends React.Component {
                (!this.state.hasError) ? 
                <Switch>
                   <Route exact={true} path="/" component={dashboard}/>
-                  <Route exact={true} path="/createchar" component={createCharPage}/>
+                  <Route exact={true} path="/createchar" component={CreateCharPage}/>
                   <Route exact={true} path="/soon" component={soonpage}/>
-                  <Route exact={true} path="/gallery" component={gallerypage}/>
+                  <Route exact={true} path="/gallery" component={galleryPage}/>
                   <Route exact={true} path="/witchchat" component={chatPage}/>
-                  <Route exact={true} path="/profile" component={witchPage}/>
+                  <Route exact={true} path="/profile" component={profilePage}/>
                   <Route exact={true} path="/settings" component={settingsPage}/>
                   <Route exact={true} path="/coinflip" component={coinFlipPage}/>
-                  <Route exact={true} path="/complex" component={complex}/>
+                  <Route exact={true} path="/complex" component={complexPage}/>
                   <Redirect to="/"/>
                </Switch> 
                :

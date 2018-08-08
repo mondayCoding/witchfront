@@ -1,7 +1,6 @@
 
 import * as React from 'react';
-import Input from '../../Components/Textinput_material';
-import CheckBox from '../../Components/Checkbox';
+import {TextinputMaterial} from '../../../Components';
 
 export default class StepThree extends React.Component<IStepThreeForm> {
 
@@ -11,7 +10,7 @@ export default class StepThree extends React.Component<IStepThreeForm> {
       return (
          <section>
 
-            <Input 
+            <TextinputMaterial 
                value={opinionCats} 
                id="opinionCatsID" 
                label="Your opinion on cats?" 
@@ -19,21 +18,21 @@ export default class StepThree extends React.Component<IStepThreeForm> {
                onChange={onChange}
                validation={(opinionCats === "love") ? null : "wrong answer"}
             />
-            <Input 
+            <TextinputMaterial 
                value={opinionDogs} 
                id="opinionDogsID" 
                label="What about dogs?" 
                name="opinionDogs" 
                onChange={onChange}
             />
-            <Input 
+            <TextinputMaterial 
                value={opinionHouses} 
                id="opinionHousesID" 
                label="What dod you think about houses?" 
                name="opinionHouses" 
                onChange={onChange}
             />
-            <Input 
+            <TextinputMaterial 
                value={opinionLangues} 
                id="opinionLanguesID" 
                label="Best programming language?" 

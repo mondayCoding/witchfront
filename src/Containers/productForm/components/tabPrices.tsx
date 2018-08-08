@@ -1,8 +1,8 @@
 
 import * as React from 'react';
 import Product from '../../../models/productModel';
-import Input from '../../../Components/Textinput_responsive';
-import SliderCheckbox from '../../../Components/Checkbox_slider';
+import Input from '../../../Components/TextinputResponsive';
+import SliderCheckbox from '../../../Components/CheckboxSlider';
 import Select from 'react-select';
 
 

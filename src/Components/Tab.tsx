@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+import classNames from 'classnames';
 
 interface ITabButton {
    title: string;
@@ -10,11 +11,14 @@ interface ITabButton {
 
 const Tab: React.StatelessComponent<ITabButton> = (props) => {
    const {onClick, tabIndex, isActive, title} = props;
-   const buttonClass = (isActive) ? "tab-title active" : "tab-title";
+   const classString = classNames({
+      "tab-title": true,
+      "active": (isActive),
+   });
    const handleTabClick = () => onClick(tabIndex);
 
    return(
-      <button className={buttonClass} onClick={handleTabClick} title={title}>
+      <button className={classString} onClick={handleTabClick} title={title}>
          {title}
       </button>
    );  

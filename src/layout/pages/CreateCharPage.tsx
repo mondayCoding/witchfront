@@ -3,13 +3,13 @@
 import * as React from 'react';
 
 //components
-import Form from '../../Containers/CreateCharForm/CreateCharForm';
+import CreateCharForm from '../../Containers/CreateCharForm/CreateCharForm';
 
 export default class CreateCharPage extends React.Component {
    public render() {
       return (
          <div className="content--lg">
-            <Form />
+            <CreateCharForm />
          </div>
       );
    }

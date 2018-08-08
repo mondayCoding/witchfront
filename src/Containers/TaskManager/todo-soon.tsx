@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { arrayMove } from 'react-sortable-hoc';
+import {Modal} from '../../Components';
 import Table from './Table';
-import Modal from '../../Components/Modal';
 import SortableList from './sortableList';
 import TaskManagerModal from './TaskManagerModal';
 import API from '../../services/ToDo_soon';
-import confirm from '../../utils/confirmUtilModule';
+import confirm from '../../Utils/confirmUtilModule';
 import { IMissionItem, IMission } from '../../interfaces';
-import anno from '../../utils/annoModule';
+import anno from '../../Utils/annoModule';
 
 
 export default class ToDoSoon extends React.Component {

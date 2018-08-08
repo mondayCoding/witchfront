@@ -8,20 +8,14 @@ import 'prismjs/components/prism-tsx.min.js';
 import usageSample, {Sample, patterns} from './codeSamples';
 // tslint:disable-next-line:no-var-requires
 const Markdown = require('react-markdown');
+import Select, {Option} from 'react-select';
 
 //import components
-import MaterialInput from '../../Components/Textinput_material';
-import ResponsiveInput from '../../Components/Textinput_responsive';
-import SimpleInput from '../../Components/Textinput_plain';
-import CheckBox from '../../Components/Checkbox';
-import SliderCheckbox from '../../Components/Checkbox_slider';
-import Radio from '../../Components/Radiobutton';
-import WizardPath from '../../Components/Wizard_path';
-import Button from '../../Components/Button';
-import Tab from '../../Components/Tab';
-import Tabs from '../../Components/Tabs';
-import Modal from '../../Components/Modal';
-import Select, {Option} from 'react-select';
+import {
+   TextinputMaterial, TextinputResponsive, TextinputPlain, Checkbox, 
+   CheckboxSlider, Radiobutton, WizardPath, Button, ProgressBar, 
+   Tab, Tabs, TextArea, Modal
+} from '../../Components';
 
 
 export default class Gallery extends React.Component {
@@ -43,15 +37,27 @@ export default class Gallery extends React.Component {
       showValidationErrors: false,
       allDisabled: false,
       isModalOpen:false,
-      bestAnimal: ""
+      bestAnimal: "",
+      progress: 0
    };
+
+   timer: number;
 
    componentDidMount(){
       Prism.highlightAll();
+      this.timer = window.setInterval(this.incrementProgress, 500);
    }
 
+   componentWillUnmount(){
+      clearInterval(this.timer);
+   }
+   
    componentDidUpdate(){
       Prism.highlightAll();
+   }
+
+   incrementProgress = () => {
+      this.setState({progress: this.state.progress + 3});
    }
 
    handleOnChange = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -90,21 +96,21 @@ export default class Gallery extends React.Component {
             <section className="settings">             
                <label className="settings--label">Gallery settings | </label>
 
-               <SliderCheckbox
+               <CheckboxSlider
                   name="showUsageSamples"
                   label="Display code examples" 
                   id="showUsageSamples"
                   checked={showUsageSamples}
                   onChange={this.handleOnChange}
                />
-               <SliderCheckbox
+               <CheckboxSlider
                   name="allDisabled"
                   label="Disable all input elements" 
                   id="disableAll"
                   checked={allDisabled}
                   onChange={this.handleOnChange}
                />
-               <SliderCheckbox
+               <CheckboxSlider
                   name="showValidationErrors"
                   label="Show validation errors" 
                   id="showValidadErrors"
@@ -120,7 +126,7 @@ export default class Gallery extends React.Component {
    
                <div className="item--content">
                   <section className="content--lg">
-                     <MaterialInput 
+                     <TextinputMaterial 
                         name="firstname"
                         label="Firstname"
                         value={firstname}
@@ -128,7 +134,7 @@ export default class Gallery extends React.Component {
                         onChange={this.handleOnChange}
                         validation={validation}
                      />
-                     <MaterialInput 
+                     <TextinputMaterial 
                         name="lastname"
                         label="Lastname"
                         value={lastname}
@@ -157,7 +163,7 @@ export default class Gallery extends React.Component {
    
                <div className="item--content">
                   <section className="content--lg">
-                     <ResponsiveInput 
+                     <TextinputResponsive 
                         name="firstname"
                         id="firstnameresp"
                         label="Firstname"
@@ -166,7 +172,7 @@ export default class Gallery extends React.Component {
                         onChange={this.handleOnChange}
                         validation={validation}
                      />
-                     <ResponsiveInput 
+                     <TextinputResponsive 
                         name="lastname"
                         id="lastnameresp"
                         label="Lastname"
@@ -195,7 +201,7 @@ export default class Gallery extends React.Component {
    
                <div className="item--content">
                   <section className="content--lg">
-                     <CheckBox
+                     <Checkbox
                         name="hasCats"
                         label="Has cats" 
                         id="hascatssimple"
@@ -204,7 +210,7 @@ export default class Gallery extends React.Component {
                         onChange={this.handleOnChange}
                      />
          
-                     <CheckBox
+                     <Checkbox
                         name="hasDogs"
                         label="Has Dogs" 
                         id="hasdogssimple"
@@ -229,7 +235,7 @@ export default class Gallery extends React.Component {
    
                <div className="item--content">
                   <section className="content--lg">
-                     <SliderCheckbox
+                     <CheckboxSlider
                         name="hasCats"
                         label="Has cats" 
                         id="hascatsslider"
@@ -238,7 +244,7 @@ export default class Gallery extends React.Component {
                         onChange={this.handleOnChange}
                      />
          
-                     <SliderCheckbox
+                     <CheckboxSlider
                         name="hasDogs"
                         label="Has cats" 
                         id="hasdogsslider"
@@ -263,21 +269,21 @@ export default class Gallery extends React.Component {
                <div className="item--content">
                   <section className="content--lg">
                      
-                     <Radio 
+                     <Radiobutton 
                         id="radioOne" 
                         disabled={allDisabled} 
                         label="cats" 
                         name="bestAnimal" 
                         onChange={this.handleOnChange} 
                      />
-                     <Radio 
+                     <Radiobutton 
                         id="radioTwo" 
                         disabled={allDisabled} 
                         label="dogs" 
                         name="bestAnimal" 
                         onChange={this.handleOnChange} 
                      />
-                     <Radio 
+                     <Radiobutton 
                         id="radioThree" 
                         disabled={allDisabled} 
                         label="vombats?" 
@@ -318,6 +324,36 @@ export default class Gallery extends React.Component {
                   </section>
                </div>
             </article>
+
+            
+
+              <article className="item">
+               <h4 className="themeheading negative padded">
+                  Progress bar | animated
+               </h4>
+   
+               <div className="item--content">
+                  <section className="content--lg">
+
+                     <ProgressBar percentage={this.state.progress} showPercentStatus={true} />
+                     <ProgressBar 
+                        percentage={this.state.progress} 
+                        showPercentStatus={true} 
+                        minText="min" 
+                        maxText="max" 
+                     />
+                     <ProgressBar percentage={this.state.progress} showWarningWhenFull={true}/>
+                     <ProgressBar percentage={this.state.progress} minText="minValue" maxText="maxValue" />
+                     <ProgressBar percentage={this.state.progress} minText="justMin" />
+                     <ProgressBar percentage={this.state.progress} />
+         
+                     <Sample isShown={showUsageSamples}>         
+                        {usageSample.progress}
+                     </Sample>
+                  </section>
+               </div>
+            </article>
+
 
             <article className="item">
                <h4 className="themeheading negative padded">
@@ -458,6 +494,7 @@ interface IState {
    showUsageSamples: boolean;
    isModalOpen: boolean;
    bestAnimal: string;
+   progress: number;
 }
 
 const jobs = [

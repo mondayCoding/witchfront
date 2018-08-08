@@ -1,7 +1,6 @@
 import * as React from 'react';
 import axios, { AxiosError } from 'axios';
-import DropZone from '../../Components/File_dropzone';
-import Button from '../../Components/Button';
+import {Button, FileDropzone} from '../../Components';
 
 
 export default class FileUpload extends React.Component {
@@ -40,7 +39,7 @@ export default class FileUpload extends React.Component {
             method="post" 
             encType="multipart/form-data"
          >
-            <DropZone onFileChange={this.handleFileChange} />
+            <FileDropzone onFileChange={this.handleFileChange} />
             <Button type="submit" buttonText="Submit image" />
          </form>
       );

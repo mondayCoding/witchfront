@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import {SortableContainer, SortableElement, SortableHandle} from 'react-sortable-hoc';
-import icons from '../../Components/Icons';
+import Icons from '../../Components/Icons';
 
 interface Iprops {
    mission : {
@@ -15,7 +15,7 @@ interface Iprops {
    onActivation():void;
 }
 
-const SortHandle = SortableHandle(() => icons.bars);
+const SortHandle = SortableHandle(() => Icons.bars);
 
 const Row:React.StatelessComponent<Iprops> = ({mission, toggle, onActivation, onRemove}) => {
    let createDate = new Date(mission.createDate).toDateString();

@@ -11,6 +11,8 @@ const Heading:React.StatelessComponent<IProps> = (props) => {
    );
 };
 
+export default Heading;
+
 interface IProps {
    headingText: string;
    icon: React.ReactNode;

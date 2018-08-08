@@ -1,7 +1,6 @@
 
 import * as React from 'react';
-import ANNO from '../../utils/annoModule';
-
+import ANNO from '../../Utils/annoModule';
 
 export default class AvatarSelector extends React.Component<IProps> {
 

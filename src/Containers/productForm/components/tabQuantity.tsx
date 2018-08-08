@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import Product from '../../../models/productModel';
-import Input from '../../../Components/Textinput_responsive';
+import Input from '../../../Components/TextinputResponsive';
 
 
 export default class TabNote extends React.Component<IProps> {

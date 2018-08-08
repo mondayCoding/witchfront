@@ -5,14 +5,16 @@ import classNames from 'classnames';
 export default class Button extends React.Component<IButtonProperties> {
 
    public render() {
-      let { className, buttonText, buttonIcon, type, disabled, ...rest } = this.props;
-      className = (className) ? `themebutton ${className}` : "themebutton";
-      className = (disabled) ? `disabled ${className}` : className;      
+      let { className, buttonText, buttonIcon, type, disabled, ...rest } = this.props;   
       buttonText = buttonText || "button";
       type = type || "button";
 
+      const classString = classNames({
+         themebutton: true,[className]: className, disabled
+      });
+
       return (
-         <button type={type} className={className} {...rest} >
+         <button type={type} className={classString} {...rest} >
             {buttonIcon && <span>{buttonIcon}</span>}
             {buttonText && <span>{buttonText}</span>}
          </button>

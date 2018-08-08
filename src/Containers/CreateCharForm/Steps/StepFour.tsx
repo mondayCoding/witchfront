@@ -1,10 +1,8 @@
 
 import * as React from 'react';
 import Select from 'react-select';
+import {TextinputMaterial, Checkbox, Radiobutton} from '../../../Components';
 
-import Input from '../../Components/Textinput_material';
-import CheckBox from '../../Components/Checkbox';
-import Radiobutton from '../../Components/Radiobutton';
 
 interface IStepThreeForm {
    email: string;
@@ -21,7 +19,7 @@ export default class StepFour extends React.Component<IStepThreeForm> {
 
       return (
          <section className="">         
-            <Input value={email} id="emailID" label="Email" name="email" onChange={onChange}/>
+            <TextinputMaterial value={email} id="emailID" label="Email" name="email" onChange={onChange}/>
 
             <Radiobutton 
                id="radioOne" 
@@ -52,7 +50,7 @@ export default class StepFour extends React.Component<IStepThreeForm> {
             <div className="spacing"></div>
             <div className="spacing"></div>
 
-            <CheckBox 
+            <Checkbox 
                checked={allowMarketing} 
                name="allowMarketing"
                id="marketingID" 

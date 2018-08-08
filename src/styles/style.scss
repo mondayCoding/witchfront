@@ -865,6 +865,7 @@ $maxFieldWidth: 30rem;
 
 $smallProgressBarHeight: .5rem;
 $bigProgressBarHeight: 1.5rem;
+
 .themeprogress {
    position: relative;
    height: $smallProgressBarHeight;
@@ -872,9 +873,10 @@ $bigProgressBarHeight: 1.5rem;
    border: .1rem solid $grayDarkAlt;
    box-shadow: $globalShadow;
    border-radius: $globalRadius;
-   
+   display: flex;
+   justify-content: space-between;   
 
-   &.showingStatus {
+   &.thick {
       height: $bigProgressBarHeight;
 
       span {
@@ -882,9 +884,9 @@ $bigProgressBarHeight: 1.5rem;
          height: $bigProgressBarHeight;
          line-height: $bigProgressBarHeight;
          text-shadow: 0 0 .1rem black;
-         position: absolute;
-         top: 0;
-         left: .5rem;
+         position: static;
+         z-index: 1;
+         padding: 0 .5rem;
          pointer-events: none;
       }
    }
@@ -899,16 +901,18 @@ $bigProgressBarHeight: 1.5rem;
       transition: width .2s ease-in-out;
       border-radius: $globalRadius;
       height: 100%;
-      background: linear-gradient(to right, $successColor 0%, adjust-hue($successColor, 55%));
+      background: linear-gradient(to right, $successColor 0%, adjust-hue($successColor, 65%));
       -webkit-animation: ScrollBackground 3s infinite;
       -moz-animation: ScrollBackground 3s infinite;
       -o-animation: ScrollBackground 3s infinite;
       background-size: 200%;
-      animation: ScrollBackground 3s ease infinite; 
+      animation: ScrollBackground 3s ease infinite;
+      position: absolute;
+      z-index: 0;
    }
 }
 
-// animation
+// animation 
 @keyframes ScrollBackground {
    0%{background-position:0% 50%}
    50%{background-position:100% 50%}

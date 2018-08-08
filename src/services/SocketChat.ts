@@ -1,8 +1,8 @@
 
 import axios, { AxiosError } from 'axios';
 
-import ANNO from '../utils/annoModule';
-import LOGGING from '../utils/loggingModule';
+import ANNO from '../Utils/annoModule';
+import LOGGING from '../Utils/loggingModule';
 
 
 export default class SocketChatApi {

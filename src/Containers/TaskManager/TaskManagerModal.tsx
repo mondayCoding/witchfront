@@ -1,7 +1,7 @@
 
 import * as React from 'react';
-import Input from '../../Components/Textinput_responsive';
-import SliderCheckBox from '../../Components/Checkbox_slider';
+import Input from '../../Components/TextinputResponsive';
+import SliderCheckBox from '../../Components/CheckboxSlider';
 import Button from '../../Components/Button';
 import { IMissionItem } from '../../interfaces';
 

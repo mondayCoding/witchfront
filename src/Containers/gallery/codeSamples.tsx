@@ -142,6 +142,21 @@ export default class UsageSamples {
    <Radio id="radioTwo" label="dogs" name="radioTestb" />
    <Radio id="radioThree" label="vombats?" name="radioTestb" />
    `;
+
+   static progress = 
+   `
+   <ProgressBar percentage={this.state.progress} showPercentStatus={true} />
+   <ProgressBar 
+      percentage={this.state.progress} 
+      showPercentStatus={true} 
+      minText="min" 
+      maxText="max" 
+   />
+   <ProgressBar percentage={this.state.progress} showWarningWhenFull={true}/>
+   <ProgressBar percentage={this.state.progress} minText="minValue" maxText="maxValue" />
+   <ProgressBar percentage={this.state.progress} minText="justMin" />
+   <ProgressBar percentage={this.state.progress} />
+   `;
    
 }
 

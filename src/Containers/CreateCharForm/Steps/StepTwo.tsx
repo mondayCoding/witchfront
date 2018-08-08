@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 
-import Input from '../../Components/Textinput_material';
+import Input from '../../../Components/TextinputMaterial';
 
 interface IStepTwoForm {
 	color: string;

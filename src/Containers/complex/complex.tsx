@@ -2,11 +2,10 @@ import * as React from 'react';
 import Product from '../../models/productModel';
 import ProductTable from './productTable';
 import EditProductForm from '../productForm/productForm';
-import Button from '../../Components/Button';
-import Modal from '../../Components/Modal';
+import {Button, Modal} from '../../Components';
 import res from './localization';
 import appSettings from '../../utils/appSettings';
-import {IUserContext, userLevel} from '../../layout/layout';
+import {IUserContext, userLevel} from '../../layout/App';
 
 export default class Complex extends React.Component<IProps> {
 

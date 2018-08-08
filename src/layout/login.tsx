@@ -1,8 +1,7 @@
-import Button from '../Components/Button';
-import Input from '../Components/Textinput_material';
+import {Button, TextinputMaterial} from '../Components';
 import * as React from 'react';
 import API from '../services/Login';
-import ANNO from '../utils/annoModule';
+import ANNO from '../Utils/annoModule';
 import { AxiosError } from 'axios';
 
 export default class Layout extends React.Component<IProps> {
@@ -63,7 +62,7 @@ export default class Layout extends React.Component<IProps> {
                </h3>
                <div className="login--window--content">
                   <form onSubmit={this.handleOnSubmit}>
-                     <Input 
+                     <TextinputMaterial 
                         label="Username or email" 
                         name="username" 
                         value={username}
@@ -71,7 +70,7 @@ export default class Layout extends React.Component<IProps> {
                         onChange={this.handleOnChange} 
                         validation={usernameValidation}
                      />
-                     <Input 
+                     <TextinputMaterial 
                         label="Password" 
                         name="password" 
                         value={password}

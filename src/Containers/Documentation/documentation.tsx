@@ -2,8 +2,8 @@
 import * as React from 'react';
 import Mark = require("mark.js");
 //import ScrollSpy from 'scrollspy-js';
-import Input from '../../Components/Textinput_material';
-import CLOCK from '../../utils/clockModule';
+import {TextinputMaterial, TextinputPlain} from '../../Components';
+import CLOCK from '../../Utils/clockModule';
 
 class ScrollNav extends React.Component {
    render() {
@@ -214,7 +214,7 @@ export default class DocsPage extends React.Component {
    }
 }
 
-class SearchInput extends Input {
+class SearchInput extends TextinputPlain{
 
    markContext:Mark;
 

@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 
-const icons = {
+const Icons = {
    dashboard:        <i className="fas fa-tachometer-alt"></i>,
    createchar:       <i className="fa fa-heart"></i>,
    soon:             <i className="fa fa-hashtag"></i>,
@@ -39,5 +39,4 @@ const icons = {
    user:             <i className="fas fa-user" />,
 };
 
-export default icons;
-
+export default Icons;

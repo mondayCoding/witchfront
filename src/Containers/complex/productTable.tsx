@@ -2,13 +2,7 @@
 //libraries
 import * as React from 'react';
 import Product, { productType } from '../../models/productModel';
-import icons from '../../Components/Icons';
-
-interface IProps {
-   productTable:Product[];
-   onProductClick(index:number):void;
-   onRemoveClick(index:number):void;
-}
+import Icons from '../../Components/Icons';
 
 export default class ProductTable extends React.Component<IProps> {
 
@@ -50,9 +44,9 @@ export default class ProductTable extends React.Component<IProps> {
                            </span>
                         </div>
                         <div className="cell-30px"><b>{hasPrice && price}</b></div>
-                        <div className="cell-30px">{icons.missions}</div>
-                        <div className="cell-30px">{icons.missions}</div>
-                        <div className="cell-30px">{icons.missions}</div>
+                        <div className="cell-30px">{Icons.missions}</div>
+                        <div className="cell-30px">{Icons.missions}</div>
+                        <div className="cell-30px">{Icons.missions}</div>
                         <div className="cell-30px flex-center">
                            <button onClick={handleRemove} className="close-button"></button>
                         </div>
@@ -64,4 +58,10 @@ export default class ProductTable extends React.Component<IProps> {
          </div>
       ); 
    }
+}
+
+interface IProps {
+   productTable:Product[];
+   onProductClick(index:number):void;
+   onRemoveClick(index:number):void;
 }

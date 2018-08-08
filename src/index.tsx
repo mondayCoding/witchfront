@@ -5,7 +5,7 @@
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Layout from './layout/layout';
+import App from './layout/App';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -35,7 +35,7 @@ import './styles/style.css';
 //***********************************************************************
 
 ReactDOM.render(
-  <Layout />,
+  <App />,
   document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();

@@ -9,14 +9,14 @@ import wrapInContext from '../HOC/contextProviderHOC';
 const NavigationWithContext = wrapInContext(Navigation);
 
 
-//main layout component, has navigation, main content and router components
-export default class Layout extends React.Component {
+// TODO get theme with utility class
 
-   public render() {
+export default class Layout extends React.Component<any,any> {
 
+   render() {
       return (
          <BrowserRouter>
-            <div className="body--layout">
+            <div className={"body--layout " + this.props.userContext.theme}>
                <div className="content-layout">
 
                   <nav className="navigation">

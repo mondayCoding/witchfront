@@ -5,7 +5,7 @@ import navicons from '../Components/Icons';
 
 
 export default class Navigation extends React.Component<IProps> {
-   public render() {
+   render() {
       return (       
          <ul className="navi-list">
             <li className="navi-heading">

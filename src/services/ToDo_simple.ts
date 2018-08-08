@@ -1,7 +1,7 @@
 
 import axios, { AxiosError } from 'axios';
-import anno from '../utils/annoModule';
-import LOGGING from '../utils/loggingModule';
+import anno from '../Utils/annoModule';
+import LOGGING from '../Utils/loggingModule';
 
 const api_url = '/api/todo/simple';
 

@@ -3,11 +3,11 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import API from '../../services/Statistics';
-import navicons from '../../Components/Icons';
+import Icons from '../../Components/Icons';
 
 interface IStatisticsRespn {
-    serverStartCount:string;
-    serverStartLogs:{};
+   serverStartCount:string;
+   serverStartLogs:{};
 }
 
 export default class Dashboard extends React.Component {
@@ -42,7 +42,7 @@ export default class Dashboard extends React.Component {
                   <NavLink exact={true} to="/" activeClassName="active" className="dash-item" >
 
                      <div className="pagesymbol">
-                        {navicons.dashboard}
+                        {Icons.dashboard}
                      </div>
                      <div className="pagetitle">
                            Dashboard
@@ -51,7 +51,7 @@ export default class Dashboard extends React.Component {
 
                   <NavLink exact={true} to="/createchar" activeClassName="active" className="dash-item" >
                      <div className="pagesymbol">
-                        {navicons.createchar}                           
+                        {Icons.createchar}                           
                      </div>
                      <div className="pagetitle">
                            Create Character
@@ -60,7 +60,7 @@ export default class Dashboard extends React.Component {
 
                   <NavLink exact={true} to="/soon" activeClassName="active" className="dash-item" >
                      <div className="pagesymbol">
-                        {navicons.soon}                           
+                        {Icons.soon}                           
                      </div>
                      <div className="pagetitle">
                            Soon™
@@ -69,7 +69,7 @@ export default class Dashboard extends React.Component {
 
                   <NavLink exact={true} to="/witchchat" activeClassName="active" className="dash-item" >
                      <div className="pagesymbol">
-                        {navicons.covenchat}                           
+                        {Icons.covenchat}                           
                      </div>
                      <div className="pagetitle">
                            covenChat
@@ -78,7 +78,7 @@ export default class Dashboard extends React.Component {
 
                   <NavLink exact={true} to="/profile" activeClassName="active" className="dash-item" >
                      <div className="pagesymbol">
-                        {navicons.profile}                           
+                        {Icons.profile}                           
                      </div>
                      <div className="pagetitle">
                            Profile
@@ -87,7 +87,7 @@ export default class Dashboard extends React.Component {
 
                   <NavLink exact={true} to="/settings" activeClassName="active" className="dash-item" >
                      <div className="pagesymbol">
-                        {navicons.settings}                           
+                        {Icons.settings}                           
                      </div>
                      <div className="pagetitle">
                            Settings
@@ -96,7 +96,7 @@ export default class Dashboard extends React.Component {
 
                   <NavLink exact={true} to="/coinflip" activeClassName="active" className="dash-item" >
                      <div className="pagesymbol">
-                        {navicons.apimocking}                           
+                        {Icons.apimocking}                           
                      </div>
                      <div className="pagetitle">
                         Coinflipper
@@ -105,7 +105,7 @@ export default class Dashboard extends React.Component {
 
                   <NavLink exact={true} to="/complex" activeClassName="active" className="dash-item" >
                      <div className="pagesymbol">
-                        {navicons.complex}                           
+                        {Icons.complex}                           
                      </div>
                      <div className="pagetitle">
                         Complex

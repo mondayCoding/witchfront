@@ -1,39 +1,8 @@
 
 import * as React from 'react';
-import StepOne from './step1';
-import StepTwo from './step2';
-import StepThree from './step3';
-import StepFour from './step4';
-import Button from '../../Components/Button';
-import anno from '../../utils/annoModule';
-import WizardPath from '../../Components/Wizard_path';
-import Tip from '../../Components/Infotip';
-import ImgCaption from '../../Components/ImageWithCaption';
-
-const CurrentStep = (props:ICurrentStep) => {
-
-	const step = props.formstate.step;
-	const formstate = props.formstate;
-	const onChange = props.onChange;
-
-	switch(step) {
-		case 1:
-			return(<StepOne {...formstate} onChange={onChange} />);
-
-		case 2:
-			return(<StepTwo {...formstate} onChange={onChange} />) ;
-
-		case 3:
-			return (<StepThree {...formstate} onChange={onChange} />);
-
-		case 4:
-			return (<StepFour {...formstate} onChange={onChange} />);
-
-		default:
-			return(<StepOne {...formstate} onChange={onChange} />);
-	}
-};
-
+import {Button, WizardPath, Infotip, ImageWithCaption} from '../../Components';
+import {CurrentStep} from './Steps';
+import anno from '../../Utils/annoModule';
 
 
 export default class UserForm extends React.Component {
@@ -121,48 +90,48 @@ export default class UserForm extends React.Component {
 					<div className="spacing"></div>
 					<div className="line-thin"></div>
          
-               <Tip message="This form is creation of it's time and repsesents no values of any kind" />
-               <Tip message="Another tip with no valuable content" />
-               <Tip message="Third one, still useless" />
-               <Tip message="Not even going to bother anymore" />
-               <Tip message="..." />
+               <Infotip message="This form is creation of it's time and repsesents no values of any kind" />
+               <Infotip message="Another tip with no valuable content" />
+               <Infotip message="Third one, still useless" />
+               <Infotip message="Not even going to bother anymore" />
+               <Infotip message="..." />
 
-               <ImgCaption 
+               <ImageWithCaption 
                   src="../images/blur.jpg" 
                   captionText="This is caption sample for testing imgCaption component. Text here is caption content"
                   size="sm" 
                   captionTitle="Blur by design"
                />
       
-               <ImgCaption 
+               <ImageWithCaption 
                   src="../images/card.jpg" 
                   captionText="This is caption sample for testing imgCaption component. Text here is caption content"
                   size="md" 
                   captionTitle="Blur by design"
                />
       
-               <ImgCaption 
+               <ImageWithCaption 
                   src="../images/orbs.png" 
                   captionText="This is caption sample for testing imgCaption component. Text here is caption content"
                   size="md" 
                   captionTitle="Blur by design"
                />            
 
-               <ImgCaption 
+               <ImageWithCaption 
                   src="../images/snek.jpg" 
                   captionText="This is caption sample for testing imgCaption component. Text here is caption content"
                   size="md" 
                   captionTitle="Blur by design"
                />              
 
-               <ImgCaption 
+               <ImageWithCaption 
                   src="../images/holo.jpg" 
                   captionText="This is caption sample for testing imgCaption component."
                   size="md" 
                   captionTitle="Blur by design"
                />                
 
-               <ImgCaption 
+               <ImageWithCaption 
                   src="../images/abyss.jpg" 
                   captionText="This is caption sample for testing imgCaption component."
                   size="md" 
@@ -196,7 +165,3 @@ interface IFormState {
    allowMarketing: boolean;
 }
 
-interface ICurrentStep {
-	formstate:IFormState;
-	onChange(param:any):void;
-}

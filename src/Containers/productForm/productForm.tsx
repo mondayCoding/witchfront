@@ -3,7 +3,7 @@ import * as React from 'react';
 import Select, { Option } from 'react-select';
 import Product, { Tag } from '../../models/productModel';
 import {userType, productType} from '../../models/productModel';
-import Input from '../../Components/Textinput_responsive';
+import Input from '../../Components/TextinputResponsive';
 import Button from '../../Components/Button';
 import res from './localization';
 import { LocalizedStrings } from 'react-localization';

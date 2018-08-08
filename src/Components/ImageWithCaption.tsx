@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+import classNames from 'classnames';
 
 
 //*****************************************************************************************************************
@@ -9,19 +10,22 @@ import * as React from 'react';
 export default class ImgCaption extends React.Component<Iprops> {
 
 	render() {
-		const { src, captionText, captionTitle, size, ...rest } = this.props;
-		let imageSize = size || "all";
-		let captionClassname = "imageCaptionWrapper " + imageSize;
+      const { src, captionText, captionTitle, size, ...rest } = this.props;
 
-		return (
-			<figure className={captionClassname}>
+      const classString = classNames({
+         imageCaptionWrapper: true,
+         [size || "all"]: true
+      });
+
+      return (
+         <figure className={classString}>
             <img className="imageWithCaption" alt={captionText} src={src} {...rest} />
             <figcaption className="imageCaption">
                {captionTitle && <b>{captionTitle}</b>}
                {captionText && <span>{captionText}</span>}
             </figcaption>				
-			</figure>
-		);
+         </figure>
+      );
 	}
 }
 

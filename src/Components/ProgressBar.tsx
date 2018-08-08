@@ -1,21 +1,27 @@
 
 import * as React from 'react';
+import classNames from 'classnames';
 
 //*****************************************************************************************************************
 // Progress bar 
 //*****************************************************************************************************************
 
 const PropgressBar:React.StatelessComponent<IProps> = (props) => {
-   const {percentage, showStatusText, showWarningWhenFull} = props;
+   const {percentage, showPercentStatus, showWarningWhenFull, minText, maxText} = props;
    const cappedPercentage = (percentage >= 100 ) ? 100 : percentage;
-   const statusText = (showStatusText) ? <span>{`${cappedPercentage}%`}</span> : null;
-   let classString = "themeprogress";
-   if (showStatusText) {classString += " showingStatus";}
-   if (showWarningWhenFull && cappedPercentage === 100) {classString += " warning";}
+   const statusText = (showPercentStatus) ? <span>{`${cappedPercentage}%`}</span> : null;
+
+   const classString = classNames({
+      themeprogress: true,
+      thick: (statusText || minText || maxText),
+      warning: (showWarningWhenFull && cappedPercentage === 100)
+   });
 
    return (
       <div className={classString} title={cappedPercentage.toString()}>
-         {statusText}
+         {minText &&  <span>{minText}</span>}
+         {statusText && <span>{statusText}</span>}
+         {maxText &&  <span>{maxText}</span>}
          <div className="themeprogress--fill" style={{width:`${cappedPercentage}%`}}></div>
       </div>
    );
@@ -24,7 +30,11 @@ const PropgressBar:React.StatelessComponent<IProps> = (props) => {
 export default PropgressBar;
 
 interface IProps {
-  showStatusText?: boolean;
-  showWarningWhenFull?: boolean;
-  percentage: number;
+   showPercentStatus?: boolean;
+   showWarningWhenFull?: boolean;
+   maxText?:string;
+   minText?:string;
+   percentage: number;
 }
+
+

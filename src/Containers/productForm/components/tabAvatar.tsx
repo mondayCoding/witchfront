@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Product from '../../../models/productModel';
 import AvatarSelector from '../../avatarSelector/avatarSelector';
-import DropZone from '../../../Components/File_dropzone';
+import DropZone from '../../../Components/FileDropzone';
 import FileUploadTest from '../FileUpload';
 import Tabs from '../../../Components/Tabs';
 import Tab from '../../../Components/Tab';

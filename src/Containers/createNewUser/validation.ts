@@ -1,5 +1,5 @@
 
-import FormValidator from '../../utils/validationModule';
+import FormValidator from '../../Utils/validationModule';
 import res from '../Profile/localization';
 
 const test = FormValidator.test;

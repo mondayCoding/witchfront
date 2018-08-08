@@ -943,20 +943,21 @@ input[type="text"] {
   background: rgba(0, 0, 0, 0.6);
   border: 0.1rem solid #3a3a3a;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.5);
-  border-radius: 0.35rem; }
+  border-radius: 0.35rem;
+  display: flex;
+  justify-content: space-between; }
 
-.themeprogress.showingStatus {
-  height: 1.5rem;
+.themeprogress.thick {
   height: 1.5rem; }
 
-.themeprogress.showingStatus span {
+.themeprogress.thick span {
   display: inline-block;
   height: 1.5rem;
   line-height: 1.5rem;
   text-shadow: 0 0 .1rem black;
-  position: absolute;
-  top: 0;
-  left: .5rem;
+  position: static;
+  z-index: 1;
+  padding: 0 .5rem;
   pointer-events: none; }
 
 .themeprogress.warning .themeprogress--fill {
@@ -966,11 +967,14 @@ input[type="text"] {
   transition: width .2s ease-in-out;
   border-radius: 0.35rem;
   height: 100%;
-  background: linear-gradient(to right, #75AB35 0%, #35ab61);
+  background: linear-gradient(to right, #75AB35 0%, #35ab75);
   -webkit-animation: ScrollBackground 3s infinite;
   -moz-animation: ScrollBackground 3s infinite;
+  -o-animation: ScrollBackground 3s infinite;
   background-size: 200%;
-  animation: ScrollBackground 3s ease infinite; }
+  animation: ScrollBackground 3s ease infinite;
+  position: absolute;
+  z-index: 0; }
 
 @keyframes ScrollBackground {
   0% {
@@ -2236,6 +2240,9 @@ nav.navigation .navi-list {
   position: sticky;
   top: 0; }
 
+nav.navigation .navi-heading {
+  color: #222 !important; }
+
 nav.navigation .navi-item {
   margin: 0; }
 
@@ -2907,7 +2914,6 @@ footer a, footer a:link {
 
 .top-panel .announcement {
   flex: 1 1 auto;
-  min-height: 2rem;
   height: auto;
   min-height: 6rem;
   overflow: hidden;

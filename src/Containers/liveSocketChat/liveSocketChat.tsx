@@ -1,12 +1,12 @@
 
 import * as React from 'react';
 import * as io from 'socket.io-client';
-import ANNO from '../../utils/annoModule';
+import ANNO from '../../Utils/annoModule';
 import Announcement from '../announcement/announcement';
 import ChatLine from './line';
 import SelectUserMenu from './selectUserMenu';
-import InputPlain from '../../Components/Textinput_plain';
-import { IMessageLine } from '../../interfaces';
+import {TextinputPlain} from '../../Components';
+import {IMessageLine} from '../../interfaces';
 
 
 export default class ChatWindow extends React.Component {
@@ -110,7 +110,7 @@ export default class ChatWindow extends React.Component {
                         <ChatLine key={index} message={item} />)}
                   </div>
 
-                  <InputPlain
+                  <TextinputPlain
                      value={message}
                      name="message"
                      onKeyUp={onKeyUp}

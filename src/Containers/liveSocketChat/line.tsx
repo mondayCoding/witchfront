@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import {IMessageLine} from '../../interfaces';
-import icons from '../../Components/Icons';
+import Icons from '../../Components/Icons';
 
 interface IProps {
    message:IMessageLine;
@@ -35,7 +35,7 @@ export default class Line extends React.Component<IProps> {
       return (
          <div className={userClass}>
             <div className="line-user">
-               {icons.user}
+               {Icons.user}
                {message.user}
             </div>
 

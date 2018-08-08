@@ -1,6 +1,6 @@
 
 import * as React from "react";
-import {UserContext} from '../layout/layout';
+import {UserContext} from '../layout/App';
 
 const wrapInContext = (WrappedComponent:any) => {
    return (props:any) => { 
