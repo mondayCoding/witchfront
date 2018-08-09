@@ -41,20 +41,21 @@ export default class AppSettings {
       return parseInt(sessionStorage.getItem(KEY.USER_ROLE),0);
    }
 
-   public static setUserLevel(item:string) {
+   public static setUserLevel(item:number) {
       const KEY = this.keys;
-      return sessionStorage.setItem(KEY.USER_ROLE, item);
+      const KEYVALUE = item.toString();
+      return sessionStorage.setItem(KEY.USER_ROLE, KEYVALUE);
    }
 
    // user logged in state
    public static getIsLoggedIn() {
       const KEY = this.keys;
-      return sessionStorage.getItem(KEY.ISLOGGED);
+      return (sessionStorage.getItem(KEY.ISLOGGED)) === "true";
    }
 
-   public static setIsLoggedIn(item:string) {
+   public static setIsLoggedIn(item:boolean) {
       const KEY = this.keys;
-      return sessionStorage.setItem(KEY.ISLOGGED, item);
+      const KEYVALUE = item.toString();
+      return sessionStorage.setItem(KEY.ISLOGGED, KEYVALUE);
    }
-
 }

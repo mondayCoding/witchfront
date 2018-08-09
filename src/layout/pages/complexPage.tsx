@@ -1,20 +1,20 @@
 
 //libs
 import * as React from "react";
-import wrapInContext from '../../HOC/contextProviderHOC';
+// import wrapInContext from '../../HOC/contextProviderHOC';
 import Complex from '../../Containers/complex/complex';
 
 export default class ComplexPage extends React.Component {
    render() {
       return (
          <div className="content--xl">
-            <ComplexWithContextData />        
+            <Complex />        
          </div>
       );
    }
 }
 
-const ComplexWithContextData = wrapInContext(Complex);
+// const ComplexWithContextData = wrapInContext(Complex);
 
 // const ComplexAppWithContext:React.StatelessComponent = (props) => {
 //    return(

@@ -2,7 +2,11 @@
 import * as React from 'react';
 import {NavLink} from 'react-router-dom';
 import navicons from '../Components/Icons';
+import {IAuthorization} from '../HOC/WithAuthorization';
 
+interface IProps {
+   auth: IAuthorization;
+}
 
 export default class Navigation extends React.Component<IProps> {
    render() {
@@ -73,7 +77,7 @@ export default class Navigation extends React.Component<IProps> {
                </NavLink>
             </li>
             <li className="navi-item">
-               <a onClick={this.props.userContext.signOut} title="signOut">
+               <a onClick={this.props.auth.signOut} title="signOut">
                   {navicons.poweroff}
                   <span className="pagename">Sign Out</span>
                </a>
@@ -83,10 +87,3 @@ export default class Navigation extends React.Component<IProps> {
    }
 }
 
-interface IUserContext {
-   isLoggedIn: boolean;
-   signOut():void;
-}
-interface IProps {
-   userContext: IUserContext;
-}

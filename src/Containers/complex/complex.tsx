@@ -4,20 +4,15 @@ import ProductTable from './productTable';
 import EditProductForm from '../productForm/productForm';
 import {Button, Modal} from '../../Components';
 import res from './localization';
-import appSettings from '../../utils/appSettings';
-import {IUserContext, userLevel} from '../../layout/App';
+import appSettings from '../../Utils/appSettings';
 
-export default class Complex extends React.Component<IProps> {
+export default class Complex extends React.Component {
 
    state: Readonly<IState> = {
       productTable: [],
       selectedIndex: 0,
       isModalOpen: false
    };
-
-   componentDidMount(){
-      console.log(this.props.userContext);
-   }
 
    handleAddProduct = () => {
       const newProduct = new Product("New product");
@@ -55,7 +50,8 @@ export default class Complex extends React.Component<IProps> {
    }
 
    isAuthorized() {
-      return this.props.userContext.level === userLevel.admin;
+      return true;
+      // return this.props.userContext.level === userLevel.admin;
    }
 
    render() {
@@ -107,6 +103,3 @@ interface IState {
    isModalOpen: boolean;
 }
 
-interface IProps {
-   userContext:IUserContext;
-}
