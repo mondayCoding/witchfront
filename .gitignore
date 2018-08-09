@@ -5,6 +5,7 @@
 /node_modules(back)
 /Users/*
 /.vscode
+/vscode
 
 # testing
 /coverage
