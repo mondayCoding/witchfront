@@ -5,7 +5,7 @@
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './layout/App';
+import App from './layout/AppAuth';
 
 import registerServiceWorker from './registerServiceWorker';
 

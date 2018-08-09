@@ -2,16 +2,15 @@
 
 import * as React from 'react';
 import settings from '../Utils/appSettings';
+import Layout from './Layout';
 import {IUser, userLevel} from '../interfaces/services';
-import Login from './login';
-
 
 interface IState {
    isSignedIn:boolean;
    level: userLevel;
 }
 
-export class AuthorizationContainer extends React.Component {
+export default class AppAuth extends React.Component {
 
    state:IState = {
       isSignedIn: false,
@@ -53,7 +52,7 @@ export class AuthorizationContainer extends React.Component {
 
       return(     
          <Authorization.Provider value={provided}>
-            {this.props.children}
+            <Layout auth={provided} />
          </Authorization.Provider>
       );
    }

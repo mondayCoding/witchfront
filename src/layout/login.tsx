@@ -44,7 +44,7 @@ export default class Layout extends React.Component<IProps> {
          console.log("User Profile recieved:");         
          console.log(loginTry);           
          this.props.signIn(loginTry);
-         ANNO.announce("Signed in"); 
+         ANNO.announce("Signed in successfully"); 
       }      
    }
 
@@ -102,6 +102,7 @@ export default class Layout extends React.Component<IProps> {
 interface IProps {
    signIn(x:any):void;
 }
+
 interface IState {
    username: string;
    password: string;

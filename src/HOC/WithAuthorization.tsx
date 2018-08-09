@@ -1,6 +1,6 @@
 
 import * as React from "react";
-import {Authorization} from '../layout/AuthorizationContainer';
+import {Authorization} from '../layout/AppAuth';
 import {userLevel} from '../interfaces/services';
 
 
@@ -8,7 +8,7 @@ export interface IAuthorization {
    isSignedIn: boolean;
    level: userLevel;
    signOut():void;
-   signIn():void;
+   signIn(x:any):void;
 }
 
 const WithAuthorization = (WrappedComponent:any) => {

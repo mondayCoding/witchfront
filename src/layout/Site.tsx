@@ -13,7 +13,7 @@ export default class Site extends React.Component {
    render() {
       return (         
          <BrowserRouter>
-            <div className={"body--layout "}>
+            <div className={"body--layout"}>
                <div className="content-layout">
 
                   <nav className="navigation">
