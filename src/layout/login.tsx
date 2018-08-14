@@ -1,7 +1,7 @@
 import {Button, TextinputMaterial} from '../Components';
 import * as React from 'react';
 import API from '../services/Login';
-import ANNO from '../Utils/annoModule';
+import ANNO from '../Utils/Notify';
 import { AxiosError } from 'axios';
 
 export default class Layout extends React.Component<IProps> {

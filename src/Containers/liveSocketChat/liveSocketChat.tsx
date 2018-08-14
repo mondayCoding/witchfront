@@ -1,13 +1,13 @@
 
 import * as React from 'react';
 import * as io from 'socket.io-client';
-import ANNO from '../../Utils/annoModule';
+import ANNO from '../../Utils/Notify';
 import Announcement from '../announcement/announcement';
 import ChatLine from './line';
 import SelectUserMenu from './selectUserMenu';
 import {TextinputPlain} from '../../Components';
 import {IMessageLine} from '../../interfaces';
-import settings from '../../Utils/appSettings';
+import settings from '../../Utils/settings';
 
 // TODO FIX SOCKETS FOR NEW SERVER/FRONT SEPARATION
 // GET USERNAMES FROM SETTINGS

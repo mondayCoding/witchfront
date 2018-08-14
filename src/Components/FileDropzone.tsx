@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import ANNO from '../Utils/annoModule';
+import ANNO from '../Utils/Notify';
 
 export default class FileUpload extends React.Component<IProp> {
 

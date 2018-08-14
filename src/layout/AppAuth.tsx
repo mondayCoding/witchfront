@@ -1,7 +1,7 @@
 
 
 import * as React from 'react';
-import settings from '../Utils/appSettings';
+import settings from '../Utils/settings';
 import Layout from './Layout';
 import {IUser, userLevel} from '../interfaces/services';
 

@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import WithAuthorization from '../HOC/WithAuthorization';
-import anno from '../Utils/annoModule';
-import settings from '../Utils/appSettings';
+import NOTIFY from '../Utils/Notify';
+import SETTINGS from '../Utils/settings';
 import Footer from './footer';
 import Main from './main';
 import Navigation from './Navigation';
@@ -15,13 +15,12 @@ const NavigationWithAuth = WithAuthorization(Navigation);
 export default class Site extends React.Component {
 
    componentDidMount(){
-      anno.success(`Logged in as ${settings.getLoggedUserName()}`);
-      
-      anno.success(`using theme ${settings.getTheme()}`);
+      NOTIFY.success(`Logged in as ${SETTINGS.getLoggedUserName()}`);      
+      NOTIFY.success(`using theme ${SETTINGS.getTheme()}`);
    }
 
    getBodyClassName(){
-      const userTheme = settings.getTheme();
+      const userTheme = SETTINGS.getTheme();
 
       return classNames({
          "body--layout": true,

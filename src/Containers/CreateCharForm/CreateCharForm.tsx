@@ -2,7 +2,7 @@
 import * as React from 'react';
 import {Button, WizardPath, Infotip, ImageWithCaption} from '../../Components';
 import {CurrentStep} from './Steps';
-import anno from '../../Utils/annoModule';
+import anno from '../../Utils/Notify';
 
 
 export default class UserForm extends React.Component {

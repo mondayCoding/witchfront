@@ -1,5 +1,5 @@
 
-import anno from './annoModule';
+import anno from './Notify';
 import { AxiosError } from 'axios';
 
 export default class Logging {

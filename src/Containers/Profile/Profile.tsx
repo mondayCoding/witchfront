@@ -5,7 +5,7 @@ import Userform from '../createNewUser/userform';
 import LangSelect from '../createNewUser/langSelect';
 import Timer from '../createNewUser/timer';
 import {ProgressBar} from '../../Components';
-import anno from '../../Utils/annoModule';
+import anno from '../../Utils/Notify';
 import res from './localization';
 
 

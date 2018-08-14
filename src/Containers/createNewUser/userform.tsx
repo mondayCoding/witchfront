@@ -7,7 +7,7 @@ import * as React from 'react';
 import res from '../Profile/localization';
 import API from '../../services/UserForm';
 import {TextinputMaterial, Button} from '../../Components';
-import anno from '../../Utils/annoModule';
+import anno from '../../Utils/Notify';
 import validation from './validation';
 
 

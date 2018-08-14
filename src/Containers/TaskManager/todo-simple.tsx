@@ -6,7 +6,7 @@ import Row from './Row';
 
 import {IMission} from '../../interfaces';
 import API from '../../services/ToDo_simple';
-import anno from '../../Utils/annoModule';
+import anno from '../../Utils/Notify';
 
 interface IMissionArr {
   quests: IMission[];

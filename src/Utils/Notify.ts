@@ -1,6 +1,6 @@
 
 import * as toastr from 'toastr';
-import settings from './appSettings';
+import settings from './settings';
 
 // TODO otetaan käyttöön kun typescript 3.0 tulee saataville
 // import key from './keys.json';
@@ -10,14 +10,14 @@ import settings from './appSettings';
 // console.log(keys.USER_TIP_POSITION);
 
 
-export default class Anno {
+export default class Notify {
 
 	static getOptions =  {
       closeButton: true,
       debug: false,
       newestOnTop: false,
       progressBar: false,
-      positionClass: Anno.getPosition(),
+      positionClass: Notify.getPosition(),
       preventDuplicates: false,
       onclick: null as any,
       showDuration: "300",
