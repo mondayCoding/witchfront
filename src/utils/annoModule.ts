@@ -12,27 +12,25 @@ import settings from './appSettings';
 
 export default class Anno {
 
-	public static getOptions = () => {
-      return {
-         closeButton: true,
-         debug: false,
-         newestOnTop: false,
-         progressBar: false,
-         positionClass: Anno.getPosition(),
-         preventDuplicates: false,
-         onclick: null as any,
-         showDuration: "300",
-         hideDuration: "1000",
-         timeOut: "6500",
-         extendedTimeOut: "3000",
-         showEasing: "swing",
-         hideEasing: "linear",
-         showMethod: "fadeIn",
-         hideMethod: "fadeOut"
-      };
-   }
+	static getOptions =  {
+      closeButton: true,
+      debug: false,
+      newestOnTop: false,
+      progressBar: false,
+      positionClass: Anno.getPosition(),
+      preventDuplicates: false,
+      onclick: null as any,
+      showDuration: "300",
+      hideDuration: "1000",
+      timeOut: "6500",
+      extendedTimeOut: "3000",
+      showEasing: "swing",
+      hideEasing: "linear",
+      showMethod: "fadeIn",
+      hideMethod: "fadeOut"
+   };
    
-   public static getPosition(){
+   static getPosition(){
 
       const position = settings.getNotificationPosition();
 
@@ -50,17 +48,24 @@ export default class Anno {
       }
    }
 
-	public static clear() {
+	static clear() {
 		toastr.clear();
 	}
 
-	public static announce(msg: string, title: string = null, type = "success", options = Anno.getOptions()) {
+	static announce(msg: string, title: string = null, type = "success", options = Anno.getOptions) {
 		toastr[type](msg, title, options);
-	}
-
-	public static announcePow(msg: string, type = "success") {
-		console.log(msg);
-		toastr[type](msg);
+   }
+   static success(msg: string, title: string = null) {
+		toastr.success(msg, title);
+   }
+   static error(msg: string, title: string = null) {
+		toastr.error(msg, title);
+   }
+   static info(msg: string, title: string = null) {
+		toastr.info(msg, title);
+   }
+   static warning(msg: string, title: string = null) {
+		toastr.warning(msg, title);
 	}
 }
 

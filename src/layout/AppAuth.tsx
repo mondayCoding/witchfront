@@ -38,9 +38,10 @@ export default class AppAuth extends React.Component {
 
    intializeUserSettings(user:IUser){
       settings.setIsLoggedIn(true);
+      settings.setLoggedUserName(user.username);
+      settings.setUserLevel(user.level);
       settings.setNotificationPosition(user.settings.position);
       settings.setTheme(user.settings.theme);
-      settings.setUserLevel(user.level);
    }
 
    render(){

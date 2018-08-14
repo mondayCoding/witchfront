@@ -1,19 +1,36 @@
 
-import Navigation from './Navigation';
-import Main from './main';
-import Footer from './footer';
+import classNames from 'classnames';
 import * as React from 'react';
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import WithAuthorization from '../HOC/WithAuthorization';
+import anno from '../Utils/annoModule';
+import settings from '../Utils/appSettings';
+import Footer from './footer';
+import Main from './main';
+import Navigation from './Navigation';
 
 const NavigationWithAuth = WithAuthorization(Navigation);
 
 // TODO get theme with utility class
 export default class Site extends React.Component {
+
+   componentDidMount(){
+      anno.success(`Logged in as ${settings.getLoggedUserName()}`);
+   }
+
+   getBodyClassName(){
+      const userTheme = settings.getTheme();
+
+      return classNames({
+         "body--layout": true,
+         [userTheme]: userTheme
+      });
+   }
+
    render() {
       return (         
          <BrowserRouter>
-            <div className={"body--layout"}>
+            <div className={this.getBodyClassName()}>
                <div className="content-layout">
 
                   <nav className="navigation">

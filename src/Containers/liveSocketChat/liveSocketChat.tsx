@@ -7,7 +7,10 @@ import ChatLine from './line';
 import SelectUserMenu from './selectUserMenu';
 import {TextinputPlain} from '../../Components';
 import {IMessageLine} from '../../interfaces';
+import settings from '../../Utils/appSettings';
 
+// TODO FIX SOCKETS FOR NEW SERVER/FRONT SEPARATION
+// GET USERNAMES FROM SETTINGS
 
 export default class ChatWindow extends React.Component {
 
@@ -63,11 +66,17 @@ export default class ChatWindow extends React.Component {
 		}
 	}
 
-	connectToChatAs(username: string) {
-		this.socket.emit(
-			"allowChatAccessAs", {requestToUseName: username}
-		);
-	}
+   connectToChatAs(username: string) {
+
+      console.log("FOUND USERNAME");      
+      console.log(settings.currentUser);
+      console.log(settings.currentUser);
+      console.log(settings.currentUser);
+      
+      this.socket.emit(
+         "allowChatAccessAs", {requestToUseName: username}
+      );
+   }
 
 	 onKeyUphandler(event: any) {
 		if (event.key === "Enter") {

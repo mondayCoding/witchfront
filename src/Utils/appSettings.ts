@@ -2,60 +2,81 @@
 
 // TODO: centralize "app settings" as static class that reads/writes to localstorage
 
-const StorageKeys = {
+const KEYS = {
    ISLOGGED: "WITCHNODE_ISLOGGEDIN",                        // user login state as boolean
    USER_ROLE: "WITCHNODE_USERROLE",                         // user role (level)
    USER_TIP_POSITION : "WITCHNODE_USER_TIP_POSITION",       // setting - position of notifications
-   USER_THEME: "WITCHNODE_USER_THEME"                       // setting - selected UI theme
+   USER_THEME: "WITCHNODE_USER_THEME",                       // setting - selected UI theme
+   USER_NAME: "WITCHNODE_USER_NAME",                         // username
 };
 
-export default class AppSettings {
+export default class Settings {
 
-   public static keys = StorageKeys;
+   static currentTheme = sessionStorage.getItem(KEYS.USER_THEME);
+   static currentUser = sessionStorage.getItem(KEYS.USER_NAME);
+   static CurrentRole = sessionStorage.getItem(KEYS.USER_ROLE);
+   static isLoggedIn = sessionStorage.getItem(KEYS.ISLOGGED); 
+   static CurrentNotifyPos = sessionStorage.getItem(KEYS.USER_TIP_POSITION);
 
    // notification position
-   public static getNotificationPosition() {
-      const KEY = this.keys;
-      return sessionStorage.getItem(KEY.USER_TIP_POSITION);
+   static getNotificationPosition() {
+      return sessionStorage.getItem(KEYS.USER_TIP_POSITION);
    }
 
-   public static setNotificationPosition(item:string) {
-      const KEY = this.keys;
-      return sessionStorage.setItem(KEY.USER_TIP_POSITION, item);
+   static setNotificationPosition(item:string) {
+      return sessionStorage.setItem(KEYS.USER_TIP_POSITION, item);
    }
 
    // current UI theme
-   public static getTheme() {
-      const KEY = this.keys;
-      return sessionStorage.getItem(KEY.USER_THEME);
+   static getTheme() {
+      return sessionStorage.getItem(KEYS.USER_THEME);
    }
 
-   public static setTheme(item:string) {
-      const KEY = this.keys;
-      return sessionStorage.setItem(KEY.USER_THEME, item);
+   static setTheme(item:string) {
+      return sessionStorage.setItem(KEYS.USER_THEME, item);
    }
 
    // User role (level of authentication)
-   public static getUserLevel() {
-      const KEY = this.keys;
-      return parseInt(sessionStorage.getItem(KEY.USER_ROLE),0);
+   static getUserLevel() {
+      return parseInt(sessionStorage.getItem(KEYS.USER_ROLE),0);
    }
 
-   public static setUserLevel(item:number) {
-      const KEY = this.keys;
+   static setUserLevel(item:number) {
       const KEYVALUE = item.toString();
-      return sessionStorage.setItem(KEY.USER_ROLE, KEYVALUE);
+      return sessionStorage.setItem(KEYS.USER_ROLE, KEYVALUE);
    }
 
-   // user logged in state
-   public static getIsLoggedIn() {
-      const KEY = this.keys;
-      return (sessionStorage.getItem(KEY.ISLOGGED)) === "true";
+   // is logged 
+   static getIsLoggedIn() {
+      return (sessionStorage.getItem(KEYS.ISLOGGED)) === "true";
    }
 
-   public static setIsLoggedIn(item:boolean) {
-      const KEY = this.keys;
+   static setIsLoggedIn(item:boolean) {
       const KEYVALUE = item.toString();
-      return sessionStorage.setItem(KEY.ISLOGGED, KEYVALUE);
+      return sessionStorage.setItem(KEYS.ISLOGGED, KEYVALUE);
+   }
+
+   // user name
+   static getLoggedUserName() {
+      return sessionStorage.getItem(KEYS.USER_NAME);
+   }
+
+   static setLoggedUserName(item:string) {
+      const KEYVALUE = item;
+      return sessionStorage.setItem(KEYS.USER_NAME, KEYVALUE);
    }
 }
+
+
+// alternate way to handle settings
+// these are internal and will  be lost if user refreshes browser session
+// static current = {
+//    setUser: "",
+//    setLevel: "",
+//    setName: "",
+//    setTheme: ""
+// };
+
+// static getCurrentSettings(){
+//    return this.current;
+// }

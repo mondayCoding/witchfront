@@ -2,6 +2,8 @@
 
 // user login response object
 export interface IUser {
+   email:string;
+   username:string;
    level: userLevel;
    settings: {
       language: string;

@@ -6,22 +6,21 @@ import {
    settingsPage,profilePage, complexPage, galleryPage, coinFlipPage
 } from './pages';
 
-
 export default class Main extends React.Component {
 
-   public state:any = {
+   state:any = {
       hasError:false
-   };   
+   }; 
 
    //error handling (error boundary)
-   public componentDidCatch(error:any, info:any) {
+   componentDidCatch(error:any, info:any) {
       // fallback UI
       this.setState({ hasError: true });
       console.error(error);
       console.error(info);
     }
 
-   public render() {
+   render() {
       return (
          <React.Fragment>
             {
