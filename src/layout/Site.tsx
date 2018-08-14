@@ -16,6 +16,7 @@ export default class Site extends React.Component {
 
    componentDidMount(){
       anno.success(`Logged in as ${settings.getLoggedUserName()}`);
+      anno.success(`using theme ${settings.getTheme()}`);
    }
 
    getBodyClassName(){
