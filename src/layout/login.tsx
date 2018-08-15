@@ -2,7 +2,7 @@ import {Button, TextinputMaterial} from '../Components';
 import * as React from 'react';
 import API from '../services/Login';
 import ANNO from '../Utils/Notify';
-import { AxiosError } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 
 export default class Layout extends React.Component<IProps> {
 
@@ -31,19 +31,25 @@ export default class Layout extends React.Component<IProps> {
       e.preventDefault();
       const {username, password} = this.state;
 
-      const loginTry = await API.attemptLogin({username, password}) as AxiosError | any;
-      const error = loginTry.response;
+      const loginTry = await API.attemptLogin({username, password}) as AxiosResponse;  
+      console.log(loginTry);
+      console.log(loginTry);
+      console.log(loginTry);
+      console.log(loginTry);
+      console.log(loginTry);
+      
+      const error = loginTry.status !== 200;
 
       if (error) {
-         ANNO.announce(error.data.message, null, "warning");
+         ANNO.announce(loginTry.data.message, null, "warning");
          this.setState({
-            usernameValidation: error.data.username, 
-            passwordValidation: error.data.password
+            usernameValidation: loginTry.data.username, 
+            passwordValidation: loginTry.data.password
          });
       } else {
          console.log("User Profile recieved:");         
-         console.log(loginTry);           
-         this.props.signIn(loginTry);
+         console.log(loginTry.data);           
+         this.props.signIn(loginTry.data);
          ANNO.announce("Signed in successfully"); 
       }      
    }
