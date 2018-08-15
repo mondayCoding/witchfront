@@ -4,8 +4,8 @@ import * as React from 'react';
 import Table from './Table';
 import Row from './Row';
 
-import {IMission} from '../../interfaces';
-import API from '../../services/ToDo_simple';
+import {IMission} from '../../Interfaces';
+import API from '../../Services/ToDo_simple';
 import anno from '../../Utils/Notify';
 
 interface IMissionArr {

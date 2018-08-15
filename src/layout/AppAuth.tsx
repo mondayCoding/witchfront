@@ -18,8 +18,8 @@ export default class AppAuth extends React.Component {
    };
 
    componentDidMount(){
-      const isLogged = settings.getIsLoggedIn();
-      const level = settings.getUserLevel();
+      const isLogged = Settings.getIsLoggedIn();
+      const level = Settings.getUserLevel();
       
       if (isLogged) {          
          this.setState({isSignedIn:true, level});
@@ -32,16 +32,16 @@ export default class AppAuth extends React.Component {
    }
    
    signOut = () => {
-      settings.setIsLoggedIn(false);
+      Settings.setIsLoggedIn(false);
       this.setState({isSignedIn:false, level:undefined});
    }
 
    intializeUserSettings(user:IUser){
-      settings.setIsLoggedIn(true);
-      settings.setLoggedUserName(user.username);
-      settings.setUserLevel(user.level);
-      settings.setNotificationPosition(user.settings.position);
-      settings.setTheme(user.settings.theme);
+      Settings.setIsLoggedIn(true);
+      Settings.setLoggedUserName(user.username);
+      Settings.setUserLevel(user.level);
+      Settings.setNotificationPosition(user.settings.position);
+      Settings.setTheme(user.settings.theme);
    }
 
    render(){

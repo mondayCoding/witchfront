@@ -2,7 +2,7 @@
 //libs
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import API from '../../services/Statistics';
+import API from '../../Services/Statistics';
 import Icons from '../../Components/Icons';
 import settings from 'Utils/Settings';
 

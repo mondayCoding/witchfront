@@ -4,9 +4,9 @@ import {Modal} from '../../Components';
 import Table from './Table';
 import SortableList from './sortableList';
 import TaskManagerModal from './TaskManagerModal';
-import API from '../../services/ToDo_soon';
+import API from '../../Services/ToDo_soon';
 import confirm from '../../Utils/confirmUtilModule';
-import { IMissionItem, IMission } from '../../interfaces';
+import { IMissionItem, IMission } from '../../Interfaces';
 import anno from '../../Utils/Notify';
 
 
