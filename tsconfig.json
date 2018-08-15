@@ -13,7 +13,7 @@
       "rootDir": "src",
       "forceConsistentCasingInFileNames": false,
       "noImplicitReturns": false,
-      "noImplicitThis": false,
+      "noImplicitThis": true,
       "noImplicitAny": true,
       "strictNullChecks": false,
       "suppressImplicitAnyIndexErrors": true,
@@ -21,7 +21,15 @@
       "listEmittedFiles": true,
       "listFiles": true,
       "allowSyntheticDefaultImports": true,
-      "resolveJsonModule": true
+      "resolveJsonModule": true,   
+      "paths": {
+         "Utils/*": [ "src/Utils/*" ],
+         "Containers/*": [ "src/Containers/*" ],
+         "Components*": [ "src/Components/index.tsx" ],
+         "Services/*": [ "src/Services/*" ],
+         "Models/*": [ "src/Models/*" ],
+         "Hoc/*": [ "src/Hoc/*" ]
+      }
    },
    "exclude": [
       "node_modules",

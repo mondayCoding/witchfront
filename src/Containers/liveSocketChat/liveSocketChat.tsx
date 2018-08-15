@@ -67,11 +67,8 @@ export default class ChatWindow extends React.Component {
 	}
 
    connectToChatAs(username: string) {
-
-      console.log("FOUND USERNAME");      
-      console.log(settings.currentUser);
-      console.log(settings.currentUser);
-      console.log(settings.currentUser);
+      //TODO No server implementation for users outside predefined yet
+      const user = settings.getLoggedUserName();
       
       this.socket.emit(
          "allowChatAccessAs", {requestToUseName: username}
