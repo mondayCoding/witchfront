@@ -2,11 +2,11 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import WithAuthorization from '../HOC/WithAuthorization';
+import WithAuthorization from '../Hoc/WithAuthorization';
 import NOTIFY from '../Utils/Notify';
 import SETTINGS from '../Utils/settings';
-import Footer from './footer';
-import Main from './main';
+import Footer from './Footer';
+import Main from './Main';
 import Navigation from './Navigation';
 
 const NavigationWithAuth = WithAuthorization(Navigation);
