@@ -52,7 +52,7 @@ export default class Notify {
 		toastr.clear();
 	}
 
-	static announce(msg: string, title: string = null, type = "success", options = Anno.getOptions) {
+	static announce(msg: string, title: string = null, type = "success", options = Notify.getOptions) {
 		toastr[type](msg, title, options);
    }
    static success(msg: string, title: string = null) {
