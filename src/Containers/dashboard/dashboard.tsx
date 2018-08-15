@@ -4,7 +4,7 @@ import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import API from '../../services/Statistics';
 import Icons from '../../Components/Icons';
-import settings from '../../Utils/settings';
+import settings from 'Utils/settings';
 
 interface IStatisticsRespn {
    serverStartCount:string;
