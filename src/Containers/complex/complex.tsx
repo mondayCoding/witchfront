@@ -4,7 +4,7 @@ import ProductTable from './productTable';
 import EditProductForm from '../productForm/productForm';
 import {Button, Modal} from '../../Components';
 import res from './localization';
-import settings from '../../Utils/settings';
+import settings from 'Utils/Settings';
 
 export default class Complex extends React.Component {
 

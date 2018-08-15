@@ -7,7 +7,7 @@ import ChatLine from './line';
 import SelectUserMenu from './selectUserMenu';
 import {TextinputPlain} from '../../Components';
 import {IMessageLine} from '../../interfaces';
-import settings from '../../Utils/settings';
+import settings from 'Utils/Settings';
 
 // TODO FIX SOCKETS FOR NEW SERVER/FRONT SEPARATION
 // GET USERNAMES FROM SETTINGS

@@ -1,6 +1,6 @@
 
 import * as toastr from 'toastr';
-import settings from './settings';
+import settings from 'Utils/Settings';
 
 // TODO otetaan käyttöön kun typescript 3.0 tulee saataville
 // import key from './keys.json';
