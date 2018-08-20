@@ -13,17 +13,17 @@ export default class Modal extends React.Component<Iprops> {
       // } 
    }
 
-	componentDidMount() {
-		if (this.props.onClose) {
-			window.addEventListener('keydown', this.listenKeyboard, true);
-      }
-	}
-
-	componentWillUnmount() {
-		if (this.props.onClose) {
-			window.removeEventListener('keydown', this.listenKeyboard, true);
-		}
-	}
+   addListeners = () => {
+      window.addEventListener('keydown', this.listenKeyboard, true);
+      document.body.classList.add("modalIsOpen");
+   }
+   
+   removeListeners = () => {
+      if (document.body.classList.contains("modalIsOpen")){
+         window.removeEventListener('keydown', this.listenKeyboard, true);
+         document.body.classList.remove("modalIsOpen");
+      }      
+   }
 
 	onOverlayClick() {
 		this.props.onClose();
@@ -38,7 +38,10 @@ export default class Modal extends React.Component<Iprops> {
       const onDialogClick = this.onDialogClick;
       const size = this.props.size || "md";
 
-      if(!this.props.show) {
+      if (this.props.show) {
+         this.addListeners();
+      } else {
+         this.removeListeners();
          return null;
       }
 

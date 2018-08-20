@@ -17,18 +17,19 @@ import registerServiceWorker from './registerServiceWorker';
 //Import external style
 //***********************************************************************
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'react-day-picker/lib/style.css';
-// import 'react-select/dist/react-select.min.css';
-// import 'toastr/build/toastr.css';
-// import '@fortawesome/fontawesome-free/css/all.css';
-// import 'prismjs/themes/prism-okaidia.css';
+import 'react-day-picker/lib/style.css';
+import 'react-select/dist/react-select.min.css';
+import 'toastr/build/toastr.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import 'prismjs/themes/prism-okaidia.css';
+
 
 //***********************************************************************
 // Import own stylesheet
 //***********************************************************************
 
 import './styles/style.css';
+
 
 //***********************************************************************
 // initialize application

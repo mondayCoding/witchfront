@@ -4,11 +4,12 @@
 // Externals
 //****************************************************************************
 
-@import '../../node_modules/react-day-picker/lib/style.css';
-@import '../../node_modules/react-select/dist/react-select.min.css';
-@import '../../node_modules/toastr/build/toastr.css';
-@import '../../node_modules/@fortawesome/fontawesome-free/css/all.css';
-@import '../../node_modules/prismjs/themes/prism-okaidia.css';
+// @import '../../node_modules/react-day-picker/lib/style.css';
+// @import '../../node_modules/react-select/dist/react-select.min.css';
+// @import '../../node_modules/toastr/build/toastr.css';
+// @import '../../node_modules/@fortawesome/fontawesome-free/css/all.css';
+// @import '../../node_modules/prismjs/themes/prism-okaidia.css';
+// @import '~../../node_modules/prismjs/themes/prism-okaidia.css';
 
 //****************************************************************************
 // Shared
@@ -1469,6 +1470,8 @@ $tipMessageWidth: 14rem;
 // Component | Modal
 //****************************************************************************
 
+$modalCloseBtnSize: 2rem;
+
 .modal-fade {
 	position: fixed;
 	top: 0;
@@ -1514,10 +1517,11 @@ $tipMessageWidth: 14rem;
          }
 
 			.close-button {
-				@include size(2rem);
+				@include size($modalCloseBtnSize);
 				position: absolute;
-				top: .3rem;
-				right: .3rem;
+            top: -($modalCloseBtnSize/2);
+            right: -($modalCloseBtnSize/2);
+            border-radius: 100%;
 			}
 
 			.modal-heading .themeheading {
@@ -1531,6 +1535,10 @@ $tipMessageWidth: 14rem;
             flex: 1 1 auto;	
 			}
 	}
+}
+
+body.modalIsOpen {
+   overflow-y: hidden;
 }
 
 .product--modal {
