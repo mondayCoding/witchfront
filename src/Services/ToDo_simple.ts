@@ -3,78 +3,39 @@ import axios, { AxiosError } from 'axios';
 import anno from '../Utils/Notify';
 import LOGGING from '../Utils/loggingModule';
 
-const api_url = '/api/todo/simple';
+const serviceRoute = '/api/todo/simple';
+const toggleItemRoute = `${serviceRoute}/toggle`;
+
 
 export default class TodoApi {
 
-	//get all items (callback)  
-	public static getTodoCollectionCallback = (callback: any) => {
-		axios.get(api_url)
-			.then(
-				(response) => callback(response.data)
-			)
-			.catch(
-				(error) => LOGGING.LogErrorResponse(error)
-			);
+	static async getTodoCollection() {
+      return axios.get(serviceRoute)
+         .then((response) => response.data)
+         .catch((error) => LOGGING.LogErrorResponse(error));	
 	}
 
-	//get all items (promise)
-	public static async getTodoCollection() {
-		return new Promise((resolve) =>
-			axios.get(api_url)
-				.then(
-					(response) => resolve(response.data)
-				)
-				.catch(
-					(error) => LOGGING.LogErrorResponse(error)
-				)
-		);
+	static async toggleHandler(params: any) {
+      return axios.put(toggleItemRoute, params)
+         .then((response) => response.data)
+         .catch((error) => LOGGING.LogErrorResponse(error));	
 	}
 
-	//update item
-	public static async toggleHandler(params: any) {
-		return new Promise((resolve) =>
-			axios.put(`${api_url}/toggle`, params)
-				.then(
-					(response) => resolve(response.data)
-				)
-				.catch(
-					(error) => LOGGING.LogErrorResponse(error)
-				)
-		);
+	static async addNewItemToCollection(params: any) {
+      return axios.put(serviceRoute, params)
+         .then((response) => response.data)
+         .catch((error) => LOGGING.LogErrorResponse(error));
 	}
 
-	//add item
-	public static async addNewItemToCollection(params: any) {
-		return new Promise((resolve) =>
-			axios.put(api_url, params)
-				.then(
-					(response) => resolve(response.data)
-				)
-				.catch(
-					(error) => LOGGING.LogErrorResponse(error)
-				)
-		);
-
+	static async removeFromCollection(params: any) {
+      return axios({
+            method: "delete",
+            url: serviceRoute,
+            data: params
+         })
+         .then((response) => response.data)
+         .catch((error: AxiosError) => LOGGING.LogErrorResponse(error));
 	}
-
-	//delete item
-	public static async removeFromCollection(params: any) {
-		return new Promise((resolve) =>
-			axios({
-				method: "delete",
-				url: api_url,
-				data: params
-			})
-				.then(
-					(response) => resolve(response.data)
-				)
-				.catch(
-					(error: AxiosError) => LOGGING.LogErrorResponse(error)
-				)
-		);
-	}
-
 }
 
 

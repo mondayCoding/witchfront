@@ -1,27 +1,15 @@
 
 import axios, { AxiosError } from 'axios';
 
-const service_url = '/api/login';
+const serviceRoute = '/api/login';
 
 export default class Login {
 
-	//get all items (promise)
-	public static async attemptLogin(params:any) {
-
-      return axios.post(service_url, params)
-         .then(
-            (response) => response                      
-         )
-         .catch(               
-            (error:AxiosError) => error.response
-         );  
+	static async attemptLogin(params:any) {
+      return axios.post(serviceRoute, params)
+         .then((response) => response)
+         .catch((error:AxiosError) => error.response);  
    }
    
 }
-
-
-
-
-
-
 

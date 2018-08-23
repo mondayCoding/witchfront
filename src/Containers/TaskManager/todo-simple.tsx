@@ -58,10 +58,9 @@ export default class TodoSimple extends React.Component<any, IMissionArr> {
    }
 
    //callback way
-   public getTodoCollection = () => {
-      API.getTodoCollectionCallback(
-         (data:any) => this.setState({quests:data})
-      );
+   public getTodoCollection = async () => {
+      const data = await API.getTodoCollection();
+      this.setState({quests:data});
    }
 
    public render() {

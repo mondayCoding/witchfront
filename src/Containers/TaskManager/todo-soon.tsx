@@ -22,7 +22,6 @@ export default class ToDoSoon extends React.Component {
 
 	async componentDidMount() {
 		const data = await API.getTodoCollection() as IMissionItem[];
-		// const data = await API.getDelayedCollection() as IMissionItem[];
 		this.setState({ quests: data, isLoading:false });
    }
 
