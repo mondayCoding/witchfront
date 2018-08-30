@@ -37,6 +37,7 @@ const Icons = {
    arrowLeft:        <i className="fas fa-arrow-left" />,
    users:            <i className="fas fa-users" />,
    user:             <i className="fas fa-user" />,
+   check:            <i className="fas fa-check" />,
 };
 
 export default Icons;

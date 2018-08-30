@@ -26,6 +26,7 @@ export interface IButtonProperties {
   className?: string;
   id?: string;
   disabled?:boolean;
+  autoFocus?: boolean;
   buttonText?: string;
   buttonIcon?: React.ReactNode;
   type?: string;

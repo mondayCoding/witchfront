@@ -25,7 +25,7 @@
       "paths": {
          "Utils/*": [ "src/Utils/*" ],
          "Containers/*": [ "src/Containers/*" ],
-         "Components*": [ "src/Components/index.tsx" ],
+         "Components/*": [ "src/Components/*" ],
          "Services/*": [ "src/Services/*" ],
          "Models/*": [ "src/Models/*" ],
          "Hoc/*": [ "src/Hoc/*" ]

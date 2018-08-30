@@ -104,11 +104,11 @@ input[type="text"] { background: none; width: 100%; outline: none; border: none;
     transform: scale(1);
     margin-top: none; } }
 
-@keyframes scaleIn { 0% { opacity: 0;
+@keyframes scaleIn { 0% { filter: blur(15px);
+    opacity: 0;
     transform: scale(0); }
-  65% { opacity: .5;
-    transform: scale(0.5); }
-  100% { opacity: 1;
+  100% { filter: blur(0);
+    opacity: 1;
     transform: scale(1); } }
 
 .flex-center { display: flex; flex-direction: column; justify-content: center; align-items: center; }
@@ -122,6 +122,8 @@ input[type="text"] { background: none; width: 100%; outline: none; border: none;
 .row-flex.spaced { justify-content: space-between; }
 
 .row-flex.center-all { justify-content: center; align-items: center; }
+
+.row-flex.align { align-items: center; }
 
 .hidden { display: none !important; }
 
@@ -419,9 +421,19 @@ input[type="text"] { background: none; width: 100%; outline: none; border: none;
 
 .violet .themeTextArea textarea { border-color: #6e6e6e; }
 
+.tag--link { padding: .2rem .5rem; background-color: #23d5ab; color: gainsboro; user-select: none; cursor: pointer; border-radius: 0.35rem; }
+
+.tag--link:hover { background-color: #23b5d5; }
+
+.red .tag--link:hover { background-color: #f35f4b; }
+
+.light .tag--link:hover { background-color: #23d5a0; }
+
+.violet .tag--link:hover { background-color: #a76ff0; }
+
 .interactable { padding: .2rem .5rem; background-color: #222; color: gainsboro; user-select: none; cursor: pointer; border-radius: 0.35rem; }
 
-.interactable:hover { background-color: #23d5ab; }
+.interactable:hover { background-color: #222222; }
 
 .red .interactable:hover { background-color: #f35f4b; }
 
@@ -797,29 +809,39 @@ ol.wizard-path li.current > .bullet { box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.5);
 
 .themeinput > input:focus ~ .tip .tip-message::before, .themeinput > input:focus ~ .tip .tip-message::after { opacity: 1; visibility: visible; }
 
-.modal-fade { position: fixed; top: 0; bottom: 0; left: 0; right: 0; display: flex; justify-content: center; align-items: center; z-index: 999; transition: .5 background-color; background-color: rgba(0, 0, 0, 0.75); }
+.fade--backdrop { position: fixed; top: 0; bottom: 0; left: 0; right: 0; display: flex; justify-content: center; align-items: center; z-index: 999; transition: .5 background-color; background-color: rgba(0, 0, 0, 0.75); }
 
-.modal-fade .modal-box { display: flex; flex-direction: column; background-color: #3a3a3a; border-radius: 0.35rem; margin: 1rem; width: 100%; min-height: 11rem; padding: 1rem; position: relative; border: 0.4rem solid #75AB35; box-shadow: 0 0 0.5rem #222; align-self: flex-start; margin-top: 5%; }
+.fade--backdrop .thememodal { display: flex; flex-direction: column; background-color: #3a3a3a; border-radius: 0.35rem; margin: 1rem; width: 100%; min-height: 11rem; padding: 1rem; position: relative; border: 0.4rem solid #75AB35; box-shadow: 0 0 0.5rem #222; align-self: flex-start; margin-top: 5%; }
 
-.red .modal-fade .modal-box { border-color: #e46964; }
+.red .fade--backdrop .thememodal { border-color: #e46964; }
 
-.light .modal-fade .modal-box { border-color: #38d860; }
+.light .fade--backdrop .thememodal { border-color: #38d860; }
 
-.violet .modal-fade .modal-box { border-color: #dd24ce; }
+.violet .fade--backdrop .thememodal { border-color: #dd24ce; }
 
-.modal-fade .modal-box.xl { max-width: 58rem; }
+.fade--backdrop .thememodal.xl { max-width: 58rem; }
 
-.modal-fade .modal-box.lg { max-width: 50rem; }
+.fade--backdrop .thememodal.lg { max-width: 50rem; }
 
-.modal-fade .modal-box.md { max-width: 40rem; }
+.fade--backdrop .thememodal.md { max-width: 40rem; }
 
-.modal-fade .modal-box.sm { max-width: 30rem; }
+.fade--backdrop .thememodal.sm { max-width: 30rem; }
 
-.modal-fade .modal-box .close-button { width: 2rem; height: 2rem; position: absolute; top: -1rem; right: -1rem; border-radius: 100%; }
+.fade--backdrop .thememodal .close-button { width: 2rem; height: 2rem; position: absolute; top: -1rem; right: -1rem; border-radius: 100%; }
 
-.modal-fade .modal-box .modal-heading .themeheading { text-align: center; font-size: 1.5rem; margin: .8rem; font-weight: 700; }
+.fade--backdrop .thememodal .thememodal--heading .themeheading { text-align: center; font-size: 1.5rem; margin: .8rem; font-weight: 700; }
 
-.modal-fade .modal-box .modal-content-wrap { flex: 1 1 auto; }
+.fade--backdrop .thememodal .thememodal--content { display: flex; flex-direction: column; flex: 1 1 auto; }
+
+.fade--backdrop .thememodal .thememodal--content .thememodal--fill { flex: 1 1 auto; }
+
+.fade--backdrop.confirmPopUp { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+.fade--backdrop.confirmPopUp .thememodal { align-self: center; margin: none; max-width: 25rem; width: 25rem; min-height: 10rem; }
+
+.fade--backdrop.confirmPopUp .thememodal .thememodal--content { text-align: center; }
+
+.fade--backdrop.confirmPopUp .thememodal .thememodal--content .thememodal--fill { display: flex; flex-direction: column; justify-content: center; }
 
 body.modalIsOpen { overflow-y: hidden; }
 
@@ -1464,25 +1486,35 @@ footer a, footer a:link { color: #6e6e6e; }
 
 .scrollspy .scrollContent { flex: 1 1 200px; }
 
-.content--full { padding: 3rem; transition: padding .2s; margin: 0 auto; }
+.content--full { padding: 3rem; transition: padding .2s; margin: 0 auto; max-width: 100%; }
 
 @media screen and (max-width: 767px) { .content--full { padding: 2rem; } }
+
+@media screen and (max-width: 575px) { .content--full { padding: 1rem; } }
 
 .content--xl { padding: 3rem; transition: padding .2s; margin: 0 auto; max-width: 74rem; }
 
 @media screen and (max-width: 767px) { .content--xl { padding: 2rem; } }
 
+@media screen and (max-width: 575px) { .content--xl { padding: 1rem; } }
+
 .content--lg { padding: 3rem; transition: padding .2s; margin: 0 auto; max-width: 56rem; }
 
 @media screen and (max-width: 767px) { .content--lg { padding: 2rem; } }
+
+@media screen and (max-width: 575px) { .content--lg { padding: 1rem; } }
 
 .content--md { padding: 3rem; transition: padding .2s; margin: 0 auto; max-width: 40rem; }
 
 @media screen and (max-width: 767px) { .content--md { padding: 2rem; } }
 
+@media screen and (max-width: 575px) { .content--md { padding: 1rem; } }
+
 .content--sm { padding: 3rem; transition: padding .2s; margin: 0 auto; max-width: 30rem; }
 
 @media screen and (max-width: 767px) { .content--sm { padding: 2rem; } }
+
+@media screen and (max-width: 575px) { .content--sm { padding: 1rem; } }
 
 /*# sourceMappingURL=style.css.map */
 

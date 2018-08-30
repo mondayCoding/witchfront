@@ -27,6 +27,7 @@
       "variable-name" : false,
       "comment-format" : false,
       "jsx-no-multiline-js" : false,
-      "member-access" : false
+      "member-access" : false,
+      "no-unused-expression": [true, "allow-fast-null-checks"]
   }
 }

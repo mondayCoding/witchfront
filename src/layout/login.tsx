@@ -3,6 +3,8 @@ import * as React from 'react';
 import API from '../Services/Login';
 import ANNO from '../Utils/Notify';
 import { AxiosError, AxiosResponse } from 'axios';
+import Confirm from 'Components/ConfirmPopUp';
+import Notify from '../Utils/Notify';
 
 export default class Layout extends React.Component<IProps> {
 
@@ -25,7 +27,7 @@ export default class Layout extends React.Component<IProps> {
 
    handleLoginAsAdmin = () => { this.props.signIn({level:0, settings: {position: ""}}); };
    handleLoginAsDeveloper = () => { this.props.signIn({level:1, settings: {position: ""}}); };
-   showHelp = () =>{ this.setState({showHelp:true}); };
+   showHelp = async () =>{ if(Confirm("show help?")){this.setState({showHelp:true});} };
 
    handleOnSubmit = async (e:React.FormEvent) =>{
       e.preventDefault();
