@@ -6,7 +6,7 @@
 import * as React from 'react';
 import res from '../Profile/localization';
 import API from '../../Services/UserForm';
-import {TextinputMaterial, Button} from '../../Components';
+import {TextinputMaterial, Button} from 'Components/Index';
 import anno from '../../Utils/Notify';
 import validation from './validation';
 

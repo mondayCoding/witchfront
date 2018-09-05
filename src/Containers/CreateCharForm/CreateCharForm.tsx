@@ -1,8 +1,8 @@
 
 import * as React from 'react';
-import {Button, WizardPath, Infotip, ImageWithCaption} from '../../Components';
+import {Button, WizardPath, Infotip, ImageWithCaption} from 'Components/Index';
 import {CurrentStep} from './Steps';
-import anno from '../../Utils/Notify';
+import Notify from '../../Utils/Notify';
 
 
 export default class UserForm extends React.Component {
@@ -34,7 +34,7 @@ export default class UserForm extends React.Component {
 		if (step !== this.state.maxStep) {
 			this.setState({ step: step + 1 });
 		} else {
-			anno.announce("form complete");
+			Notify.announce("form complete");
 		}
 	}
 
@@ -43,7 +43,7 @@ export default class UserForm extends React.Component {
 		if (step !== 1) {
 			this.setState({ step: step - 1 });
 		} else {
-			anno.announce("returned to start");
+			Notify.announce("returned to start");
 		}
 	}
 

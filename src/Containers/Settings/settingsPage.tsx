@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import {Radiobutton} from '../../Components';
+import {Radiobutton} from 'Components/Index';
 
 
 export default class Settings extends React.Component {

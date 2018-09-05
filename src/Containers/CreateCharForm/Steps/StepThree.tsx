@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import {TextinputMaterial} from '../../../Components';
+import {TextinputMaterial} from 'Components/Index';
 
 export default class StepThree extends React.Component<IStepThreeForm> {
 

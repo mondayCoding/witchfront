@@ -5,7 +5,7 @@ import 'prismjs/components/prism-json.min.js';
 import 'prismjs/components/prism-typescript.min.js';
 import 'prismjs/components/prism-jsx.min.js';
 import 'prismjs/components/prism-tsx.min.js';
-import usageSample, {Sample, patterns} from './codeSamples';
+import usageSample, {Sample, patterns} from 'Containers/gallery/Components/codeSamples';
 // tslint:disable-next-line:no-var-requires
 const Markdown = require('react-markdown');
 import Select, {Option} from 'react-select';
@@ -15,7 +15,7 @@ import {
    TextinputMaterial, TextinputResponsive, TextinputPlain, Checkbox, 
    CheckboxSlider, Radiobutton, WizardPath, Button, ProgressBar, 
    Tab, Tabs, TextArea, Modal
-} from '../../Components';
+} from 'Components/Index';
 
 
 export default class Gallery extends React.Component {

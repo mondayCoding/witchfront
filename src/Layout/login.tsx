@@ -1,4 +1,4 @@
-import {Button, TextinputMaterial} from '../Components';
+import {Button, TextinputMaterial} from 'Components/Index';
 import * as React from 'react';
 import API from '../Services/Login';
 import ANNO from '../Utils/Notify';

@@ -28,7 +28,8 @@
          "Components/*": [ "src/Components/*" ],
          "Services/*": [ "src/Services/*" ],
          "Models/*": [ "src/Models/*" ],
-         "Hoc/*": [ "src/Hoc/*" ]
+         "Hoc/*": [ "src/Hoc/*" ],
+         "Interfaces/*": [ "src/Interfaces/*" ]
       }
    },
    "exclude": [

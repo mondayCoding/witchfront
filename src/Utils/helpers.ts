@@ -1,11 +1,11 @@
 export default class Helpers{
 
-   // JSON clone: 
+    // JSON clone: 
    // + Creates true deep copy
    // + This is faster and more reliable than native looping
    // - Functions are not copied 
    // - Dates ares returned in ISO date-string format
-   public static Clone(x:React.ReactNode = {}){
+   static Clone<T>(x:T|{} = {}):T{
       return JSON.parse(JSON.stringify(x));
    }
 
@@ -13,7 +13,7 @@ export default class Helpers{
    // + attempts to revive parsed datestrings
    // - less performant
    // - should be tested case by case
-   public static cloneWithDates(x:React.ReactNode = {}){
+   static cloneWithDates(x:React.ReactNode = {}){
       const dateTimeReviver = (key:string, value:string) => {
          if (typeof value === "string" && /^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d.\d\d\dZ$/.test(value)) {
             return new Date(value);

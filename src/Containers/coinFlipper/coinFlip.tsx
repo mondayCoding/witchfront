@@ -1,9 +1,9 @@
 
 import * as React from 'react';
-import confirm from '../../Utils/confirmUtilModule';
+import confirm from 'Components/ConfirmPopUp';
 import coinFlipper from 'Utils/CoinFlip';
 import {IFlipHistoryItem} from 'Utils/CoinFlip';
-import { Button, Tab, Tabs } from '../../Components';
+import { Button, Tab, Tabs } from 'Components/Index';
 
 export default class Flipper extends React.Component {
    

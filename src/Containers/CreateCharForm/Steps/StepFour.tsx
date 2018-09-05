@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import Select from 'react-select';
-import {TextinputMaterial, Checkbox, Radiobutton} from '../../../Components';
+import {TextinputMaterial, Checkbox, Radiobutton} from 'Components/Index';
 
 
 interface IStepThreeForm {

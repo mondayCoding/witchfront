@@ -3,9 +3,9 @@ import * as React from 'react';
 import * as io from 'socket.io-client';
 import ANNO from '../../Utils/Notify';
 import Announcement from '../announcement/announcement';
-import ChatLine from './line';
-import SelectUserMenu from './selectUserMenu';
-import {TextinputPlain} from '../../Components';
+import ChatLine from 'Containers/liveSocketChat/Components/line';
+import SelectUserMenu from 'Containers/liveSocketChat/Components/selectUserMenu';
+import {TextinputPlain} from 'Components/Index';
 import {IMessageLine} from '../../interfaces';
 import settings from 'Utils/Settings';
 

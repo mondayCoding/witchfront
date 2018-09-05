@@ -4,8 +4,8 @@ import * as React from "react";
 
 //components
 
-import Listing from './todo-soon';
-import ToDoSimple from './todo-simple';
+import Listing from 'Containers/TaskManager/Components/todo-soon';
+import ToDoSimple from 'Containers/TaskManager/Components/todo-simple';
 
 
 export default class SoonPage extends React.Component {

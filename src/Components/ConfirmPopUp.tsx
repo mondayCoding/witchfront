@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { PlainConfirmModal, ReactConfirmProps, confirmable, createConfirmation } from 'react-confirm';
-import {Button, Icons} from 'Components/index';
+import {Button, Icons} from 'Components/Index';
 
 
 interface IConfirmProps extends ReactConfirmProps {

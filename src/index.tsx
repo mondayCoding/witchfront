@@ -7,11 +7,12 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './Layout/AppAuth';
 
-import registerServiceWorker from './registerServiceWorker';
-
 //***********************************************************************
 // Polyfills
 //***********************************************************************
+
+// tslint:disable-next-line:no-var-requires
+require('Utils/Polyfills');
 
 //***********************************************************************
 //Import external style
@@ -23,9 +24,8 @@ import 'toastr/build/toastr.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import 'prismjs/themes/prism-okaidia.css';
 
-
 //***********************************************************************
-// Import own stylesheet
+// Import internal stylesheet
 //***********************************************************************
 
 import './styles/style.css';
@@ -39,4 +39,3 @@ ReactDOM.render(
   <App />,
   document.getElementById('root') as HTMLElement
 );
-registerServiceWorker();
