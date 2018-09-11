@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Tooltip from 'Common/Infotip';
-import {Field} from 'Common/index';
+import {Field} from 'Common/Index';
 
 
 export const TextAreaResponsive: React.SFC<IProps> = ({ id, label, tooltip, ...rest }) => {

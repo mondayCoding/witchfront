@@ -19,6 +19,7 @@ export default class TabGeneral extends React.Component<IProps> {
       return(
          <section>
             <h4 className="themeheading underlined">Product associated price</h4>  
+            
             <TextInputResponsive
                isSmall={true}
                label="Base cost"
@@ -26,6 +27,7 @@ export default class TabGeneral extends React.Component<IProps> {
                value={price.toString()}
                onChange={onChange}
             />
+
             <TextInputResponsive
                isSmall={true}
                label="Taxless cost"

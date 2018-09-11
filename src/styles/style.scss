@@ -333,6 +333,7 @@ select.disabled {
 //*************************************************************************************************
 
 $labelWidth: 10rem;
+$numericWidth: 10rem;
 
 .themefield {
    display: flex;
@@ -379,6 +380,13 @@ $labelWidth: 10rem;
       }
    }
 
+   &.isNumeric {
+      max-width: $numericWidth + $labelWidth;      
+   }
+
+   &.isDisabled {    
+      @extend %disabled;      
+   }
 
    &.hasError {
       color: $errorColor;
@@ -422,23 +430,23 @@ $inputFontSize: 1rem;
       @include focusEffect();
    }  
 
-   &.number {
-      max-width: 12rem;
+   .isNumeric & {
+      max-width: 10rem;
+      text-align: right;
    }
 
-   &.invalid label {
+   .hasError & {
       background-color: transparentize($color: $errorColor, $amount: .2);
    }
 
-   &.disabled {
+   .isDisabled & {
       @extend %disabled;
    }   
-
-   .Select {
-      flex: 1 1 auto;
-   }
-
 }
+
+.themeinput--wrapper {margin-bottom: 0.5rem;}
+.themeinput--label {display: block}
+.themeinput--content { display: flex;}
 
 //****************************************************************************
 // Component | Text input -> Material
@@ -487,7 +495,7 @@ $maxFieldWidth: 30rem;
 		@include themecolor(main);		
    }
 	
-	&.invalid > input {
+	&.hasError > input {
       border-color: $errorColor;
       
       & + label {
@@ -501,7 +509,7 @@ $maxFieldWidth: 30rem;
       }
    }
    
-   &.disabled {
+   &.isDisabled {
       @extend %disabled;
 	}
 	
@@ -538,37 +546,23 @@ $maxFieldWidth: 30rem;
 // Component | Textarea
 //****************************************************************************
 
-.themeTextArea {
-   position: relative;
-   margin-bottom: .5rem;
-   border: .1rem solid $grayMedium;
-   border-radius: $globalRadius;
-   
-   label {
-      display: flex;
-      align-items: center;
-      padding: .3rem;
-      font-weight: 500;
-      color: $grayLight;
-      background-color: $grayMedium;
-      @include themecolor(grayLight);
-      @include themebackground(grayMedium);      
-   }
-   
-   textarea {
-      font-size: 1rem;
-      padding: .5rem;
-      width: 100%;
-      min-height: 4rem;
-      max-height: 30rem;
-      resize: vertical;
-      color: $grayLight;
-      background: none;
-      border: none;
-      @include themecolor(grayLight);	 
-      @include themeborder(grayMedium);
-   }
+.themetextarea {  
+   font-size: 1rem;
+   padding: .5rem;
+   width: 100%;
+   min-height: 4rem;
+   max-height: 30rem;
+   resize: vertical;
+   color: $grayLight;
+   background: none;
+   border: none;
+   @include themecolor(grayLight);	 
+   @include themeborder(grayMedium);   
 }
+
+.themetextarea--wrapper {margin-bottom: 0.5rem;}
+.themetextarea--label {display: block}
+.themetextarea--content { display: flex;}
 
 //****************************************************************************
 // Component | Image with caption
@@ -984,8 +978,7 @@ $bigProgressBarHeight: 1.5rem;
    
       &::-moz-focus-inner {
          border: 0;
-      }  
- 
+      }   
    }
 
    &:disabled {
@@ -1190,23 +1183,7 @@ $radioSize: 1.5rem;
 
 
 //****************************************************************************
-// Component | Text input -> Plain
-//****************************************************************************
-
-input[type="text"].input-plain {
-	padding: .35rem;
-	margin-bottom: .5rem;
-	border-radius: $globalRadius;
-	box-shadow: $globalShadowInset;
-	border: .05rem solid $grayBlack;
-	background-color: $grayDark;
-	@include themeborder(grayBlack);
-	@include themebackground(grayDark);		
-}
-
-
-//****************************************************************************
-// Component | Spacing elements (underlines/empty spaces)
+// Component | Spacing elements 
 //****************************************************************************
 
 // line - spacings
@@ -1734,29 +1711,12 @@ body.modalIsOpen {
 }
 
 
-.cell-15px {
-	@include flex-cell(0, 0, 1rem);
-}
-
-.cell-30px {
-	@include flex-cell(0, 0, 2rem);
-}
-
-.cell-60px {
-	@include flex-cell(0, 0, 4rem);
-}
-
-.cell-120px {
-	@include flex-cell(0, .5, 8rem);
-}
-
-.cell-200px {
-	@include flex-cell(0, .5, 14rem);
-}
-
-.cell-auto {
-	@include flex-cell(1, 1, 20rem);
-}
+.cell-15px {   @include flex-cell(0, 0, 1rem); }
+.cell-30px {   @include flex-cell(0, 0, 2rem); }
+.cell-60px {   @include flex-cell(0, 0, 4rem); }
+.cell-120px {  @include flex-cell(0, .5, 8rem); }
+.cell-200px {  @include flex-cell(0, .5, 14rem); }
+.cell-auto {   @include flex-cell(1, 1, 20rem); }
 
 .cell-status {
 	@include flex-cell(0, 0, 3rem);
@@ -1768,30 +1728,12 @@ body.modalIsOpen {
 		font-size: 1.5rem;
 	}
 }
-
-.cell-symbol {
-	@include flex-cell(0, 0, 2rem);
-}
-
-.cell-name {
-	@include flex-cell(0, .5, 12rem);
-}
-
-.cell-type {
-	@include flex-cell(0, .5, 8rem);
-}
-
-.cell-desc {
-	@include flex-cell(1, 1, 18rem);
-}
-
-.cell-tags {
-	@include flex-cell(1, 1, 300px);
-}
-
-.cell-id {
-	@include flex-cell(0, 0, 60px);
-}
+.cell-symbol { @include flex-cell(0, 0, 2rem); }
+.cell-name { @include flex-cell(0, .5, 12rem); }
+.cell-type { @include flex-cell(0, .5, 8rem); }
+.cell-desc { @include flex-cell(1, 1, 18rem); }
+.cell-tags { @include flex-cell(1, 1, 300px); }
+.cell-id {	@include flex-cell(0, 0, 60px); }
 
 
 //*******************************************************************************************************************************************************
@@ -2615,7 +2557,7 @@ footer {
 }
 
 //****************************************************************************
-// Content-Wraps
+// Utility | Content wrappers
 //****************************************************************************
 
 @mixin content($maxWidth){
@@ -2632,26 +2574,21 @@ footer {
    }
 }
 
-.content--full {
-   @include content(100%);
+.content--full {  @include content(100%);}
+.content--xl {    @include content(74rem);}
+.content--lg {    @include content(56rem);}
+.content--md {    @include content(40rem);}
+.content--sm {    @include content(30rem);}
+
+//*************************************************************************************************
+// Utility | Content Limiter (restrict width)
+//*************************************************************************************************
+
+@mixin limiter($maxWidth){
+   max-width: $maxWidth;
 }
 
-.content--xl {
-   @include content(74rem);
-}
-
-.content--lg {
-   @include content(56rem);
-}
-
-.content--md {
-   @include content(40rem);
-}
-
-.content--sm {
-   @include content(30rem);
-}
-
-
-//************************************************************
-
+.limiter--xl { @include limiter(79rem); }
+.limiter--lg { @include limiter(65rem);}
+.limiter--md { @include limiter(42rem);}
+.limiter--sm { @include limiter(32rem);}

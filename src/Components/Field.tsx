@@ -2,13 +2,13 @@ import * as React from 'react';
 import Tooltip from 'Common/Infotip';
 import classNames from 'classnames';
 
-export const Field: React.SFC<IProps> = ({id, label, tooltip, error, disabled, isNumberField, children }) => {
+export const Field: React.SFC<IProps> = ({id, label, tooltip, error, disabled, isSmall, children }) => {
 
    const classString = classNames({
-      themefield:true,
+      themefield: true,
       hasError: error,
-      numeric: isNumberField,
-      disabled
+      isNumeric: isSmall,
+      isDisabled: disabled
    });
 
    return (
@@ -37,8 +37,7 @@ export interface IProps {
   label: string;
   disabled?: boolean;
   responsive?: boolean;
-  className?:string;
   error?: string;
-  isNumberField?: boolean;
+  isSmall?: boolean;
   tooltip?: string;
 }

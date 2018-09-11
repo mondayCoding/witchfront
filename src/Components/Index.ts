@@ -8,6 +8,7 @@ import Infotip from 'Common/Infotip';
 import Icons from 'Common/Icons';
 import Modal from 'Common/Modal';
 import TextArea from 'Common/TextArea';
+import {TextAreaResponsive} from 'Common/TextAreaResponsive';
 import TextInputMaterial from 'Common/TextinputMaterial';
 import TextinputPlain from 'Common/TextinputPlain';
 import {TextInputResponsive} from 'Common/TextinputResponsive';
@@ -31,6 +32,7 @@ export {
    Icons,
    Modal,
    TextArea,
+   TextAreaResponsive,
    TextInputMaterial,
    TextinputPlain,
    TextInputResponsive,

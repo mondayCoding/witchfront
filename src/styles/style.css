@@ -5,7 +5,7 @@ nav.navigation .navi-item > a { transition: background-color .2s, color .2s, bor
 
 .row-spacing::after, .spacing::after { content: ""; display: table; clear: both; }
 
-button.disabled, input.disabled, select.disabled, .themeinput.disabled, .themeinput--material.disabled { opacity: .75; filter: grayscale(50%); pointer-events: none; cursor: not-allowed; }
+button.disabled, input.disabled, select.disabled, .themefield.isDisabled, .isDisabled .themeinput, .themeinput--material.isDisabled { opacity: .75; filter: grayscale(50%); pointer-events: none; cursor: not-allowed; }
 
 .themecheckbox [type="checkbox"] + label, .themeslider [type="checkbox"] + label, .themeradio [type="radio"] + label { font-weight: 400; font-size: .95rem; position: relative; cursor: pointer; height: auto; display: flex; flex-direction: column; justify-content: center; -moz-user-select: none; /* Firefox 2+ */ -ms-user-select: none; /* IE 10+ */ user-select: none; /* Standard syntax */ }
 
@@ -182,6 +182,8 @@ input[type="text"] { background: none; width: 100%; outline: none; border: none;
 @media screen and (max-width: 767px) { .themefield { flex-direction: column; }
   .themefield .themefield--label { flex: 0 0 auto; text-align: left; align-self: flex-start; } }
 
+.themefield.isNumeric { max-width: 20rem; }
+
 .themefield.hasError { color: #db6154; font-weight: 700; margin-bottom: 0; }
 
 .themefield.hasError + .themefield--error { color: #db6154; font-weight: 700; padding: .2rem; margin-bottom: 0.5rem; margin-left: 10.3rem; }
@@ -206,11 +208,15 @@ input[type="text"] { background: none; width: 100%; outline: none; border: none;
 
 .themeinput:focus:hover { box-shadow: none; outline: none; }
 
-.themeinput.number { max-width: 12rem; }
+.isNumeric .themeinput { max-width: 10rem; text-align: right; }
 
-.themeinput.invalid label { background-color: rgba(219, 97, 84, 0.8); }
+.hasError .themeinput { background-color: rgba(219, 97, 84, 0.8); }
 
-.themeinput .Select { flex: 1 1 auto; }
+.themeinput--wrapper { margin-bottom: 0.5rem; }
+
+.themeinput--label { display: block; }
+
+.themeinput--content { display: flex; }
 
 .themeinput--material { position: relative; margin: 1rem 0 .5rem; max-width: 30rem; /* active state */ }
 
@@ -246,11 +252,11 @@ input[type="text"] { background: none; width: 100%; outline: none; border: none;
 
 .violet .themeinput--material input:focus + label, .violet .themeinput--material.hasContent input + label { color: #dd24ce; }
 
-.themeinput--material.invalid > input { border-color: #db6154; }
+.themeinput--material.hasError > input { border-color: #db6154; }
 
-.themeinput--material.invalid > input + label { font-weight: 900; color: #db6154; border: #db6154; }
+.themeinput--material.hasError > input + label { font-weight: 900; color: #db6154; border: #db6154; }
 
-.themeinput--material.invalid > input + label + .bar::before { background: #db6154; }
+.themeinput--material.hasError > input + label + .bar::before { background: #db6154; }
 
 .themeinput--material .bar { position: relative; display: block; width: 100%; max-width: 100%; }
 
@@ -266,35 +272,25 @@ input[type="text"] { background: none; width: 100%; outline: none; border: none;
 
 .themeinput--material input:required { box-shadow: none; }
 
-.themeTextArea { position: relative; margin-bottom: .5rem; border: 0.1rem solid #6e6e6e; border-radius: 0.35rem; }
+.themetextarea { font-size: 1rem; padding: .5rem; width: 100%; min-height: 4rem; max-height: 30rem; resize: vertical; color: gainsboro; background: none; border: none; }
 
-.themeTextArea label { display: flex; align-items: center; padding: .3rem; font-weight: 500; color: gainsboro; background-color: #6e6e6e; }
+.red .themetextarea { color: gainsboro; }
 
-.red .themeTextArea label { color: gainsboro; }
+.light .themetextarea { color: #272727; }
 
-.light .themeTextArea label { color: #272727; }
+.violet .themetextarea { color: gainsboro; }
 
-.violet .themeTextArea label { color: gainsboro; }
+.red .themetextarea { border-color: #6e6e6e; }
 
-.red .themeTextArea label { background-color: #6e6e6e; }
+.light .themetextarea { border-color: #6e6e6e; }
 
-.light .themeTextArea label { background-color: #6e6e6e; }
+.violet .themetextarea { border-color: #6e6e6e; }
 
-.violet .themeTextArea label { background-color: #6e6e6e; }
+.themetextarea--wrapper { margin-bottom: 0.5rem; }
 
-.themeTextArea textarea { font-size: 1rem; padding: .5rem; width: 100%; min-height: 4rem; max-height: 30rem; resize: vertical; color: gainsboro; background: none; border: none; }
+.themetextarea--label { display: block; }
 
-.red .themeTextArea textarea { color: gainsboro; }
-
-.light .themeTextArea textarea { color: #272727; }
-
-.violet .themeTextArea textarea { color: gainsboro; }
-
-.red .themeTextArea textarea { border-color: #6e6e6e; }
-
-.light .themeTextArea textarea { border-color: #6e6e6e; }
-
-.violet .themeTextArea textarea { border-color: #6e6e6e; }
+.themetextarea--content { display: flex; }
 
 .imageCaptionWrapper { position: relative; background-color: black; }
 
@@ -663,20 +659,6 @@ input[type="text"] { background: none; width: 100%; outline: none; border: none;
 .light .themeradio [type="radio"]:checked + label::before { background-color: #ceeaec; }
 
 .violet .themeradio [type="radio"]:checked + label::before { background-color: #ebe7f7; }
-
-input[type="text"].input-plain { padding: .35rem; margin-bottom: .5rem; border-radius: 0.35rem; box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.5) inset; border: 0.05rem solid #222; background-color: #323232; }
-
-.red input[type="text"].input-plain { border-color: #222; }
-
-.light input[type="text"].input-plain { border-color: #222; }
-
-.violet input[type="text"].input-plain { border-color: #222; }
-
-.red input[type="text"].input-plain { background-color: #323232; }
-
-.light input[type="text"].input-plain { background-color: #e0e0e0; }
-
-.violet input[type="text"].input-plain { background-color: #323232; }
 
 .line-thin { height: .1rem; margin: .7rem 0; display: block; border-bottom: 0.1rem solid #75AB35; }
 
@@ -1522,6 +1504,14 @@ footer a, footer a:link { color: #6e6e6e; }
 @media screen and (max-width: 767px) { .content--sm { padding: 2rem; } }
 
 @media screen and (max-width: 575px) { .content--sm { padding: 1rem; } }
+
+.limiter--xl { max-width: 79rem; }
+
+.limiter--lg { max-width: 65rem; }
+
+.limiter--md { max-width: 42rem; }
+
+.limiter--sm { max-width: 32rem; }
 
 /*# sourceMappingURL=style.css.map */
 

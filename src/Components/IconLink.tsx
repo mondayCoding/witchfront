@@ -2,8 +2,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 
-const IconLink: React.SFC<IProps> = (props) => {
-   const { icon, size, className, ...rest } = props;
+const IconLink: React.SFC<IProps> = ({ icon, size, className, ...rest }) => {
+
    const sizeClass = (size) ? size : "default";
    const classString = classNames({ 
       themeiconlink: true,
@@ -12,7 +12,7 @@ const IconLink: React.SFC<IProps> = (props) => {
    });
 
    return (
-      <a href="#" className={classString} data-role="none" {...rest} >
+      <a href="#" className={classString} {...rest} >
          {icon}
       </a>
    );

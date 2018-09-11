@@ -23,6 +23,7 @@ export default class TabGeneral extends React.Component<IProps> {
                id="name"
                value={name}
                onChange={onChange}
+               
             />
             <TextInputResponsive
                label="Item ID"

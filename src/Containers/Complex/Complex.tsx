@@ -5,6 +5,13 @@ import ProductForm from './Components/ProductForm/ProductForm';
 import {Button, Modal} from 'Common/Index';
 import res from 'Containers/Complex/localization';
 import settings from 'Utils/Settings';
+import { WithBranch } from 'Hoc/WithBranch';
+import { compose } from 'recompose';
+import { WithLoading } from 'Hoc/WithLoading';
+
+const Products = WithBranch(ProductTable);
+const ProductList = WithLoading(Products);
+
 
 interface IState {
    productTable: Product[];
@@ -77,7 +84,10 @@ export default class Complex extends React.Component {
                      <Button className="themebutton wide" buttonText="Create new" onClick={this.handleAddProduct} />
                   </div>
    
-                  <ProductTable 
+                  <ProductList
+                     isLoading={false}
+                     branch={null}
+                     branchWhen={false}
                      productTable={productTable} 
                      onProductClick={this.handleProductSelection} 
                      onRemoveClick={this.handleProductRemove}

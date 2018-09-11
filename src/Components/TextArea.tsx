@@ -3,7 +3,6 @@ import Tooltip from './Infotip';
 
 const TextArea: React.SFC<IProps> = ({ id, label, tooltip, ...rest }) => {
 
-
   return (
     <div className={"themetextarea--wrapper"}>
       <label className="themetextarea--label" htmlFor={id}>{label}</label>

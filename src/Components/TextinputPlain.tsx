@@ -1,6 +1,5 @@
 
 import * as React from 'react';
-import {IInputFieldProperties} from '../interfaces';
 import classNames from 'classnames';
 
 const Input: React.SFC<IProps> = ({
@@ -17,7 +16,12 @@ const Input: React.SFC<IProps> = ({
       <React.Fragment>
          <div className={classString}>
             <label className="themeinput--label" htmlFor={id}>{label}</label>
-            <input className="themeinput" id={id} type="text" {...rest} />
+
+            <div className="themeinput--content">
+               <input className="themeinput" id={id} type="text" {...rest} />
+               {tooltip && <div className="themeinput--content--tooltip">tooltip</div>}
+            </div>
+
          </div>
 
          {error && <div className="themeinput--error">{error}</div>}

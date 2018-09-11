@@ -1,9 +1,17 @@
 
 import * as React from 'react';
 import { Field } from 'Common/Field';
+import classNames from 'classnames';
 
 export const TextInputResponsive: React.SFC<IProps> = ({id, label, error, isSmall, tooltip, disabled, ...rest}) => {
-   
+
+   const classString = classNames({
+      themeinput: true,
+      hasError: error,
+      isNumeric: isSmall,
+      isDisabled: disabled
+   });
+
    return (
       <Field 
          label={label} 
@@ -11,11 +19,11 @@ export const TextInputResponsive: React.SFC<IProps> = ({id, label, error, isSmal
          data-tooltip-error={error} 
          error={error} 
          tooltip={tooltip}
-         isNumberField={isSmall}
+         isSmall={isSmall}
          disabled={disabled}
       >
          <input 
-            className="themeinput" 
+            className={classString} 
             id={id} 
             disabled={disabled}
             type="text" 
