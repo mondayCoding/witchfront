@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { arrayMove } from 'react-sortable-hoc';
-import {Modal} from 'Components/Index';
+import {Modal} from 'Common/Index';
 import Table from './Table';
 import SortableList from './sortableList';
 import TaskManagerModal from './TaskManagerModal';
 import API from 'Services/ToDo_soon';
-import confirm from 'Components/ConfirmPopUp';
+import confirm from 'Common/ConfirmPopUp';
 import { IMissionItem, IMission } from '../../../Interfaces';
 import anno from 'Utils/Notify';
 

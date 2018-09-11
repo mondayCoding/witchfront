@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { PlainConfirmModal, ReactConfirmProps, confirmable, createConfirmation } from 'react-confirm';
-import {Button, Icons} from 'Components/Index';
+import {Button, Icons} from 'Common/Index';
 
 
 interface IConfirmProps extends ReactConfirmProps {
@@ -41,44 +41,44 @@ class ConfirmPopUp extends React.Component<IConfirmProps> {
    }
 
    render() {
-         const {confirmation, show, dismiss, proceedText, cancelText } = this.props;
+      const {confirmation, show, dismiss, proceedText, cancelText } = this.props;
 
-   // Render nothing if the "show" prop is false
-         if (!show) {return null;}
+      // Render nothing if the "show" prop is false
+      if (!show) {return null;}
 
-         return (
-            <div className="fade--backdrop confirmPopUp" onClick={this.handleCancel}>
-               <div className="thememodal animated--scaleIn" onClick={this.onDialogClick}>
+      return (
+         <div className="fade--backdrop confirmPopUp" onClick={this.handleCancel}>
+            <div className="thememodal animated--scaleIn" onClick={this.onDialogClick}>
 
-                  <div className="thememodal--heading">
-                     <button onClick={this.handleCancel} type="button" className="close-button noborder"></button>
-                  </div>
+               <div className="thememodal--heading">
+                  <button onClick={this.handleCancel} type="button" className="close-button noborder"></button>
+               </div>
 
-                  <div className="thememodal--content">
+               <div className="thememodal--content">
 
-                     <div className="thememodal--fill">
-                        {confirmation}    
-                     </div>        
+                  <div className="thememodal--fill">
+                     {confirmation}    
+                  </div>        
 
-                     <div className="row-flex center">
-                        <Button 
-                           onClick={this.handleCancel} 
-                           buttonText={cancelText} 
-                           className="rounded fat"
-                           buttonIcon={Icons.close} 
-                        />
-                        <Button 
-                           onClick={this.handleProceed} 
-                           buttonText={proceedText} 
-                           className="rounded fat"
-                           autoFocus={true} 
-                           buttonIcon={Icons.check} 
-                        />
-                     </div>
+                  <div className="row-flex center">
+                     <Button 
+                        onClick={this.handleCancel} 
+                        buttonText={cancelText} 
+                        className="rounded fat"
+                        buttonIcon={Icons.close} 
+                     />
+                     <Button 
+                        onClick={this.handleProceed} 
+                        buttonText={proceedText} 
+                        className="rounded fat"
+                        autoFocus={true} 
+                        buttonIcon={Icons.check} 
+                     />
                   </div>
                </div>
             </div>
-         );
+         </div>
+      );
    }
 }
 

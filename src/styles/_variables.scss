@@ -34,6 +34,7 @@ $headingfont: 'fira-sans', sans-serif !default;
 $headingfont: 'Roboto', sans-serif !default;
 
 //globals
+$globalFontSize:           .95rem;
 $globalRadius: 				.35rem !default;
 $globalShadow: 				0 0 .4rem transparentize($black, .5) !default;
 $globalShadowInset: 			0 0 .4rem transparentize($black, .5) inset !default;

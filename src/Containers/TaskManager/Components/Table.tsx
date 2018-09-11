@@ -1,7 +1,5 @@
 import * as React from 'react';
-import Input from 'Components/TextinputMaterial';
-import Button from 'Components/Button';
-import Icons from 'Components/Icons';
+import {TextInputMaterial, Button, Icons} from 'Common/Index';
 
 export default class Table extends React.Component<IProps> {
    
@@ -13,7 +11,7 @@ export default class Table extends React.Component<IProps> {
         <div>
           <div className="line-thin"></div>
           <div className="flex-row-table">
-            <Input 
+            <TextInputMaterial 
               id="takeNewBtn" 
               value={value} 
               label="description of new quest" 

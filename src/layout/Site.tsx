@@ -2,7 +2,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import WithAuthorization from '../Hoc/WithAuthorization';
+import { WithAuthorization } from './WithAuth';
 import NOTIFY from '../Utils/Notify';
 import SETTINGS from 'Utils/Settings';
 import Footer from './Footer';
@@ -10,6 +10,11 @@ import Main from './Main';
 import Navigation from './Navigation';
 
 const NavigationWithAuth = WithAuthorization(Navigation);
+console.log(WithAuthorization);
+console.log(WithAuthorization);
+console.log(WithAuthorization);
+console.log(WithAuthorization);
+
 
 // TODO get theme with utility class
 export default class Site extends React.Component {
@@ -17,6 +22,7 @@ export default class Site extends React.Component {
    componentDidMount(){
       NOTIFY.success(`Logged in as ${SETTINGS.getLoggedUserName()}`);      
       NOTIFY.success(`using theme ${SETTINGS.getTheme()}`);
+
    }
 
    getBodyClassName(){

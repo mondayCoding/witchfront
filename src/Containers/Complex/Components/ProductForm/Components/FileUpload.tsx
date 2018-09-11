@@ -1,6 +1,6 @@
 import * as React from 'react';
 import axios, { AxiosError } from 'axios';
-import {Button, FileDropzone} from 'Components/Index';
+import {Button, FileDropzone} from 'Common/Index';
 
 
 export default class FileUpload extends React.Component {

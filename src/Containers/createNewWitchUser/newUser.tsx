@@ -6,7 +6,7 @@
 import * as React from 'react';
 import res from '../Profile/localization';
 import API from '../../Services/UserForm';
-import {TextinputMaterial, Button} from 'Components/Index';
+import {TextInputMaterial, Button} from 'Common/Index';
 import anno from '../../Utils/Notify';
 
 
@@ -54,7 +54,7 @@ export default class UserForm extends React.Component<IProps> {
          <form className="userform" onSubmit={this.onSubmit}>
             <div className="spacing"></div>
 
-            <TextinputMaterial 
+            <TextInputMaterial 
                name="username" 
                label={res.username} 
                value={"sdasd"} 
@@ -62,7 +62,7 @@ export default class UserForm extends React.Component<IProps> {
                id="nameID"
             />
             
-            <TextinputMaterial 
+            <TextInputMaterial 
                name="username" 
                label={res.username} 
                value={"sdasd"} 
@@ -70,7 +70,7 @@ export default class UserForm extends React.Component<IProps> {
                id="nameID"
             />
 
-            <TextinputMaterial 
+            <TextInputMaterial 
                name="username" 
                label={res.username} 
                value={"sdasd"} 

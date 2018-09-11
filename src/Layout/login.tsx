@@ -1,9 +1,9 @@
-import {Button, TextinputMaterial} from 'Components/Index';
+import {Button, TextInputMaterial} from 'Common/Index';
 import * as React from 'react';
 import API from '../Services/Login';
 import ANNO from '../Utils/Notify';
 import { AxiosError, AxiosResponse } from 'axios';
-import Confirm from 'Components/ConfirmPopUp';
+import Confirm from 'Common/ConfirmPopUp';
 import Notify from '../Utils/Notify';
 
 export default class Layout extends React.Component<IProps> {
@@ -70,22 +70,22 @@ export default class Layout extends React.Component<IProps> {
                </h3>
                <div className="login--window--content">
                   <form onSubmit={this.handleOnSubmit}>
-                     <TextinputMaterial 
+                     <TextInputMaterial 
                         label="Username or email" 
                         name="username" 
                         value={username}
                         id="usernameID"
                         onChange={this.handleOnChange} 
-                        validation={usernameValidation}
+                        error={usernameValidation}
                      />
-                     <TextinputMaterial 
+                     <TextInputMaterial 
                         label="Password" 
                         name="password" 
                         value={password}
                         id="passwordID"
                         type="password"
                         onChange={this.handleOnChange}
-                        validation={passwordValidation}
+                        error={passwordValidation}
                      />
                      <Button buttonText="Sign in" className="wide loginBtn" type="submit" />
                   </form>

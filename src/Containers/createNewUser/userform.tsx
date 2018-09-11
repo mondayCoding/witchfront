@@ -6,7 +6,7 @@
 import * as React from 'react';
 import res from '../Profile/localization';
 import API from '../../Services/UserForm';
-import {TextinputMaterial, Button} from 'Components/Index';
+import {TextInputMaterial, Button} from 'Common/Index';
 import anno from '../../Utils/Notify';
 import validation from './validation';
 
@@ -67,17 +67,17 @@ export default class UserForm extends React.Component<IProps> {
          <form className="userform" onSubmit={onSubmit}>
             <div className="spacing"></div>
 
-            <TextinputMaterial 
+            <TextInputMaterial 
                name="username" 
                label={res.username} 
                value={username} 
                onChange={this.handleOnChange} 
                onBlur={this.handleOnBlur}
                id="nameID"
-               validation={validify.getValidatedMessage("username")} 
+               error={validify.getValidatedMessage("username")} 
             />
             
-            <TextinputMaterial 
+            <TextInputMaterial 
                name="email"
                tooltip="You wont actually recieve any emails form us... :)"
                label={res.email} 
@@ -85,9 +85,9 @@ export default class UserForm extends React.Component<IProps> {
                onChange={this.handleOnChange}
                onBlur={this.handleOnBlur}
                id="emailID"
-               validation={validify.getValidatedMessage("email")} 
+               error={validify.getValidatedMessage("email")} 
             />
-            <TextinputMaterial 
+            <TextInputMaterial 
                name="location" 
                tooltip="Original home country" 
                label={res.location}  
@@ -96,7 +96,7 @@ export default class UserForm extends React.Component<IProps> {
                onBlur={this.handleOnBlur}
                id="locationID"
             />
-            <TextinputMaterial 
+            <TextInputMaterial 
                name="accountNum" 
                tooltip="Use only numbers"
                label={res.accountNum} 
@@ -104,25 +104,25 @@ export default class UserForm extends React.Component<IProps> {
                onChange={this.handleOnChange}
                onBlur={this.handleOnBlur} 
                id="accountNumID"
-               validation={validify.getValidatedMessage("accountNum")} 
+               error={validify.getValidatedMessage("accountNum")} 
             />
-            <TextinputMaterial 
+            <TextInputMaterial 
                name="color" 
                label={res.color} 
                value={color} 
                onChange={this.handleOnChange}
                onBlur={this.handleOnBlur}
                id="colorID"
-               validation={validify.getValidatedMessage("color")}					
+               error={validify.getValidatedMessage("color")}					
             />
-            <TextinputMaterial 
+            <TextInputMaterial 
                name="age" 
                label={res.age} 
                value={age} 
                onChange={this.handleOnChange}
                onBlur={this.handleOnBlur}
                id="ageID"
-               validation={validify.getValidatedMessage("age")}
+               error={validify.getValidatedMessage("age")}
             />
 
             <div className="spacing"></div>

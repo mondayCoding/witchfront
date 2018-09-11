@@ -1,25 +1,44 @@
 
 import * as React from 'react';
-import {IInputFieldProperties} from '../interfaces';
-import classNames from 'classnames';
+import { Field } from 'Common/Field';
 
-const InputResponsive: React.StatelessComponent<IInputFieldProperties> = (props) => {
-
-   const {id, value, label, validation, isSmall, tooltip, disabled, ...rest} = props;
-   const classString = classNames({
-      "themeinput-responsive": true,
-      "hasContent": value && value.length > 0,
-      "invalid": (validation),
-      "number": (isSmall),
-      "disabled": disabled
-   });
+export const TextInputResponsive: React.SFC<IProps> = ({id, label, error, isSmall, tooltip, disabled, ...rest}) => {
    
    return (
-      <div className={classString} data-tooltip-error={validation}>
-         <label title={tooltip} htmlFor={id}> {label} </label>
-         <input type="text" id={id} {...rest} value={value} />
-      </div>
+      <Field 
+         label={label} 
+         id={id} 
+         data-tooltip-error={error} 
+         error={error} 
+         tooltip={tooltip}
+         isNumberField={isSmall}
+         disabled={disabled}
+      >
+         <input 
+            className="themeinput" 
+            id={id} 
+            disabled={disabled}
+            type="text" 
+            {...rest} 
+         />
+      </Field>
    );   
 };
 
-export default InputResponsive;
+export interface IProps {
+   id?:string;
+   name?:string;
+   label?:string;
+   value?:string;
+   placeholder?:string;
+   readonly?:boolean;
+   required?:boolean;
+   disabled?:boolean;
+   isSmall?:boolean;
+   type?:string;
+   tooltip?:string;
+   error?:string;
+   onChange?(params?:any):any;
+   onBlur?(params?:any):any;
+   onKeyUp?(params?:any):any;
+} 

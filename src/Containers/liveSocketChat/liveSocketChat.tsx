@@ -5,7 +5,7 @@ import ANNO from '../../Utils/Notify';
 import Announcement from '../announcement/announcement';
 import ChatLine from 'Containers/liveSocketChat/Components/line';
 import SelectUserMenu from 'Containers/liveSocketChat/Components/selectUserMenu';
-import {TextinputPlain} from 'Components/Index';
+import {TextinputPlain} from 'Common/Index';
 import {IMessageLine} from '../../interfaces';
 import settings from 'Utils/Settings';
 

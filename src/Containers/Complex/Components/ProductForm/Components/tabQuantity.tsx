@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import Product from 'Models/productModel';
-import {TextinputResponsive} from 'Components/Index';
+import {TextInputResponsive} from 'Common/Index';
 
 
 export default class TabNote extends React.Component<IProps> {
@@ -14,13 +14,13 @@ export default class TabNote extends React.Component<IProps> {
          <section>
             <h4 className="themeheading underlined">Quantity rules</h4>
 
-            <TextinputResponsive
+            <TextInputResponsive
                label="Minimum required amount"
                name="minAmount"
                value={minAmount.toString()}
                onChange={onChange}
             />
-            <TextinputResponsive
+            <TextInputResponsive
                label="Maximum allowed amount"
                name="maxAmount"
                value={maxAmount.toString()}

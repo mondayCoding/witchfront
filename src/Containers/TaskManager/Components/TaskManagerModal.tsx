@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import {TextinputResponsive, Button, CheckboxSlider} from 'Components/Index';
+import {TextInputResponsive, Button, CheckboxSlider} from 'Common/Index';
 import { IMissionItem } from '../../../interfaces';
 
 interface IModalProps {
@@ -48,13 +48,13 @@ export default class TaskManagerModal extends React.Component<IModalProps> {
    public render(){
       return(
          <React.Fragment>
-            <TextinputResponsive 
+            <TextInputResponsive 
                value={this.state.objective} 
                name="objective" 
                label="Summary" 
                onChange={this.handleOnChange} 
             />
-            <TextinputResponsive 
+            <TextInputResponsive 
                value={this.state.longObjective} 
                name="longobjective" 
                label="Full description" 

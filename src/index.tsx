@@ -5,7 +5,7 @@
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './Layout/AppAuth';
+import { AuthProvider } from './Layout/AppAuth';
 
 //***********************************************************************
 // Polyfills
@@ -19,7 +19,6 @@ require('Utils/Polyfills');
 //***********************************************************************
 
 import 'react-day-picker/lib/style.css';
-import 'react-select/dist/react-select.min.css';
 import 'toastr/build/toastr.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import 'prismjs/themes/prism-okaidia.css';
@@ -36,6 +35,6 @@ import './styles/style.css';
 //***********************************************************************
 
 ReactDOM.render(
-  <App />,
+  <AuthProvider />,
   document.getElementById('root') as HTMLElement
 );

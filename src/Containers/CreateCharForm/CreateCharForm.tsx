@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import {Button, WizardPath, Infotip, ImageWithCaption} from 'Components/Index';
+import {Button, WizardPath, Infotip, ImageWithCaption} from 'Common/Index';
 import {CurrentStep} from './Steps';
 import Notify from '../../Utils/Notify';
 

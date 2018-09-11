@@ -18,14 +18,16 @@ export default class LangSelect extends React.Component<Iprops> {
          <div className="spacing">
             <Select
                name="lang-field-name"
-               value={lang}
+               value={nom[1]}
                onChange={onChange}
-               options={[
-                  { value: 'en', label: 'english' },
-                  { value: 'fi', label: 'finglish' },
-               ]}
+               options={nom}
             />
          </div>
       );
    }
 }
+
+const nom = [
+   { value: 'en', label: 'english' },
+   { value: 'fi', label: 'finglish' },
+];

@@ -8,14 +8,14 @@ import 'prismjs/components/prism-tsx.min.js';
 import usageSample, {Sample, patterns} from 'Containers/gallery/Components/codeSamples';
 // tslint:disable-next-line:no-var-requires
 const Markdown = require('react-markdown');
-import Select, {Option} from 'react-select';
+import Select from 'react-select';
 
 //import components
 import {
-   TextinputMaterial, TextinputResponsive, TextinputPlain, Checkbox, 
+   TextInputMaterial, TextInputResponsive, TextinputPlain, Checkbox, 
    CheckboxSlider, Radiobutton, WizardPath, Button, ProgressBar, 
    Tab, Tabs, TextArea, Modal
-} from 'Components/Index';
+} from 'Common/Index';
 
 
 export default class Gallery extends React.Component {
@@ -71,8 +71,8 @@ export default class Gallery extends React.Component {
       this.setState({job});
    }
 
-   handleMultipleSelectOnChange = (selectionString:Option<string>) => {
-      const jobList = selectionString.split(",") as IJob[];   
+   handleMultipleSelectOnChange = (selectionString:string) => {
+      const jobList = selectionString.split(",") as any;   
       this.setState({jobList});
    }
 
@@ -126,21 +126,21 @@ export default class Gallery extends React.Component {
    
                <div className="item--content">
                   <section className="content--lg">
-                     <TextinputMaterial 
+                     <TextInputMaterial 
                         name="firstname"
                         label="Firstname"
                         value={firstname}
                         disabled={allDisabled}
                         onChange={this.handleOnChange}
-                        validation={validation}
+                        error={validation}
                      />
-                     <TextinputMaterial 
+                     <TextInputMaterial 
                         name="lastname"
                         label="Lastname"
                         value={lastname}
                         disabled={allDisabled}
                         onChange={this.handleOnChange}
-                        validation={validation}
+                        error={validation}
                      />
          
                      <div className="emphasis-wrapper negative">
@@ -163,23 +163,23 @@ export default class Gallery extends React.Component {
    
                <div className="item--content">
                   <section className="content--lg">
-                     <TextinputResponsive 
+                     <TextInputResponsive 
                         name="firstname"
                         id="firstnameresp"
                         label="Firstname"
                         value={firstname}
                         disabled={allDisabled}
                         onChange={this.handleOnChange}
-                        validation={validation}
+                        error={validation}
                      />
-                     <TextinputResponsive 
+                     <TextInputResponsive 
                         name="lastname"
                         id="lastnameresp"
                         label="Lastname"
                         value={lastname}
                         disabled={allDisabled}
                         onChange={this.handleOnChange}
-                        validation={validation}
+                        error={validation}
                      />
          
                      <div className="emphasis-wrapper negative">
@@ -363,22 +363,19 @@ export default class Gallery extends React.Component {
                <div className="item--content">
                   <section className="content--lg">
                      <Select 
-                        id="selectMultipleValue" 
-                        multi={true}
-                        simpleValue={true}
-                        value={jobList}
-                        disabled={allDisabled}
-                        onChange={this.handleMultipleSelectOnChange}
+                        id="selectMultipleValue"
                         options={jobs}
+                        isDisabled={allDisabled}
+                        isMulti={false}
                      />
          
                      <Select 
                         id="selectSingleValue" 
                         value={job}
-                        disabled={allDisabled}
-                        onChange={this.handleSelectOnChange}
                         name="job"
+                        isDisabled={allDisabled}
                         options={jobs}
+                        isMulti={true}
                      />
          
                      <Sample isShown={showUsageSamples}>

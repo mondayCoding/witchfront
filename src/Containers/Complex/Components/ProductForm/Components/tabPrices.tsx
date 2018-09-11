@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import Product from 'Models/productModel';
-import {TextinputResponsive, CheckboxSlider} from 'Components/Index';
+import {TextInputResponsive, CheckboxSlider} from 'Common/Index';
 import Select from 'react-select';
 
 interface IProps {
@@ -19,14 +19,14 @@ export default class TabGeneral extends React.Component<IProps> {
       return(
          <section>
             <h4 className="themeheading underlined">Product associated price</h4>  
-            <TextinputResponsive
+            <TextInputResponsive
                isSmall={true}
                label="Base cost"
                name="price"
                value={price.toString()}
                onChange={onChange}
             />
-            <TextinputResponsive
+            <TextInputResponsive
                isSmall={true}
                label="Taxless cost"
                name="priceWithVat"

@@ -2,7 +2,7 @@
 //libraries
 import * as React from 'react';
 import Product, { productType } from 'Models/productModel';
-import Icons from 'Components/Icons';
+import Icons from 'Common/Icons';
 
 interface IProps {
    productTable:Product[];

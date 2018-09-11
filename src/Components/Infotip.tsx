@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import {Tooltip} from 'react-lightweight-tooltip';
+// import {Tooltip} from 'react-lightweight-tooltip';
 
 
 //*****************************************************************************************************************
@@ -11,9 +11,10 @@ const Tip = (props:any) => {
    const message = props.message;
    return (
       <div style={{position:"absolute", top:0, right:0, display:"inline-block"}}>
-         <Tooltip content={message} >
+         {/* <Tooltip content={message} >
             <i className="fas fa-info" tabIndex={0}></i>
-         </Tooltip>
+         </Tooltip> */}
+         message
       </div>
    );
 };

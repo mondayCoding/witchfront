@@ -5,12 +5,21 @@ import Settings from 'Utils/Settings';
 import Layout from './Layout';
 import {IUser, userLevel} from '../interfaces/services';
 
+export const {Provider, Consumer} = React.createContext({});
+
+export interface IAuthorization {
+   isSignedIn: boolean;
+   level: userLevel;
+   signOut():void;
+   signIn(x:any):void;
+}
+
 interface IState {
    isSignedIn:boolean;
    level: userLevel;
 }
 
-export default class AppAuth extends React.Component {
+export class AuthProvider extends React.Component {
 
    state:IState = {
       isSignedIn: false,
@@ -52,12 +61,14 @@ export default class AppAuth extends React.Component {
       };
 
       return(     
-         <Authorization.Provider value={provided}>
+         <Provider value={provided}>
             <Layout auth={provided} />
-         </Authorization.Provider>
+         </Provider>
       );
    }
 }
 
-export const Authorization = React.createContext({});
+
+
+
 

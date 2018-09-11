@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import Site from './Site';
-import {IAuthorization} from '../HOC/WithAuthorization';
+import {IAuthorization} from './AppAuth';
 import Login from './login';
 
 interface IProps {

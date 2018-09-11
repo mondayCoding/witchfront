@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import {SortableContainer, SortableElement, SortableHandle} from 'react-sortable-hoc';
-import Icons from 'Components/Icons';
+import Icons from 'Common/Icons';
 
 interface Iprops {
    mission : {

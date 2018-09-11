@@ -3,6 +3,9 @@
 ROADMAD: witchNode (Front-end):
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+   ☐ monster manager creat/manage monsters
+   ☐ item creator create/manage items
+   ☐ redo authentication provider/consumer as hocs 
    ☐ New navigation split => groups: "Apps" (coinflipper, todo, chat), "Management" (user creation, complex), "Menu" (settings, documentation[docs + gallery])
    ☐ Data permanence => Users (username + password)
    ☐ Create centralized settings class that interacts with sessionstorage

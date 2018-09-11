@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import {IMessageLine} from '../../../interfaces';
-import Icons from 'Components/Icons';
+import Icons from 'Common/Icons';
 
 interface IProps {
    message:IMessageLine;

@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import {TextinputResponsive, CheckboxSlider} from 'Components/Index';
+import {TextInputResponsive, CheckboxSlider} from 'Common/Index';
 import Product from 'Models/productModel';
 import Select from 'react-select';
 
@@ -17,21 +17,21 @@ export default class TabGeneral extends React.Component<IProps> {
          <section>
             <h4 className="themeheading underlined">Base Properties</h4>
 
-            <TextinputResponsive
+            <TextInputResponsive
                label="Name"
                name="name"
                id="name"
                value={name}
                onChange={onChange}
             />
-            <TextinputResponsive
+            <TextInputResponsive
                label="Item ID"
                name="id"
                id="id"
                value={id}
                onChange={onChange}
             />
-            <TextinputResponsive
+            <TextInputResponsive
                label="Product summary"
                name="description"
                id="description"
@@ -43,9 +43,9 @@ export default class TabGeneral extends React.Component<IProps> {
                <label htmlFor="selectID">Tag</label>
                <Select 
                   id="tagSelectID" 
-                  simpleValue={true}
+                  // simpleValue={true}
                   name="tag"
-                  value={tag}
+                  // value={tag}
                   onChange={onTagSelectChange}
                   options={tagOptions}
                />
@@ -55,10 +55,10 @@ export default class TabGeneral extends React.Component<IProps> {
                <label htmlFor="selectID">Types</label>
                <Select 
                   id="selectID" 
-                  multi={true}
-                  simpleValue={true}
+                  // multi={true}
+                  // simpleValue={true}
                   name="productType"
-                  value={productType}
+                  // value={productType}
                   onChange={onTypeSelectChange}
                   options={productTypeOptions}
                />

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Mark = require("mark.js");
 //import ScrollSpy from 'scrollspy-js';
-import {TextinputMaterial, TextinputPlain} from 'Components/Index';
+import {TextInputMaterial, TextinputPlain} from 'Common/Index';
 import CLOCK from 'Utils/clockModule';
 
 class ScrollNav extends React.Component {
@@ -202,7 +202,7 @@ export default class DocsPage extends React.Component {
 
             <h3 className="timesince">{this.timeStampSince()}</h3>
 
-            <SearchInput id="filterField" label="Seach for..."/>
+            {/* <TextinputPlain id="filterField" label="Seach for..."/> */}
 
             <div className="scrollspy">
                <ScrollContent />
@@ -214,36 +214,36 @@ export default class DocsPage extends React.Component {
    }
 }
 
-class SearchInput extends TextinputPlain{
+// class SearchInput extends TextinputPlain{
 
-   markContext:Mark;
+//    markContext:Mark;
 
-   componentDidMount() {
-      this.context = document.querySelectorAll(".cont");
-      this.markContext = new Mark(this.context);
-   }
+//    componentDidMount() {
+//       this.context = document.querySelectorAll(".cont");
+//       this.markContext = new Mark(this.context);
+//    }
 
-   onChange(event:any){
-      this.setState({
-         value: event.target.value
-      });
+//    onChange(event:any){
+//       this.setState({
+//          value: event.target.value
+//       });
 
-      let lookfor:string = (event.target.value).toUpperCase();
+//       let lookfor:string = (event.target.value).toUpperCase();
 
-      //{ "debug": true, "log": window.console} as second parameter to debug mark.js
-      this.markContext.unmark();
-      this.markContext.mark(lookfor);
+//       //{ "debug": true, "log": window.console} as second parameter to debug mark.js
+//       this.markContext.unmark();
+//       this.markContext.mark(lookfor);
 
-      console.log("I'm filtering out results without... [ " + lookfor + " ]");
+//       console.log("I'm filtering out results without... [ " + lookfor + " ]");
 
-      // tslint:disable-next-line:prefer-for-of
-      for (let i = 0; i < document.querySelectorAll(".cont").length; i++) {
-         let lookFrom:any = document.querySelectorAll(".cont")[i];
-         if (lookFrom.innerHTML.toUpperCase().indexOf(lookfor) > -1) {
-            lookFrom.style.display = "block";
-         } else {
-            lookFrom.style.display = "none";
-         }
-      }
-   }
-}
+//       // tslint:disable-next-line:prefer-for-of
+//       for (let i = 0; i < document.querySelectorAll(".cont").length; i++) {
+//          let lookFrom:any = document.querySelectorAll(".cont")[i];
+//          if (lookFrom.innerHTML.toUpperCase().indexOf(lookfor) > -1) {
+//             lookFrom.style.display = "block";
+//          } else {
+//             lookFrom.style.display = "none";
+//          }
+//       }
+//    }
+// }

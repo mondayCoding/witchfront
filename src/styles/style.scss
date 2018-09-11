@@ -327,6 +327,249 @@ select.disabled {
    }
 }
 
+
+//*************************************************************************************************
+// Component | Responsive Field (wrapper)
+//*************************************************************************************************
+
+$labelWidth: 10rem;
+
+.themefield {
+   display: flex;
+   flex-direction: row;
+   margin-bottom: .5rem;
+   font-size: $globalFontSize;
+   border: .1rem solid transparentize($color: $black, $amount: .5);
+   border-radius: $globalRadius;
+   @include themeborder(grayMedium);
+
+   .themefield--label {
+      flex: 0 0 $labelWidth;
+      text-align: left;
+      padding-right: .5rem;
+      display: flex;
+      align-items: center;
+      padding: 0 .3rem;
+      font-weight: 500;
+      color: $grayLight;
+      background-color: transparentize($color: $black, $amount: 0.7) ;
+      border-top-left-radius: $globalRadius;
+      border-bottom-left-radius: $globalRadius;
+      cursor: pointer;
+      @include themecolor(grayLight);
+   }
+
+   .themefield--content {
+      flex: 1 1 auto;
+      display: flex;
+
+      & > div:first-child {
+         width: 100%;
+         flex: 1 1 auto;
+      }
+   }
+
+   @include respond-below(sm){
+      flex-direction: column;
+
+      .themefield--label {
+         flex: 0 0 auto;
+         text-align:left;
+         align-self: flex-start;
+      }
+   }
+
+
+   &.hasError {
+      color: $errorColor;
+      font-weight: 700;
+      margin-bottom: 0;
+
+      & + .themefield--error {
+         color: $errorColor;
+         font-weight: 700;
+         padding: .2rem;
+         margin-bottom: 0.5rem;
+         margin-left: ($labelWidth + .5rem - .2rem);
+
+         @include respond-below(sm){
+            margin-left: 0;
+         }
+      }
+   }
+}
+
+
+//****************************************************************************
+// Component | TextInput
+//****************************************************************************
+
+$inputFontSize: 1rem;
+
+.themeinput {
+   position: relative;
+   display: flex;
+   font-size: $globalFontSize;
+   flex: 1 1 auto;
+   padding: .35rem .5rem;
+   width: 100%;
+   background: none;
+   outline: none;
+   color: $grayLight;
+   @include themecolor(grayLight);	 
+   
+   &:focus {
+      @include focusEffect();
+   }  
+
+   &.number {
+      max-width: 12rem;
+   }
+
+   &.invalid label {
+      background-color: transparentize($color: $errorColor, $amount: .2);
+   }
+
+   &.disabled {
+      @extend %disabled;
+   }   
+
+   .Select {
+      flex: 1 1 auto;
+   }
+
+}
+
+//****************************************************************************
+// Component | Text input -> Material
+//****************************************************************************
+
+$maxFieldWidth: 30rem;
+
+.themeinput--material {
+   position: relative;
+	margin: 1rem 0 .5rem;
+	max-width: $maxFieldWidth;
+
+   input {
+     font-size: 1rem;
+     padding: .35rem;
+     display: block;
+     width: 100%;
+     border: none;
+	  background: none;
+	  outline: none;
+	  color: $grayLight;
+     border-bottom: .1rem solid $grayMedium;
+	  @include themecolor(grayLight);	 
+	  @include themeborder(grayMedium);	   
+   }
+	
+   input:focus { outline: none; }
+	
+   label {
+		font-size: .9rem;
+      font-weight: normal;
+      position: absolute;
+      pointer-events: none;
+      left: .35rem;
+      top: .7rem;
+      transition: .2s ease all;
+		color: $grayMedium;
+		@include themecolor(grayMedium);		
+   }
+	
+   input:focus + label,
+	&.hasContent input + label {
+		top: -.7rem;
+      font-size: .8rem;
+		color: $main;
+		@include themecolor(main);		
+   }
+	
+	&.invalid > input {
+      border-color: $errorColor;
+      
+      & + label {
+         font-weight: 900;
+         color: $errorColor;
+         border: $errorColor;
+
+         & + .bar::before {
+            background: $errorColor;
+         }
+      }
+   }
+   
+   &.disabled {
+      @extend %disabled;
+	}
+	
+	.bar {
+		position: relative;
+		display: block;
+		width: 100%;
+		max-width: 100%;
+	}
+	
+	.bar::before {
+		content: '';
+		height: .15rem;
+		width: 0;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		transition: .15s ease all;
+		background-color: $main;
+		@include themebackground(main);	  
+	}
+	
+	/* active state */
+	input:focus ~ .bar::before {
+		width: 100%;
+	}
+	
+	input:required {
+		box-shadow: none;
+	}
+}
+
+//****************************************************************************
+// Component | Textarea
+//****************************************************************************
+
+.themeTextArea {
+   position: relative;
+   margin-bottom: .5rem;
+   border: .1rem solid $grayMedium;
+   border-radius: $globalRadius;
+   
+   label {
+      display: flex;
+      align-items: center;
+      padding: .3rem;
+      font-weight: 500;
+      color: $grayLight;
+      background-color: $grayMedium;
+      @include themecolor(grayLight);
+      @include themebackground(grayMedium);      
+   }
+   
+   textarea {
+      font-size: 1rem;
+      padding: .5rem;
+      width: 100%;
+      min-height: 4rem;
+      max-height: 30rem;
+      resize: vertical;
+      color: $grayLight;
+      background: none;
+      border: none;
+      @include themecolor(grayLight);	 
+      @include themeborder(grayMedium);
+   }
+}
+
 //****************************************************************************
 // Component | Image with caption
 //****************************************************************************
@@ -557,212 +800,6 @@ $checkboxSize: 1.8rem;
 	}
 }
 
-//****************************************************************************
-// Component | Responsive label + input field
-//****************************************************************************
-
-$inputFontSize: 1rem;
-.themeinput-responsive {
-   position: relative;
-   margin-bottom: .5rem;
-   display: flex;
-   border: .1rem solid transparentize($color: $black, $amount: .5);
-   border-radius: $globalRadius;
-   font-size: $inputFontSize;
-
-   &.number {
-      max-width: 15rem;
-      label {
-         text-align: right;
-      }
-   }
-
-   &.invalid label {
-      background-color: transparentize($color: $errorColor, $amount: .2);
-   }
-
-   &.disabled {
-      @extend %disabled;
-   }
-   
-   label {
-      font-size: $inputFontSize;
-      display: flex;
-      align-items: center;
-      padding: 0 .3rem;
-      font-weight: 500;
-      color: $grayLight;
-      background-color: transparentize($color: $black, $amount: 0.7) ;
-      flex: 0 0 10rem;
-      border-top-left-radius: $globalRadius;
-      border-bottom-left-radius: $globalRadius;
-      cursor: pointer;
-      @include themecolor(grayLight);
-   }
-   
-   input[type="text"] {
-      flex: 1 1 auto;
-      font-size: $inputFontSize;
-      padding: .35rem .5rem;
-      width: 100%;
-      background: none;
-      outline: none;
-      color: $grayLight;
-      @include themecolor(grayLight);	 
-      @include themeborder(grayMedium);
-      
-      &:focus {
-         @include focusEffect();
-      }   
-   }
-
-   .Select {
-      flex: 1 1 auto;
-   }
-
-   @include respond-below(sm) {
-      flex-direction: column;
-
-      label {
-         flex: 1 1 auto;
-         border-top-left-radius: 0;
-         border-bottom-left-radius: 0;
-      }
-      input[type="text"] {
-         flex: 1 1 auto;
-      }
-   }
-}
-
-//****************************************************************************
-// Component | Text input -> Material
-//****************************************************************************
-
-$maxFieldWidth: 30rem;
-
-.themeinput {
-   position: relative;
-	margin: 1rem 0 .5rem;
-	max-width: $maxFieldWidth;
-
-   input {
-     font-size: 1rem;
-     padding: .35rem;
-     display: block;
-     width: 100%;
-     border: none;
-	  background: none;
-	  outline: none;
-	  color: $grayLight;
-     border-bottom: .1rem solid $grayMedium;
-	  @include themecolor(grayLight);	 
-	  @include themeborder(grayMedium);	   
-   }
-	
-   input:focus { outline: none; }
-	
-   label {
-		font-size: .9rem;
-      font-weight: normal;
-      position: absolute;
-      pointer-events: none;
-      left: .35rem;
-      top: .7rem;
-      transition: .2s ease all;
-		color: $grayMedium;
-		@include themecolor(grayMedium);		
-   }
-	
-   input:focus + label,
-	&.hasContent input + label {
-		top: -.7rem;
-      font-size: .8rem;
-		color: $main;
-		@include themecolor(main);		
-   }
-	
-	&.invalid > input {
-      border-color: $errorColor;
-      
-      & + label {
-         font-weight: 900;
-         color: $errorColor;
-         border: $errorColor;
-
-         & + .bar::before {
-            background: $errorColor;
-         }
-      }
-   }
-   
-   &.disabled {
-      @extend %disabled;
-	}
-	
-	.bar {
-		position: relative;
-		display: block;
-		width: 100%;
-		max-width: 100%;
-	}
-	
-	.bar::before {
-		content: '';
-		height: .15rem;
-		width: 0;
-		bottom: 0;
-		left: 0;
-		position: absolute;
-		transition: .15s ease all;
-		background-color: $main;
-		@include themebackground(main);	  
-	}
-	
-	/* active state */
-	input:focus ~ .bar::before {
-		width: 100%;
-	}
-	
-	input:required {
-		box-shadow: none;
-	}
-}
-
-//****************************************************************************
-// Component | Textarea
-//****************************************************************************
-
-.themeTextArea {
-   position: relative;
-   margin-bottom: .5rem;
-   border: .1rem solid $grayMedium;
-   border-radius: $globalRadius;
-   
-   label {
-      display: flex;
-      align-items: center;
-      padding: .3rem;
-      font-weight: 500;
-      color: $grayLight;
-      background-color: $grayMedium;
-      @include themecolor(grayLight);
-      @include themebackground(grayMedium);      
-   }
-   
-   textarea {
-      font-size: 1rem;
-      padding: .5rem;
-      width: 100%;
-      min-height: 4rem;
-      max-height: 30rem;
-      resize: vertical;
-      color: $grayLight;
-      background: none;
-      border: none;
-      @include themecolor(grayLight);	 
-      @include themeborder(grayMedium);
-   }
-}
 
 //****************************************************************************
 // Components | Tags

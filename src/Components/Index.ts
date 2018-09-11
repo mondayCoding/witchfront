@@ -1,23 +1,24 @@
-import Button from 'Components/Button';
-import Checkbox from 'Components/Checkbox';
-import CheckboxSlider from 'Components/CheckboxSlider';
-import Radiobutton from 'Components/Radiobutton';
-import FileUploadList from 'Components/FileUploadList';
-import FileDropzone from 'Components/FileDropzone';
-import Infotip from 'Components/Infotip';
-import Icons from 'Components/Icons';
-import Modal from 'Components/Modal';
-import TextArea from 'Components/TextArea';
-import TextinputMaterial from 'Components/TextinputMaterial';
-import TextinputPlain from 'Components/TextinputPlain';
-import TextinputResponsive from 'Components/TextinputResponsive';
-import WizardPath from 'Components/WizardPath';
-import ProgressBar from 'Components/ProgressBar';
-import ImageWithCaption from 'Components/ImageWithCaption';
-import SimpleTooltip from 'Components/SimpleTooltip';
-import Tab from 'Components/Tab';
-import Tabs from 'Components/Tabs';
-import Heading from 'Components/Heading';
+import Button from 'Common/Button';
+import Checkbox from 'Common/Checkbox';
+import CheckboxSlider from 'Common/CheckboxSlider';
+import Radiobutton from 'Common/Radiobutton';
+import FileUploadList from 'Common/FileUploadList';
+import FileDropzone from 'Common/FileDropzone';
+import Infotip from 'Common/Infotip';
+import Icons from 'Common/Icons';
+import Modal from 'Common/Modal';
+import TextArea from 'Common/TextArea';
+import TextInputMaterial from 'Common/TextinputMaterial';
+import TextinputPlain from 'Common/TextinputPlain';
+import {TextInputResponsive} from 'Common/TextinputResponsive';
+import WizardPath from 'Common/WizardPath';
+import ProgressBar from 'Common/ProgressBar';
+import ImageWithCaption from 'Common/ImageWithCaption';
+import SimpleTooltip from 'Common/SimpleTooltip';
+import Tab from 'Common/Tab';
+import Tabs from 'Common/Tabs';
+import Heading from 'Common/Heading';
+import {Field} from 'Common/Field';
 
 export {
    Button,
@@ -30,14 +31,15 @@ export {
    Icons,
    Modal,
    TextArea,
-   TextinputMaterial,
+   TextInputMaterial,
    TextinputPlain,
-   TextinputResponsive,
+   TextInputResponsive,
    WizardPath,
    ProgressBar,
    ImageWithCaption,
    SimpleTooltip,
    Tab,
    Tabs,
-   Heading
+   Heading,
+   Field
 };

@@ -2,10 +2,10 @@
 import * as React from 'react';
 import {NavLink} from 'react-router-dom';
 import navicons from '../Components/Icons';
-import {IAuthorization} from '../HOC/WithAuthorization';
+import {IAuthorization} from './AppAuth';
 
 interface IProps {
-   auth: IAuthorization;
+   auth?: IAuthorization;
 }
 
 export default class Navigation extends React.Component<IProps> {

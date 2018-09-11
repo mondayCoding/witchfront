@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import Product from 'Models/productModel';
-import TextArea from 'Components/TextArea';
+import TextArea from 'Common/TextArea';
 
 
 interface IProps {

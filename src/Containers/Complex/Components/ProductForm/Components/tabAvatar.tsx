@@ -4,8 +4,8 @@ import Product from 'Models/productModel';
 import AvatarSelector from './avatarSelector/avatarSelector';
 import DropZone from '../../../../../Components/FileDropzone';
 import FileUploadTest from 'Containers/Complex/Components/ProductForm/Components/FileUpload';
-import Tabs from 'Components/Tabs';
-import Tab from 'Components/Tab';
+import Tabs from 'Common/Tabs';
+import Tab from 'Common/Tab';
 
 interface IProps {
    onSelection(e:any):void;

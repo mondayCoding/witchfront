@@ -2,7 +2,7 @@ import * as React from 'react';
 import Product from 'Models/productModel';
 import ProductTable from 'Containers/Complex/Components/ProductTable';
 import ProductForm from './Components/ProductForm/ProductForm';
-import {Button, Modal} from 'Components/Index';
+import {Button, Modal} from 'Common/Index';
 import res from 'Containers/Complex/localization';
 import settings from 'Utils/Settings';
 

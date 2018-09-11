@@ -1,8 +1,8 @@
 
 import * as React from 'react';
-import Select, { Option } from 'react-select';
+import Select from 'react-select';
 import Product, { Tag, userType, productType } from 'Models/productModel';
-import {TextinputResponsive, Button, Tabs, Tab } from 'Components/Index';
+import {TextInputResponsive, Button, Tabs, Tab } from 'Common/Index';
 import res from './localization';
 import { LocalizedStrings } from 'react-localization';
 import GeneralTab from './Components/tabGeneral';
@@ -11,6 +11,10 @@ import AvaibilityTab from './Components/tabAvaibility';
 import AvatarTab from './Components/tabAvatar';
 import PriceTab from './Components/tabPrices';
 import QuantityTab from './Components/tabQuantity';
+import { WithCondition } from 'Hoc/WithCondition';
+
+const ConditionalTab = WithCondition(Tab);
+
 
 interface IProps {
    product:Product;
@@ -42,7 +46,7 @@ export default class ProductForm extends React.Component<IProps> {
       this.setState({product});
    }
 
-   handleTypeSelectOnChange = (selectionString:Option<string>) => {
+   handleTypeSelectOnChange = (selectionString:string) => {
       const selectionArray = selectionString.split(",") as productType[];
       let product = Object.assign({}, this.state.product);      
       product.productType = selectionArray;      
@@ -101,38 +105,27 @@ export default class ProductForm extends React.Component<IProps> {
                <Tab title={res.tabNotes}> 
                   <NoteTab product={product} onChange={handleOnChange} />
                </Tab>
-
-               {
-                  // Avatar tab
-                  hasImage && 
-                  <Tab title={res.tabAvatar}>
-                     <AvatarTab onSelection={this.handleAvatarSelection} />
-                  </Tab>
-               }
+            
+               {/* Avatar tab */}
+               <ConditionalTab title={res.tabAvatar} showCondition={hasImage}>
+                  <AvatarTab onSelection={this.handleAvatarSelection} />
+               </ConditionalTab>               
+                           
+               {/* // Price tab */}
+               <ConditionalTab title={res.tabPrices} showCondition={hasPrice}>
+                  <PriceTab onChange={handleOnChange} product={product} />
+               </ConditionalTab>
+                              
+               {/* Avaibility tab */}
+               <ConditionalTab title={res.tabAvaibility} showCondition={hasSetDateValues}> 
+                  <AvaibilityTab onDayChange={handleFromChange} product={product} />               
+               </ConditionalTab>               
+         
+               {/* Quantity tab */}
+               <ConditionalTab title={res.tabQuantity} showCondition={hasQuantityRules}>
+                  <QuantityTab onChange={handleOnChange} product={product} />
+               </ConditionalTab>
                
-               {
-                  // Price tab
-                  hasPrice && 
-                  <Tab title={res.tabPrices}>
-                     <PriceTab onChange={handleOnChange} product={product} />
-                  </Tab>
-               }
-
-               {
-                  // Avaibility tab
-                  hasSetDateValues && 
-                  <Tab title={res.tabAvaibility}> 
-                     <AvaibilityTab onDayChange={handleFromChange} product={product} />               
-                  </Tab>
-               }
-
-               {
-                  // Quantity tab
-                  hasQuantityRules && 
-                  <Tab title={res.tabQuantity}>
-                     <QuantityTab onChange={handleOnChange} product={product} />
-                  </Tab>
-               }
             </Tabs>
 
             <div className="line-thin"></div>

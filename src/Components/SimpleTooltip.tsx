@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import {Tooltip} from 'react-lightweight-tooltip';
+// import {Tooltip} from 'react-lightweight-tooltip';
 
 //*****************************************************************************************************************
 // Infotip component
@@ -9,7 +9,8 @@ import {Tooltip} from 'react-lightweight-tooltip';
 const Tip = (props:any) => {
    const message = props.message;
    return (
-      <Tooltip content="Yes, the default one">Simple black tooltip</Tooltip>
+      // <Tooltip content="Yes, the default one">Simple black tooltip</Tooltip>'
+      <div>message</div>
    );
 };
 
